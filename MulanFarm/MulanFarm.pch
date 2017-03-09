@@ -1,0 +1,49 @@
+//
+//  MulanFarm.pch
+//  MulanFarm
+//
+//  Created by zyl on 17/3/9.
+//  Copyright © 2017年 cydf. All rights reserved.
+//
+
+#ifndef MulanFarm_pch
+#define MulanFarm_pch
+
+/****************************头文件*****************************/
+#ifdef __OBJC__
+
+#import "ServerUrl.h"
+#import "AEAlertView.h"
+#import "ZBAlertView.h"
+#import "Utils.h"
+#import "AEIndicator.h"
+#import "JHHJView.h"
+#import "NetworkManager.h"
+#import "UIView+Extension.h"
+#import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
+#import "MJExtension.h"
+#import "DefaultView.h"
+
+#endif
+
+#define kCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+/*****************************屏幕宽高**************************/
+
+#define SCREEN_BOUNDS [[UIScreen mainScreen] bounds]
+#define WIDTH  [[UIScreen mainScreen] bounds].size.width
+#define HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+/*****************************颜色*****************************/
+
+#define AEColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define kColorFromARGBHex(value,a) [UIColor colorWithRed:((float)((value & 0xFF0000) >> 16))/255.0 green:((float)((value & 0xFF00) >> 8))/255.0 blue:((float)(value & 0xFF))/255.0 alpha:a] //a:透明度
+#define kColorFromRGBHex(value) [UIColor colorWithRed:((float)((value & 0xFF0000) >> 16))/255.0 green:((float)((value & 0xFF00) >> 8))/255.0 blue:((float)(value & 0xFF))/255.0 alpha:1.0]
+
+#define AppThemeColor kColorFromRGBHex(0xf44e12)
+#define PageColor [UIColor groupTableViewBackgroundColor]
+#define LightBlackColor [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]
+#define LineColor kColorFromRGBHex(0xb2b2b2)
+
+#endif /* MulanFarm_pch */
