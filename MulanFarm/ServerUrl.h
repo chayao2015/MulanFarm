@@ -9,19 +9,18 @@
 #ifndef ServerUrl_h
 #define ServerUrl_h
 
-#define AESSecret @"U1MjU1M0FDOUZ.Qz" //加密密钥
+#define AESSecret @"F$0.%a~+r^#=`M|?" //加密密钥
 
 #pragma mark - ---------------接口地址---------------
 
-#define AppSecret @"ea1af2ad4527edb95ad492943b986d6d426d99381953f10465a0ce6504b62a3e" //加密传输秘钥
-#define ProductUrl @"http://www.yhy.me/yihe-micro-web/services/"
+#define ProductUrl @"http://123.57.160.8/farm/controller/api/"
 #define WebUrl @"http://www.cydf.com/"
 #define PictureUrl @"http://images-app.cydf.com/"
 
 
 #pragma mark - ---------------接口名称---------------
 
-#define URL_StartImage @"mobileapi.article.get_startImage" //获取启动图
-
+#define URL_Login @"user.php?m=login" //登录
+#define URL_SignIn @"user.php?m=signIn" //签到
 
 #endif /* ServerUrl_h */

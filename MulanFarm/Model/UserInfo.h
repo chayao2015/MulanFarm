@@ -15,15 +15,30 @@
 
 @interface UserInfo : NSObject
 
-@property (nonatomic,copy) NSString *userID;
-@property (nonatomic,copy) NSString *account;
+@property (nonatomic,copy) NSString *access_token;
+@property (nonatomic,copy) NSString *address;
+@property (nonatomic,copy) NSString *area;
 @property (nonatomic,copy) NSString *avatar;
-@property (nonatomic,copy) NSString *userName;
-@property (nonatomic,copy) NSString *nick;
-@property (nonatomic,assign) int sex; //0女1男
+@property (nonatomic,copy) NSString *create_date;
+@property (nonatomic,copy) NSString *email;
+@property (nonatomic,copy) NSString *end_date;
+@property (nonatomic,copy) NSString *gender;
+
+@property (nonatomic,copy) NSString *ID;
+@property (nonatomic,copy) NSString *levle;
+@property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *nick_name;
+@property (nonatomic,copy) NSString *open_id;
+
 @property (nonatomic,copy) NSString *phone;
-@property (nonatomic,copy) NSString *birthday;
-@property (nonatomic,copy) NSString *red_packets; //红包金额
+@property (nonatomic,copy) NSString *qq;
+@property (nonatomic,copy) NSString *signature;
+@property (nonatomic,copy) NSString *start_date;
+@property (nonatomic,copy) NSString *status;
+
+@property (nonatomic,copy) NSString *user_name;
+@property (nonatomic,copy) NSString *user_pwd;
+@property (nonatomic,copy) NSString *wechat;
 
 + (UserInfo *)share;
 

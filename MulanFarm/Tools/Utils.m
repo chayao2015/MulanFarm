@@ -246,13 +246,13 @@
     return dic;
 }
 
-//+ (BOOL)isUserLogin {
-//    if ([UserInfo share].userID.length>0) {
-//        return YES;
-//    } else {
-//        return NO;
-//    }
-//}
++ (BOOL)isUserLogin {
+    if ([UserInfo share].ID.length>0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 //正则判断手机号码地址格式
 + (BOOL)isMobileNumber:(NSString *)mobileNum {

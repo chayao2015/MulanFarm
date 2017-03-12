@@ -88,7 +88,7 @@
 /*!
  *  @brief 判断用户是否登录
  */
-//+ (BOOL)isUserLogin;
++ (BOOL)isUserLogin;
 
 /*!
  *  @brief 正则判断手机号码地址格式

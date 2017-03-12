@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
 		20FD286E1E711227008B7C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD286D1E711227008B7C5B /* main.m */; };
 		20FD28711E711227008B7C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD28701E711227008B7C5B /* AppDelegate.m */; };
 		20FD28741E711227008B7C5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD28731E711227008B7C5B /* ViewController.m */; };
@@ -94,6 +95,8 @@
 
 /* Begin PBXFileReference section */
 		11078472052A7DEAC7557A2A /* libPods-MulanFarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MulanFarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		20FD28691E711227008B7C5B /* MulanFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MulanFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FD286D1E711227008B7C5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		20FD286F1E711227008B7C5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 				20FD28B41E711705008B7C5B /* UIView+Animation.m */,
 				20FD28B51E711705008B7C5B /* UIView+Extension.h */,
 				20FD28B61E711705008B7C5B /* UIView+Extension.m */,
+				20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */,
+				20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -878,6 +883,7 @@
 				20FD294C1E711706008B7C5B /* AEMoreView.m in Sources */,
 				20FD29521E711706008B7C5B /* UILabel+PPCounter.m in Sources */,
 				20FD29631E711706008B7C5B /* OptionsBarItem.m in Sources */,
+				20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */,
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
 				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
 				20FD295C1E711706008B7C5B /* TapImageView.m in Sources */,

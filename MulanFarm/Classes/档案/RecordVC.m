@@ -19,6 +19,21 @@
     // Do any additional setup after loading the view.
     
     self.title = @"档案";
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"cliveyuan@foxmail.com", @"email",
+                         [AESCrypt encrypt:@"123456" password:AESSecret], @"user_pwd",
+                         nil];
+    [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imagePath:nil completion:^(id responseData, RequestState status, NSError *error) {
+        
+        if (status == Request_Success) {
+            [Utils showToast:@"登录成功"];
+            
+            [[UserInfo share] setUserInfo:responseData];
+        } else {
+            [Utils showToast:@"登录失败"];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

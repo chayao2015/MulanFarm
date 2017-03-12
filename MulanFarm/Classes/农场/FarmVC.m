@@ -14,6 +14,19 @@
 
 @implementation FarmVC
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil imagePath:nil completion:^(id responseData, RequestState status, NSError *error) {
+        
+        if (status == Request_Success) {
+            [Utils showToast:@"签到成功"];
+        } else {
+            [Utils showToast:@"签到失败"];
+        }
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

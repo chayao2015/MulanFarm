@@ -1,4 +1,5 @@
 PODS:
+  - AESCrypt (0.0.1)
   - AFNetworking (3.1.0):
     - AFNetworking/NSURLSession (= 3.1.0)
     - AFNetworking/Reachability (= 3.1.0)
@@ -30,6 +31,7 @@ PODS:
   - TZImagePickerController (1.6.7)
 
 DEPENDENCIES:
+  - AESCrypt
   - AFNetworking (~> 3.1.0)
   - FXBlurView (~> 1.6.4)
   - IQKeyboardManager
@@ -41,6 +43,7 @@ DEPENDENCIES:
   - TZImagePickerController (~> 1.6.4)
 
 SPEC CHECKSUMS:
+  AESCrypt: 1d89bf8b0789cf274ab2205ea461adbe9321d5f8
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   IQKeyboardManager: c52debb1967799ae7addb98eab0cf328083a874f
@@ -51,6 +54,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   TZImagePickerController: d3b16a1ab3393b251a23fbb22ac2d6bc83a50d5f
 
-PODFILE CHECKSUM: 18e076878bfad57335cb56e385f7e92e916447b3
+PODFILE CHECKSUM: bf829a8a259b6fa23a27bc1a0ead7b75a971fb7f
 
 COCOAPODS: 1.0.1

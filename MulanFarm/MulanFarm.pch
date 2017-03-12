@@ -24,6 +24,8 @@
 #import <UIButton+WebCache.h>
 #import "MJExtension.h"
 #import "DefaultView.h"
+#import "AESCrypt.h"
+#import "UserInfo.h"
 
 #endif
 

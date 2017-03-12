@@ -40,32 +40,31 @@ static NSUserDefaults *_defaults = nil;
 }
 
 - (void)loadUserDic:(NSDictionary *)userDic {
-    self.userID = userDic[@"member_id"];
-//    NSString *thirdLoginType = [_defaults objectForKey:@"ThirdLoginType"];
-//    if (thirdLoginType.length>0) {
-//        self.account = thirdLoginType;
-//    } else {
-        self.account = userDic[@"login_account"];
-//    }
-    if([userDic[@"avatar"] rangeOfString:@"http"].location !=NSNotFound) {
-        self.avatar = userDic[@"avatar"];
-    } else {
-        self.avatar = [NSString stringWithFormat:@"%@%@",PictureUrl,userDic[@"avatar"]];
-    }
-    self.nick = userDic[@"nick"];
-    self.sex = [userDic[@"sex"] intValue];
-    self.phone = userDic[@"mobile"];
-    if ([Utils isBlankString:userDic[@"red_packets"]]) {
-        self.red_packets = @"0.00";
-    } else {
-        self.red_packets = userDic[@"red_packets"];
-    }
-    self.birthday = [NSString stringWithFormat:@"%@-%@-%@",userDic[@"b_year"],userDic[@"b_month"],userDic[@"b_day"]];
-    if (![Utils isBlankString:self.nick]) {
-        self.userName = self.nick;
-    } else {
-        self.userName = self.account;
-    }
+    
+    self.access_token = userDic[@"access_token"];;
+    self.address = userDic[@"address"];;
+    self.area = userDic[@"area"];;
+    self.avatar = userDic[@"avatar"];;
+    self.create_date = userDic[@"create_date"];;
+    self.email = userDic[@"email"];;
+    self.end_date = userDic[@"end_date"];;
+    self.gender = userDic[@"gender"];;
+    
+    self.ID = userDic[@"id"];;
+    self.levle = userDic[@"levle"];;
+    self.name = userDic[@"name"];;
+    self.nick_name = userDic[@"nick_name"];;
+    self.open_id = userDic[@"open_id"];;
+    
+    self.phone = userDic[@"phone"];;
+    self.qq = userDic[@"qq"];;
+    self.signature = userDic[@"signature"];;
+    self.start_date = userDic[@"start_date"];;
+    self.status = userDic[@"status"];;
+    
+    self.user_name = userDic[@"user_name"];;
+    self.user_pwd = userDic[@"user_pwd"];;
+    self.wechat = userDic[@"wechat"];
 }
 
 @end

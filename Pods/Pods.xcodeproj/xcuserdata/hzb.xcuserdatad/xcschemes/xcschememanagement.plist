@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AESCrypt.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,22 +57,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04E15C8A4A28EBA3D2358A94E73AB96C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>17392667E38E4938ACA525E988BB433B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77F71FDD8B9C1815BE8EC20BE7369CA6</key>
+		<key>2389B3B78F725C030BC721BA61AA6CAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DB003370F888E8CA87E89C8D6834CD2</key>
+		<key>4167F39DD56398D865B71ED1A874F18D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42B6B05DC182BFDC4E3BF72220F1BBC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E5A145D274152A8A09F2BFF6AD2D718</key>
+		<key>93D4896BCE18C4C177A85E03FC190368</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A8F2C60A143FB7E5A76151AAA00CB408</key>
 		<dict>
 			<key>primary</key>
 			<true/>
