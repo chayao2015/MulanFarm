@@ -36,12 +36,7 @@ static NetworkManager *_manager = nil;
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
-    [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        if ([imagePath length] > 0) {
-            NSURL *filePath = [NSURL fileURLWithPath:imagePath];
-            [formData appendPartWithFileURL:filePath name:@"file" error:nil];
-        }
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id _Nullable object = [NSDictionary changeType:responseObject];
         NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
         
@@ -59,6 +54,30 @@ static NetworkManager *_manager = nil;
         [Utils showToast:@"请求超时"];
         [JHHJView hideLoading]; //结束加载
     }];
+    
+//    [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        if ([imagePath length] > 0) {
+//            NSURL *filePath = [NSURL fileURLWithPath:imagePath];
+//            [formData appendPartWithFileURL:filePath name:@"file" error:nil];
+//        }
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        id _Nullable object = [NSDictionary changeType:responseObject];
+//        NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
+//        
+//        NSString *result = [NSString stringWithFormat:@"%@",object[@"result"]];
+//        if ([result isEqualToString:@"1"]) { //成功
+//            id _Nullable dataObject = object[@"data"];
+//            completion(dataObject,Request_Success,nil);
+//        } else {
+//            completion(nil,Request_Fail,nil);
+//            [Utils showToast:object[@"msg"]];
+//        }
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        completion(nil,Request_TimeoOut,error);
+//        NSLog(@"参数%@%@\n%@请求失败信息：%@错误码：%ld",urlStr,parameters,name,[error localizedDescription],(long)[error code]);
+//        [Utils showToast:@"请求超时"];
+//        [JHHJView hideLoading]; //结束加载
+//    }];
 }
 
 - (void)getJSON:(NSString *)name

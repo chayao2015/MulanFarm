@@ -21,6 +21,8 @@
 #pragma mark - ---------------接口名称---------------
 
 #define URL_Login @"user.php?m=login" //登录
+#define URL_Register @"user.php?m=reg" //注册
+#define URL_UpdateUserInfo @"user.php?m=updateProfile" //修改信息
 #define URL_SignIn @"user.php?m=signIn" //签到
 
 #endif /* ServerUrl_h */

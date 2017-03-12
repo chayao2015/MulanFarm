@@ -14,11 +14,8 @@
 
 @implementation RecordVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.title = @"档案";
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @"cliveyuan@foxmail.com", @"email",
@@ -34,6 +31,14 @@
             [Utils showToast:@"登录失败"];
         }
     }];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    self.title = @"档案";
+
 }
 
 - (void)didReceiveMemoryWarning {
