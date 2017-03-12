@@ -48,4 +48,13 @@
 #define LightBlackColor [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]
 #define LineColor kColorFromRGBHex(0xb2b2b2)
 
+/**
+ *  完美解决Xcode NSLog打印不全的宏 亲测目前支持到8.2bate版
+ */
+#ifdef DEBUG
+#define NSLog(...) printf("%f %s\n",[[NSDate date]timeIntervalSince1970],[[NSString stringWithFormat:__VA_ARGS__]UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif
+
 #endif /* MulanFarm_pch */
