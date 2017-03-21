@@ -73,12 +73,11 @@
     if ([[self.navigationController viewControllers] count] == 1) {
         
     } else {
-        UIButton *bb = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
-        [bb setImage:[UIImage imageNamed:@"backIcon"] forState:0];
-        bb.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [bb addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:bb];;
-//        [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+        UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
+        [backBtn setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
+        backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];;
         self.navItem.leftBarButtonItem = backBarButtonItem;
     }
 }

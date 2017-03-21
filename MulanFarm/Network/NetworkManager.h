@@ -27,12 +27,10 @@ typedef void(^RequestCompletion)(id responseData,RequestState status,NSError *er
  *
  *  @param name       接口名称
  *  @param parameters 传参
- *  @param imagePath  上传图片本地路径
  *  @param completion 结果回调
  */
 - (void)postJSON:(NSString *)name
       parameters:(NSDictionary *)parameters
-       imagePath:(NSString *)imagePath
       completion:(RequestCompletion)completion;
 
 /**
@@ -45,5 +43,19 @@ typedef void(^RequestCompletion)(id responseData,RequestState status,NSError *er
 - (void)getJSON:(NSString *)name
      parameters:(NSDictionary *)parameters
      completion:(RequestCompletion)completion;
+
+/**
+ *  POST请求【上传单张或者多张图片】
+ *
+ *  @param name       接口名称
+ *  @param parameters 传参
+ *  @param imgDataArr   二进制图片数组
+ *  @param completion 结果回调
+ */
+- (void)postJSON:(NSString *)name
+      parameters:(NSDictionary *)parameters
+       imageDataArr:(NSMutableArray *)imgDataArr
+      completion:(RequestCompletion)completion;
+
 
 @end

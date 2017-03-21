@@ -20,12 +20,12 @@
     [super viewDidLoad];
 
     // 设置UINavigationBar的样式
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
-//    [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];
-//    [[UINavigationBar appearance] setTitleTextAttributes:
-//     [NSDictionary dictionaryWithObjectsAndKeys:
-//      [UIColor blackColor], NSForegroundColorAttributeName,
-//      [UIFont systemFontOfSize:17], NSFontAttributeName, nil]]; //kColorFromRGBHex(0x2a2a2a)
+    [[UINavigationBar appearance] setBarTintColor:AEColor(112, 195, 8, 1)];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], NSForegroundColorAttributeName,
+      [UIFont systemFontOfSize:17], NSFontAttributeName, nil]];
 }
 
 @end

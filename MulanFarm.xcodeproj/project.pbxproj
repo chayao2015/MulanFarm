@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
+		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
+		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
+		20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F28F2A1E80065200D8E218 /* GuidePageVC.m */; };
 		20FD286E1E711227008B7C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD286D1E711227008B7C5B /* main.m */; };
 		20FD28711E711227008B7C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD28701E711227008B7C5B /* AppDelegate.m */; };
 		20FD28741E711227008B7C5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD28731E711227008B7C5B /* ViewController.m */; };
@@ -95,8 +99,16 @@
 
 /* Begin PBXFileReference section */
 		11078472052A7DEAC7557A2A /* libPods-MulanFarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MulanFarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2054DC581E817462004DFC27 /* ZBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextField.h; sourceTree = "<group>"; };
+		2054DC591E817462004DFC27 /* ZBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextField.m; sourceTree = "<group>"; };
+		2054DC5B1E817592004DFC27 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		2054DC5C1E817592004DFC27 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		2054DC5E1E8175AA004DFC27 /* ForgetPswVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPswVC.h; sourceTree = "<group>"; };
+		2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPswVC.m; sourceTree = "<group>"; };
 		20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		20F28F291E80065200D8E218 /* GuidePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageVC.h; sourceTree = "<group>"; };
+		20F28F2A1E80065200D8E218 /* GuidePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageVC.m; sourceTree = "<group>"; };
 		20FD28691E711227008B7C5B /* MulanFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MulanFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FD286D1E711227008B7C5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		20FD286F1E711227008B7C5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -253,6 +265,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20F28F281E80063A00D8E218 /* 导航 */ = {
+			isa = PBXGroup;
+			children = (
+				20F28F291E80065200D8E218 /* GuidePageVC.h */,
+				20F28F2A1E80065200D8E218 /* GuidePageVC.m */,
+			);
+			path = "导航";
+			sourceTree = "<group>";
+		};
 		20FD28601E711227008B7C5B = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +386,7 @@
 		20FD28B71E711705008B7C5B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				20F28F281E80063A00D8E218 /* 导航 */,
 				20FD28BF1E711706008B7C5B /* 登录 */,
 				20FD29721E7118C9008B7C5B /* 农场 */,
 				20FD29711E7118C9008B7C5B /* 档案 */,
@@ -379,6 +401,10 @@
 			children = (
 				20FD28C01E711706008B7C5B /* LoginVC.h */,
 				20FD28C11E711706008B7C5B /* LoginVC.m */,
+				2054DC5B1E817592004DFC27 /* RegisterVC.h */,
+				2054DC5C1E817592004DFC27 /* RegisterVC.m */,
+				2054DC5E1E8175AA004DFC27 /* ForgetPswVC.h */,
+				2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */,
 			);
 			path = "登录";
 			sourceTree = "<group>";
@@ -430,6 +456,8 @@
 				20FD292A1E711706008B7C5B /* UIWidgets(UI控件) */,
 				20FD29311E711706008B7C5B /* Utils.h */,
 				20FD29321E711706008B7C5B /* Utils.m */,
+				2054DC581E817462004DFC27 /* ZBTextField.h */,
+				2054DC591E817462004DFC27 /* ZBTextField.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -861,7 +889,10 @@
 				20FD29551E711706008B7C5B /* DefaultView.m in Sources */,
 				20FD29491E711706008B7C5B /* NetworkUtil.m in Sources */,
 				20FD296C1E711706008B7C5B /* AEToast.m in Sources */,
+				2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */,
+				2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */,
 				20FD296F1E711706008B7C5B /* AEUIToolbar.m in Sources */,
+				20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */,
 				20FD29641E711706008B7C5B /* OptionsBarView.m in Sources */,
 				20FD29561E711706008B7C5B /* AEEmitterButton.m in Sources */,
 				20FD28711E711227008B7C5B /* AppDelegate.m in Sources */,
@@ -899,6 +930,7 @@
 				20FD29371E711706008B7C5B /* UIImage+Color.m in Sources */,
 				20FD29331E711706008B7C5B /* BaseNC.m in Sources */,
 				20FD293B1E711706008B7C5B /* UIView+Animation.m in Sources */,
+				2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */,
 				20FD29701E711706008B7C5B /* Utils.m in Sources */,
 				20FD29601E711706008B7C5B /* JHHJView.m in Sources */,
 				20FD295A1E711706008B7C5B /* ImgLargeScrollView.m in Sources */,

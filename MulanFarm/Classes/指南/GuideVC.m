@@ -21,7 +21,7 @@
                          @"cliveyuan@foxmail.com", @"email",
                          [AESCrypt encrypt:@"123456" password:AESSecret], @"user_pwd",
                          nil];
-    [[NetworkManager sharedManager] postJSON:URL_Register parameters:dic imagePath:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_Register parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"注册成功"];

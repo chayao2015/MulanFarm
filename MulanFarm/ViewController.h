@@ -6,9 +6,15 @@
 //  Copyright © 2017年 cydf. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+/**
+ *  测试类
+ *
+ */
 
-@interface ViewController : UIViewController
+#import <UIKit/UIKit.h>
+#import "BaseVC.h"
+
+@interface ViewController : BaseVC
 
 
 @end

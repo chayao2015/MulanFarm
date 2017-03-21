@@ -10,4 +10,6 @@
 
 @interface FarmVC : BaseVC
 
+- (IBAction)testAction:(id)sender;
+
 @end

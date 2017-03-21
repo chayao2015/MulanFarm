@@ -26,6 +26,11 @@
 + (BOOL)isBlankString:(id)string;
 
 /*!
+ *  @brief 获取设备IP地址
+ */
++ (NSString *)getIPAddress;
+
+/*!
  *  @brief 根据文字内容、字体大小、行高获取文本宽度
  */
 + (CGFloat)getTextWidth:(NSString *)text fontSize:(float)fontSize forHeight:(CGFloat)height;

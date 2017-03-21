@@ -17,11 +17,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [[UserInfo share] setUserInfo:nil];
+    
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @"cliveyuan@foxmail.com", @"email",
-                         [AESCrypt encrypt:@"123456" password:AESSecret], @"user_pwd",
+                         [AESCrypt encrypt:@"1234567" password:AESSecret], @"user_pwd",
                          nil];
-    [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imagePath:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"登录成功"];

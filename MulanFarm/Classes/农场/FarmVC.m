@@ -7,6 +7,7 @@
 //
 
 #import "FarmVC.h"
+#import "ViewController.h"
 
 @interface FarmVC ()
 
@@ -17,7 +18,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil imagePath:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"签到成功"];
@@ -32,11 +33,19 @@
     // Do any additional setup after loading the view.
     
     self.title = @"农场";
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)testAction:(id)sender {
+    ViewController *testVC = [[ViewController alloc] init];
+    testVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:testVC animated:YES];
 }
 
 @end

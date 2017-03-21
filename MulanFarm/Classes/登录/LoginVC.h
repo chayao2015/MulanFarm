@@ -7,7 +7,17 @@
 //
 
 #import "BaseVC.h"
+#import "ZBTextField.h"
 
 @interface LoginVC : BaseVC
+
+@property (nonatomic,copy) dispatch_block_t buttonBlock;
+
+@property (weak, nonatomic) IBOutlet ZBTextField *accountTF;
+@property (weak, nonatomic) IBOutlet ZBTextField *pswTF;
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+
+- (IBAction)loginAction:(id)sender;
+- (IBAction)checkProtocalAction:(id)sender;
 
 @end

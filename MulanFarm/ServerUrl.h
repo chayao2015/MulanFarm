@@ -24,5 +24,9 @@
 #define URL_Register @"user.php?m=reg" //注册
 #define URL_UpdateUserInfo @"user.php?m=updateProfile" //修改信息
 #define URL_SignIn @"user.php?m=signIn" //签到
+#define URL_UploadAvatar @"user.php?m=uploadAvatar" //上传头像
+#define URL_CameraList @"camera.php?m=list" //摄像头列表
+#define URL_CameraBind @"camera.php?m=bind" //绑定摄像头
+#define URL_CameraDelete @"camera.php?m=delete" //删除摄像头
 
 #endif /* ServerUrl_h */

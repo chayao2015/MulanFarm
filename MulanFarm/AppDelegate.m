@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "GuidePageVC.h"
+#import "LoginVC.h"
 #import "FarmVC.h"
 #import "RecordVC.h"
 #import "GuideVC.h"
@@ -36,14 +38,40 @@
     manager.shouldToolbarUsesTextFieldTintColor = YES;
     manager.enableAutoToolbar = NO;
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = PageColor;
-    
     [[UserInfo share] getUserInfo];
     [AEFilePath createDirPath];
     [[NetworkUtil sharedInstance] listening]; //监测网络
     
-    self.window.rootViewController = [self setTabBarController];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = PageColor;
+    
+    //判断是否首次进入应用
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FirstLG"])
+    {
+        GuidePageVC *guidePageVC = [[GuidePageVC alloc] init];
+        self.window.rootViewController = guidePageVC;
+        
+        //使用block获取点击图片事件
+        [guidePageVC setButtonBlock:^(){
+            NSLog(@"点击立即体验");
+            if ([Utils isUserLogin]) {
+                //进入应用主界面
+                self.window.rootViewController = [self setTabBarController];
+            } else {
+                BaseNC *nc = [[BaseNC alloc] initWithRootViewController:[self setLoginController]];
+                self.window.rootViewController = nc;
+            }
+        }];
+    } else {
+        
+        if ([Utils isUserLogin]) {
+            //进入应用主界面
+            self.window.rootViewController = [self setTabBarController];
+        } else {
+            BaseNC *nc = [[BaseNC alloc] initWithRootViewController:[self setLoginController]];
+            self.window.rootViewController = nc;
+        }
+    }
     
     [self.window makeKeyAndVisible];
     
@@ -51,53 +79,34 @@
 }
 
 #pragma mark - 主页
+
 - (UITabBarController *)setTabBarController {
     
-    //步骤1：初始化视图控制器
-    FarmVC *farmVC = [[FarmVC alloc] init]; //农场
-    RecordVC *recordVC = [[RecordVC alloc] init]; //档案
-    GuideVC *guideVC = [[GuideVC alloc] init]; //指南
-    MineVC *mineVC = [[MineVC alloc] init]; //我的
+    //第一步：要获取单独控制器所在的UIStoryboard
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    //步骤2：将视图控制器绑定到导航控制器上
-    BaseNC *nav1C = [[BaseNC alloc] initWithRootViewController:farmVC];
-    BaseNC *nav2C = [[BaseNC alloc] initWithRootViewController:recordVC];
-    BaseNC *nav3C = [[BaseNC alloc] initWithRootViewController:guideVC];
-    BaseNC *nav4C = [[BaseNC alloc] initWithRootViewController:mineVC];
+    //第二步：获取该控制器的Identifier并赋给你的单独控制器
+    UITabBarController *tabBarController = [story instantiateViewControllerWithIdentifier:@"tabBarController"];
     
-    //步骤3：将导航控制器绑定到TabBar控制器上
-    myTabBarController = [[UITabBarController alloc] init];
-    
-    //改变tabBar的背景颜色
-    UIView *barBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 49)];
-    barBgView.backgroundColor = [UIColor whiteColor];
-    [myTabBarController.tabBar insertSubview:barBgView atIndex:0];
-    myTabBarController.tabBar.opaque = YES;
-    
-    myTabBarController.viewControllers = @[nav1C,nav2C,nav3C,nav4C]; //需要先绑定viewControllers数据源
-    myTabBarController.selectedIndex = 0; //默认选中第几个图标（此步操作在绑定viewControllers数据源之后）
-    
-    //初始化TabBar数据源
-    NSArray *titles = @[@"农场",@"档案",@"指南",@"我的"];
-    NSArray *images = @[@"UnTabbarLoveLife",@"UnTabbarFineGoods",@"UnTabbarFind",@"UnTabbarMine"];
-    NSArray *selectedImages = @[@"TabbarLoveLife",@"TabbarFineGoods",@"TabbarFind",@"TabbarMine"];
-    
-    //绑定TabBar数据源
-    for (int i = 0; i<myTabBarController.tabBar.items.count; i++) {
-        UITabBarItem *item = (UITabBarItem *)myTabBarController.tabBar.items[i];
-        item.title = titles[i];
-        item.image = [[UIImage imageNamed:[images objectAtIndex:i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        item.selectedImage = [[UIImage imageNamed:[selectedImages objectAtIndex:i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        item.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
-        [item setTitlePositionAdjustment:UIOffsetMake(0, -3)];
-    }
-    
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:AppThemeColor,NSFontAttributeName:[UIFont systemFontOfSize:10.5]} forState:UIControlStateSelected];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:10.5]} forState:UIControlStateNormal];
-    
-    return myTabBarController;
+    return tabBarController;
 }
 
+#pragma mark - 登录页
+
+- (UIViewController *)setLoginController {
+    //第一步：要获取单独控制器所在的UIStoryboard
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //第二步：获取该控制器的Identifier并赋给你的单独控制器
+    LoginVC *loginVC = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+    
+    [loginVC setButtonBlock:^(){
+        //进入应用主界面
+        self.window.rootViewController = [self setTabBarController];
+    }];
+    
+    return loginVC;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

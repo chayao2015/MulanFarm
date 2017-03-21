@@ -26,6 +26,8 @@ static NSUserDefaults *_defaults = nil;
 - (void)getUserInfo {
     
     NSDictionary *userDic = [_defaults objectForKey:@"UserInfo"];
+    
+    NSLog(@"%@",userDic);
     if (userDic) {
         [self loadUserDic:userDic];
     }

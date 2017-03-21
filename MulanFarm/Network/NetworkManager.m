@@ -29,7 +29,6 @@ static NetworkManager *_manager = nil;
 
 - (void)postJSON:(NSString *)name
       parameters:(NSDictionary *)parameters
-       imagePath:(NSString *)imagePath
       completion:(RequestCompletion)completion {
     
     [self configNetManager];
@@ -54,30 +53,6 @@ static NetworkManager *_manager = nil;
         [Utils showToast:@"请求超时"];
         [JHHJView hideLoading]; //结束加载
     }];
-    
-//    [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        if ([imagePath length] > 0) {
-//            NSURL *filePath = [NSURL fileURLWithPath:imagePath];
-//            [formData appendPartWithFileURL:filePath name:@"file" error:nil];
-//        }
-//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        id _Nullable object = [NSDictionary changeType:responseObject];
-//        NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
-//        
-//        NSString *result = [NSString stringWithFormat:@"%@",object[@"result"]];
-//        if ([result isEqualToString:@"1"]) { //成功
-//            id _Nullable dataObject = object[@"data"];
-//            completion(dataObject,Request_Success,nil);
-//        } else {
-//            completion(nil,Request_Fail,nil);
-//            [Utils showToast:object[@"msg"]];
-//        }
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        completion(nil,Request_TimeoOut,error);
-//        NSLog(@"参数%@%@\n%@请求失败信息：%@错误码：%ld",urlStr,parameters,name,[error localizedDescription],(long)[error code]);
-//        [Utils showToast:@"请求超时"];
-//        [JHHJView hideLoading]; //结束加载
-//    }];
 }
 
 - (void)getJSON:(NSString *)name
@@ -105,6 +80,49 @@ static NetworkManager *_manager = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         completion(nil,Request_TimeoOut,error);
         NSLog(@"参数%@%@\n%@请求失败信息：%@",urlStr,parameters,name,[error localizedDescription]);
+        [Utils showToast:@"请求超时"];
+        [JHHJView hideLoading]; //结束加载
+    }];
+}
+
+- (void)postJSON:(NSString *)name
+      parameters:(NSDictionary *)parameters
+      imageDataArr:(NSMutableArray *)imgDataArr
+      completion:(RequestCompletion)completion {
+    
+    [self configNetManager];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
+    
+    [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        if (imgDataArr.count > 0) {
+            //在网络开发中，上传文件时，是文件不允许被覆盖，文件重名。要解决此问题，可以在上传时使用当前的系统事件作为文件名
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyyMMddHHmmss";
+            NSString *fileName = [formatter stringFromDate:[NSDate date]];
+            
+            for (int i = 0; i<imgDataArr.count; i++) {
+                NSData *data = (NSData *)imgDataArr[i];
+                if (data != NULL) {
+                    [formData appendPartWithFileData:data name:@"avatar[]" fileName:[NSString stringWithFormat:@"%@%d.png",fileName,i] mimeType:@"image/png"];
+                }
+            }
+        }
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        id _Nullable object = [NSDictionary changeType:responseObject];
+        NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
+        
+        NSString *result = [NSString stringWithFormat:@"%@",object[@"result"]];
+        if ([result isEqualToString:@"1"]) { //成功
+            id _Nullable dataObject = object[@"data"];
+            completion(dataObject,Request_Success,nil);
+        } else {
+            completion(nil,Request_Fail,nil);
+            [Utils showToast:object[@"msg"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil,Request_TimeoOut,error);
+        NSLog(@"参数%@%@\n%@请求失败信息：%@错误码：%ld",urlStr,parameters,name,[error localizedDescription],(long)[error code]);
         [Utils showToast:@"请求超时"];
         [JHHJView hideLoading]; //结束加载
     }];
