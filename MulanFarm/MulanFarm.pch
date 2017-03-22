@@ -44,7 +44,7 @@
 #define kColorFromARGBHex(value,a) [UIColor colorWithRed:((float)((value & 0xFF0000) >> 16))/255.0 green:((float)((value & 0xFF00) >> 8))/255.0 blue:((float)(value & 0xFF))/255.0 alpha:a] //a:透明度
 #define kColorFromRGBHex(value) [UIColor colorWithRed:((float)((value & 0xFF0000) >> 16))/255.0 green:((float)((value & 0xFF00) >> 8))/255.0 blue:((float)(value & 0xFF))/255.0 alpha:1.0]
 
-#define AppThemeColor kColorFromRGBHex(0xf44e12)
+#define AppThemeColor AEColor(112, 195, 8, 1)
 #define PageColor [UIColor groupTableViewBackgroundColor]
 #define LightBlackColor [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]
 #define LineColor kColorFromRGBHex(0xb2b2b2)

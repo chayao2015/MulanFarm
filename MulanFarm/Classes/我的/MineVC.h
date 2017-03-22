@@ -10,4 +10,12 @@
 
 @interface MineVC : BaseVC
 
+@property (weak, nonatomic) IBOutlet UIButton *bellBtn;
+@property (weak, nonatomic) IBOutlet UILabel *bellCountLab;
+@property (weak, nonatomic) IBOutlet UIButton *signBtn;
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+
+- (IBAction)signAction:(id)sender;
+
+
 @end

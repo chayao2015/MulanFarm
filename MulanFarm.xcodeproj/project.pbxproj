@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2033C6E51E82CB910007C35C /* MyWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6E41E82CB910007C35C /* MyWalletVC.m */; };
+		2033C6E81E82CBBE0007C35C /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6E71E82CBBE0007C35C /* AboutUsVC.m */; };
+		2033C6EB1E82CBD10007C35C /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6EA1E82CBD10007C35C /* SetVC.m */; };
+		2033C6EE1E82CBE50007C35C /* RecordCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6ED1E82CBE50007C35C /* RecordCenterVC.m */; };
+		2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F01E82CC380007C35C /* PersonalInfoVC.m */; };
+		2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F31E82CC540007C35C /* EditInfoVC.m */; };
+		2033C6F71E82CC6F0007C35C /* BellListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F61E82CC6F0007C35C /* BellListVC.m */; };
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
 		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
@@ -99,6 +106,20 @@
 
 /* Begin PBXFileReference section */
 		11078472052A7DEAC7557A2A /* libPods-MulanFarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MulanFarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2033C6E31E82CB910007C35C /* MyWalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletVC.h; sourceTree = "<group>"; };
+		2033C6E41E82CB910007C35C /* MyWalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletVC.m; sourceTree = "<group>"; };
+		2033C6E61E82CBBE0007C35C /* AboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
+		2033C6E71E82CBBE0007C35C /* AboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
+		2033C6E91E82CBD10007C35C /* SetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
+		2033C6EA1E82CBD10007C35C /* SetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
+		2033C6EC1E82CBE50007C35C /* RecordCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCenterVC.h; sourceTree = "<group>"; };
+		2033C6ED1E82CBE50007C35C /* RecordCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCenterVC.m; sourceTree = "<group>"; };
+		2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
+		2033C6F01E82CC380007C35C /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
+		2033C6F21E82CC540007C35C /* EditInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoVC.h; sourceTree = "<group>"; };
+		2033C6F31E82CC540007C35C /* EditInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoVC.m; sourceTree = "<group>"; };
+		2033C6F51E82CC6F0007C35C /* BellListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellListVC.h; sourceTree = "<group>"; };
+		2033C6F61E82CC6F0007C35C /* BellListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellListVC.m; sourceTree = "<group>"; };
 		2054DC581E817462004DFC27 /* ZBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextField.h; sourceTree = "<group>"; };
 		2054DC591E817462004DFC27 /* ZBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextField.m; sourceTree = "<group>"; };
 		2054DC5B1E817592004DFC27 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
@@ -669,6 +690,20 @@
 			children = (
 				20FD29751E711907008B7C5B /* MineVC.h */,
 				20FD29761E711907008B7C5B /* MineVC.m */,
+				2033C6E31E82CB910007C35C /* MyWalletVC.h */,
+				2033C6E41E82CB910007C35C /* MyWalletVC.m */,
+				2033C6E61E82CBBE0007C35C /* AboutUsVC.h */,
+				2033C6E71E82CBBE0007C35C /* AboutUsVC.m */,
+				2033C6E91E82CBD10007C35C /* SetVC.h */,
+				2033C6EA1E82CBD10007C35C /* SetVC.m */,
+				2033C6EC1E82CBE50007C35C /* RecordCenterVC.h */,
+				2033C6ED1E82CBE50007C35C /* RecordCenterVC.m */,
+				2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */,
+				2033C6F01E82CC380007C35C /* PersonalInfoVC.m */,
+				2033C6F21E82CC540007C35C /* EditInfoVC.h */,
+				2033C6F31E82CC540007C35C /* EditInfoVC.m */,
+				2033C6F51E82CC6F0007C35C /* BellListVC.h */,
+				2033C6F61E82CC6F0007C35C /* BellListVC.m */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -902,10 +937,13 @@
 				20FD293C1E711706008B7C5B /* UIView+Extension.m in Sources */,
 				20FD286E1E711227008B7C5B /* main.m in Sources */,
 				20FD297D1E711955008B7C5B /* RecordVC.m in Sources */,
+				2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */,
 				20FD29611E711706008B7C5B /* BottomLineView.m in Sources */,
 				20FD293F1E711706008B7C5B /* LoginVC.m in Sources */,
+				2033C6EB1E82CBD10007C35C /* SetVC.m in Sources */,
 				20FD296D1E711706008B7C5B /* AEButton.m in Sources */,
 				20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */,
+				2033C6E81E82CBBE0007C35C /* AboutUsVC.m in Sources */,
 				20FD29501E711706008B7C5B /* PPCounterEngine.m in Sources */,
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
 				20FD29511E711706008B7C5B /* UIButton+PPCounter.m in Sources */,
@@ -915,6 +953,7 @@
 				20FD29521E711706008B7C5B /* UILabel+PPCounter.m in Sources */,
 				20FD29631E711706008B7C5B /* OptionsBarItem.m in Sources */,
 				20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */,
+				2033C6E51E82CB910007C35C /* MyWalletVC.m in Sources */,
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
 				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
 				20FD295C1E711706008B7C5B /* TapImageView.m in Sources */,
@@ -925,11 +964,14 @@
 				20FD29341E711706008B7C5B /* BaseVC.m in Sources */,
 				20FD293A1E711706008B7C5B /* UITabBar+RedPoint.m in Sources */,
 				20FD29771E711907008B7C5B /* MineVC.m in Sources */,
+				2033C6EE1E82CBE50007C35C /* RecordCenterVC.m in Sources */,
 				20FD29351E711706008B7C5B /* NSDictionary+DeleteNULL.m in Sources */,
 				20FD294F1E711706008B7C5B /* PPCounterConst.m in Sources */,
 				20FD29371E711706008B7C5B /* UIImage+Color.m in Sources */,
 				20FD29331E711706008B7C5B /* BaseNC.m in Sources */,
 				20FD293B1E711706008B7C5B /* UIView+Animation.m in Sources */,
+				2033C6F71E82CC6F0007C35C /* BellListVC.m in Sources */,
+				2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */,
 				2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */,
 				20FD29701E711706008B7C5B /* Utils.m in Sources */,
 				20FD29601E711706008B7C5B /* JHHJView.m in Sources */,
