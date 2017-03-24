@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"个人中心";
+    self.title = @"个人主页";
 }
 
 - (void)didReceiveMemoryWarning {
