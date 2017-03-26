@@ -13,7 +13,7 @@
 
 #pragma mark - ---------------接口地址---------------
 
-#define ProductUrl @"http://120.27.212.121/farm/controller/api/"
+#define ProductUrl @"http://114.215.46.8/farm/controller/api/"
 #define WebUrl @"http://www.cydf.com/"
 #define PictureUrl @"http://images-app.cydf.com/"
 
@@ -22,11 +22,19 @@
 
 #define URL_Login @"user.php?m=login" //登录
 #define URL_Register @"user.php?m=reg" //注册
+#define URL_Logout @"user.php?m=logout" //退出登录
 #define URL_UpdateUserInfo @"user.php?m=updateProfile" //修改信息
+#define URL_Agreement @"appinfo.php?m=agreement" //用户协议
+#define URL_AboutUs @"appinfo.php?m=aboutUs" //关于我们
+#define URL_AppInfo @"appinfo.php?m=appInfo" //程序信息
 #define URL_SignIn @"user.php?m=signIn" //签到
 #define URL_UploadAvatar @"user.php?m=uploadAvatar" //上传头像
+#define URL_SendEmailCaptcha @"user.php?m=sendEmailCaptcha" //发送邮箱验证码
 #define URL_CameraList @"camera.php?m=list" //摄像头列表
 #define URL_CameraBind @"camera.php?m=bind" //绑定摄像头
 #define URL_CameraDelete @"camera.php?m=delete" //删除摄像头
+#define URL_SaveNote @"note.php?m=save" //保存笔记
+#define URL_NoteList @"note.php?m=list" //笔记列表
+#define URL_ArticleList @"article.php?m=list" //文章列表
 
 #endif /* ServerUrl_h */

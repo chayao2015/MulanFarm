@@ -8,15 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		2033C6E51E82CB910007C35C /* MyWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6E41E82CB910007C35C /* MyWalletVC.m */; };
-		2033C6E81E82CBBE0007C35C /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6E71E82CBBE0007C35C /* AboutUsVC.m */; };
-		2033C6EB1E82CBD10007C35C /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6EA1E82CBD10007C35C /* SetVC.m */; };
-		2033C6EE1E82CBE50007C35C /* RecordCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6ED1E82CBE50007C35C /* RecordCenterVC.m */; };
 		2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F01E82CC380007C35C /* PersonalInfoVC.m */; };
 		2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F31E82CC540007C35C /* EditInfoVC.m */; };
 		2033C6F71E82CC6F0007C35C /* BellListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F61E82CC6F0007C35C /* BellListVC.m */; };
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
 		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
+		206400651E867E1B0060560E /* NoteCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400641E867E1B0060560E /* NoteCenterVC.m */; };
+		206400691E867EB60060560E /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400671E867EB60060560E /* NoteCell.m */; };
+		2064006D1E867F4A0060560E /* NoteInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2064006C1E867F4A0060560E /* NoteInfo.m */; };
+		206400711E8692FA0060560E /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400701E8692FA0060560E /* SetVC.m */; };
+		206400741E86931D0060560E /* ChangePswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400731E86931D0060560E /* ChangePswVC.m */; };
+		206400781E86A33B0060560E /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400771E86A33B0060560E /* AboutUsVC.m */; };
+		2064007E1E86B50B0060560E /* Articleinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2064007D1E86B50B0060560E /* Articleinfo.m */; };
+		206400831E86BAAF0060560E /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400801E86BAAF0060560E /* BaseWebVC.m */; };
+		206400841E86BAAF0060560E /* WKDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400821E86BAAF0060560E /* WKDelegateController.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
 		20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F28F2A1E80065200D8E218 /* GuidePageVC.m */; };
 		20FD286E1E711227008B7C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD286D1E711227008B7C5B /* main.m */; };
@@ -108,12 +114,6 @@
 		11078472052A7DEAC7557A2A /* libPods-MulanFarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MulanFarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2033C6E31E82CB910007C35C /* MyWalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletVC.h; sourceTree = "<group>"; };
 		2033C6E41E82CB910007C35C /* MyWalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletVC.m; sourceTree = "<group>"; };
-		2033C6E61E82CBBE0007C35C /* AboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
-		2033C6E71E82CBBE0007C35C /* AboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
-		2033C6E91E82CBD10007C35C /* SetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
-		2033C6EA1E82CBD10007C35C /* SetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
-		2033C6EC1E82CBE50007C35C /* RecordCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCenterVC.h; sourceTree = "<group>"; };
-		2033C6ED1E82CBE50007C35C /* RecordCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCenterVC.m; sourceTree = "<group>"; };
 		2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
 		2033C6F01E82CC380007C35C /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
 		2033C6F21E82CC540007C35C /* EditInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoVC.h; sourceTree = "<group>"; };
@@ -126,6 +126,24 @@
 		2054DC5C1E817592004DFC27 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
 		2054DC5E1E8175AA004DFC27 /* ForgetPswVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPswVC.h; sourceTree = "<group>"; };
 		2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPswVC.m; sourceTree = "<group>"; };
+		206400631E867E1B0060560E /* NoteCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCenterVC.h; sourceTree = "<group>"; };
+		206400641E867E1B0060560E /* NoteCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCenterVC.m; sourceTree = "<group>"; };
+		206400661E867EB60060560E /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
+		206400671E867EB60060560E /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCell.m; sourceTree = "<group>"; };
+		2064006B1E867F4A0060560E /* NoteInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteInfo.h; sourceTree = "<group>"; };
+		2064006C1E867F4A0060560E /* NoteInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteInfo.m; sourceTree = "<group>"; };
+		2064006F1E8692FA0060560E /* SetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
+		206400701E8692FA0060560E /* SetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
+		206400721E86931D0060560E /* ChangePswVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePswVC.h; sourceTree = "<group>"; };
+		206400731E86931D0060560E /* ChangePswVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePswVC.m; sourceTree = "<group>"; };
+		206400761E86A33B0060560E /* AboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
+		206400771E86A33B0060560E /* AboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
+		2064007C1E86B50B0060560E /* Articleinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Articleinfo.h; sourceTree = "<group>"; };
+		2064007D1E86B50B0060560E /* Articleinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Articleinfo.m; sourceTree = "<group>"; };
+		2064007F1E86BAAF0060560E /* BaseWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebVC.h; sourceTree = "<group>"; };
+		206400801E86BAAF0060560E /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
+		206400811E86BAAF0060560E /* WKDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKDelegateController.h; sourceTree = "<group>"; };
+		206400821E86BAAF0060560E /* WKDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKDelegateController.m; sourceTree = "<group>"; };
 		20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		20F28F291E80065200D8E218 /* GuidePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageVC.h; sourceTree = "<group>"; };
@@ -286,6 +304,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		206400621E867E1B0060560E /* 笔记中心 */ = {
+			isa = PBXGroup;
+			children = (
+				206400631E867E1B0060560E /* NoteCenterVC.h */,
+				206400641E867E1B0060560E /* NoteCenterVC.m */,
+				206400661E867EB60060560E /* NoteCell.h */,
+				206400671E867EB60060560E /* NoteCell.m */,
+			);
+			path = "笔记中心";
+			sourceTree = "<group>";
+		};
+		2064006E1E8692FA0060560E /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				2064006F1E8692FA0060560E /* SetVC.h */,
+				206400701E8692FA0060560E /* SetVC.m */,
+				206400721E86931D0060560E /* ChangePswVC.h */,
+				206400731E86931D0060560E /* ChangePswVC.m */,
+			);
+			path = "设置";
+			sourceTree = "<group>";
+		};
+		206400751E86A33B0060560E /* 关于我们 */ = {
+			isa = PBXGroup;
+			children = (
+				206400761E86A33B0060560E /* AboutUsVC.h */,
+				206400771E86A33B0060560E /* AboutUsVC.m */,
+			);
+			path = "关于我们";
+			sourceTree = "<group>";
+		};
 		20F28F281E80063A00D8E218 /* 导航 */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +424,10 @@
 				20FD28A31E711705008B7C5B /* BaseNC.m */,
 				20FD28A41E711705008B7C5B /* BaseVC.h */,
 				20FD28A51E711705008B7C5B /* BaseVC.m */,
+				2064007F1E86BAAF0060560E /* BaseWebVC.h */,
+				206400801E86BAAF0060560E /* BaseWebVC.m */,
+				206400811E86BAAF0060560E /* WKDelegateController.h */,
+				206400821E86BAAF0060560E /* WKDelegateController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -435,6 +488,10 @@
 			children = (
 				20FD29811E711A7C008B7C5B /* UserInfo.h */,
 				20FD29821E711A7C008B7C5B /* UserInfo.m */,
+				2064006B1E867F4A0060560E /* NoteInfo.h */,
+				2064006C1E867F4A0060560E /* NoteInfo.m */,
+				2064007C1E86B50B0060560E /* Articleinfo.h */,
+				2064007D1E86B50B0060560E /* Articleinfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -688,16 +745,13 @@
 		20FD29741E711907008B7C5B /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				206400751E86A33B0060560E /* 关于我们 */,
+				2064006E1E8692FA0060560E /* 设置 */,
+				206400621E867E1B0060560E /* 笔记中心 */,
 				20FD29751E711907008B7C5B /* MineVC.h */,
 				20FD29761E711907008B7C5B /* MineVC.m */,
 				2033C6E31E82CB910007C35C /* MyWalletVC.h */,
 				2033C6E41E82CB910007C35C /* MyWalletVC.m */,
-				2033C6E61E82CBBE0007C35C /* AboutUsVC.h */,
-				2033C6E71E82CBBE0007C35C /* AboutUsVC.m */,
-				2033C6E91E82CBD10007C35C /* SetVC.h */,
-				2033C6EA1E82CBD10007C35C /* SetVC.m */,
-				2033C6EC1E82CBE50007C35C /* RecordCenterVC.h */,
-				2033C6ED1E82CBE50007C35C /* RecordCenterVC.m */,
 				2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */,
 				2033C6F01E82CC380007C35C /* PersonalInfoVC.m */,
 				2033C6F21E82CC540007C35C /* EditInfoVC.h */,
@@ -923,6 +977,7 @@
 				20FD294E1E711706008B7C5B /* ZBAlertView.m in Sources */,
 				20FD29551E711706008B7C5B /* DefaultView.m in Sources */,
 				20FD29491E711706008B7C5B /* NetworkUtil.m in Sources */,
+				206400831E86BAAF0060560E /* BaseWebVC.m in Sources */,
 				20FD296C1E711706008B7C5B /* AEToast.m in Sources */,
 				2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */,
 				2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */,
@@ -935,19 +990,21 @@
 				20FD29591E711706008B7C5B /* ImageViewer.m in Sources */,
 				20FD29801E711992008B7C5B /* GuideVC.m in Sources */,
 				20FD293C1E711706008B7C5B /* UIView+Extension.m in Sources */,
+				206400841E86BAAF0060560E /* WKDelegateController.m in Sources */,
 				20FD286E1E711227008B7C5B /* main.m in Sources */,
 				20FD297D1E711955008B7C5B /* RecordVC.m in Sources */,
 				2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */,
+				206400781E86A33B0060560E /* AboutUsVC.m in Sources */,
 				20FD29611E711706008B7C5B /* BottomLineView.m in Sources */,
 				20FD293F1E711706008B7C5B /* LoginVC.m in Sources */,
-				2033C6EB1E82CBD10007C35C /* SetVC.m in Sources */,
 				20FD296D1E711706008B7C5B /* AEButton.m in Sources */,
+				206400711E8692FA0060560E /* SetVC.m in Sources */,
 				20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */,
-				2033C6E81E82CBBE0007C35C /* AboutUsVC.m in Sources */,
 				20FD29501E711706008B7C5B /* PPCounterEngine.m in Sources */,
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
 				20FD29511E711706008B7C5B /* UIButton+PPCounter.m in Sources */,
 				20FD295E1E711706008B7C5B /* JHHJAnimation.m in Sources */,
+				206400741E86931D0060560E /* ChangePswVC.m in Sources */,
 				20FD296B1E711706008B7C5B /* StarRatingView.m in Sources */,
 				20FD294C1E711706008B7C5B /* AEMoreView.m in Sources */,
 				20FD29521E711706008B7C5B /* UILabel+PPCounter.m in Sources */,
@@ -956,6 +1013,7 @@
 				2033C6E51E82CB910007C35C /* MyWalletVC.m in Sources */,
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
 				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
+				206400651E867E1B0060560E /* NoteCenterVC.m in Sources */,
 				20FD295C1E711706008B7C5B /* TapImageView.m in Sources */,
 				20FD29621E711706008B7C5B /* OptionBarController.m in Sources */,
 				20FD29581E711706008B7C5B /* AEFlowLayoutView.m in Sources */,
@@ -964,10 +1022,10 @@
 				20FD29341E711706008B7C5B /* BaseVC.m in Sources */,
 				20FD293A1E711706008B7C5B /* UITabBar+RedPoint.m in Sources */,
 				20FD29771E711907008B7C5B /* MineVC.m in Sources */,
-				2033C6EE1E82CBE50007C35C /* RecordCenterVC.m in Sources */,
 				20FD29351E711706008B7C5B /* NSDictionary+DeleteNULL.m in Sources */,
 				20FD294F1E711706008B7C5B /* PPCounterConst.m in Sources */,
 				20FD29371E711706008B7C5B /* UIImage+Color.m in Sources */,
+				2064006D1E867F4A0060560E /* NoteInfo.m in Sources */,
 				20FD29331E711706008B7C5B /* BaseNC.m in Sources */,
 				20FD293B1E711706008B7C5B /* UIView+Animation.m in Sources */,
 				2033C6F71E82CC6F0007C35C /* BellListVC.m in Sources */,
@@ -980,7 +1038,9 @@
 				20FD295B1E711706008B7C5B /* ImgScrollView.m in Sources */,
 				20FD294A1E711706008B7C5B /* AEFilePath.m in Sources */,
 				20FD29381E711706008B7C5B /* UILabel+Add.m in Sources */,
+				206400691E867EB60060560E /* NoteCell.m in Sources */,
 				20FD29361E711706008B7C5B /* UIImage+Additions.m in Sources */,
+				2064007E1E86B50B0060560E /* Articleinfo.m in Sources */,
 				20FD29481E711706008B7C5B /* NetworkManager.m in Sources */,
 				20FD296E1E711706008B7C5B /* AEUITextField.m in Sources */,
 				20FD29831E711A7C008B7C5B /* UserInfo.m in Sources */,

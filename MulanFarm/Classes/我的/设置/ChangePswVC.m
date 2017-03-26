@@ -1,24 +1,25 @@
 //
-//  AboutUsVC.m
+//  ChangePswVC.m
 //  MulanFarm
 //
-//  Created by zyl on 17/3/22.
+//  Created by zyl on 17/3/25.
 //  Copyright © 2017年 cydf. All rights reserved.
 //
 
-#import "AboutUsVC.h"
+#import "ChangePswVC.h"
 
-@interface AboutUsVC ()
+@interface ChangePswVC ()
 
 @end
 
-@implementation AboutUsVC
+@implementation ChangePswVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.title = @"密码修改";
     
-    self.title = @"关于我们";
 }
 
 - (void)didReceiveMemoryWarning {

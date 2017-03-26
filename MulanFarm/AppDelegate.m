@@ -99,7 +99,6 @@
     
     //第二步：获取该控制器的Identifier并赋给你的单独控制器
     LoginVC *loginVC = [story instantiateViewControllerWithIdentifier:@"LoginController"];
-    
     [loginVC setButtonBlock:^(){
         //进入应用主界面
         self.window.rootViewController = [self setTabBarController];

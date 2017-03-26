@@ -10,4 +10,7 @@
 
 @interface GuideVC : BaseVC
 
+@property (weak, nonatomic) IBOutlet UITableView *guideTableView;
+
+
 @end

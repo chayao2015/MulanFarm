@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *signBtn;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
+- (IBAction)bellAction:(id)sender;
+
 - (IBAction)signAction:(id)sender;
 
 

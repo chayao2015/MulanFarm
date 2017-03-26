@@ -24,6 +24,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.checkBtn.layer.borderWidth = 1;
+    self.checkBtn.layer.borderColor = AppThemeColor.CGColor;
+    self.checkBtn.layer.cornerRadius = 3;
+    [self.checkBtn.layer setMasksToBounds:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,12 +38,12 @@
 - (IBAction)loginAction:(id)sender {
     //cliveyuan@foxmail.com 1234567
     
-    if ([Utils isBlankString:_accountTF]) {
+    if ([Utils isBlankString:_accountTF.text]) {
         [Utils showToast:@"请输入用户名"];
         return;
     }
     
-    if ([Utils isBlankString:_pswTF]) {
+    if ([Utils isBlankString:_pswTF.text]) {
         [Utils showToast:@"请输入密码"];
         return;
     }
@@ -77,6 +81,11 @@
 - (IBAction)checkProtocalAction:(id)sender {
     UIButton *btn = (UIButton *)sender;
     btn.selected = !btn.selected;
+    if (btn.isSelected) {
+        self.checkBtn.layer.borderColor = AppThemeColor.CGColor;
+    } else {
+        self.checkBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    }
 }
 
 @end

@@ -13,7 +13,7 @@
 #import "MyWalletVC.h"
 #import "AboutUsVC.h"
 #import "SetVC.h"
-#import "RecordCenterVC.h"
+#import "NoteCenterVC.h"
 
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -60,8 +60,6 @@
     
     [self setNavBar];
     
-    self.myTableView.delegate = self;
-    self.myTableView.dataSource = self;
 }
 
 - (void)setNavBar {
@@ -80,9 +78,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+//消息列表
+- (IBAction)bellAction:(id)sender {
+    BellListVC *vc = [[BellListVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 //签到
 - (IBAction)signAction:(id)sender {
-    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"签到成功"];
@@ -174,6 +179,7 @@
     }
     
     cell.imageView.image = [UIImage imageNamed:imgArr[indexPath.row]];
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.text = dataArr[indexPath.row];
     
     return cell;
@@ -204,7 +210,9 @@
     }
     
     if ([title isEqualToString:@"笔记中心"]) {
-        RecordCenterVC *vc = [[RecordCenterVC alloc] init];
+        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NoteCenterVC *vc = [story instantiateViewControllerWithIdentifier:@"NoteCenter"];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

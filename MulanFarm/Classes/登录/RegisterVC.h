@@ -10,4 +10,16 @@
 
 @interface RegisterVC : BaseVC
 
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
+@property (weak, nonatomic) IBOutlet UITextField *codeTF;
+@property (weak, nonatomic) IBOutlet UITextField *pswTF;
+@property (weak, nonatomic) IBOutlet UIButton *codeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+
+- (IBAction)getCodeAction:(id)sender;
+
+- (IBAction)clickProtocalAction:(id)sender;
+
+- (IBAction)registerAction:(id)sender;
+
 @end
