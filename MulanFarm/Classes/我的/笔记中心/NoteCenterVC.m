@@ -54,6 +54,10 @@
     static NSString *ID = @"NoteCell";
     
     NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    NoteInfo *info = _dataArr[indexPath.row];
+    
+    cell.info = info;
         
     return cell;
 }

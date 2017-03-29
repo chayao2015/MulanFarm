@@ -36,5 +36,6 @@
 #define URL_SaveNote @"note.php?m=save" //保存笔记
 #define URL_NoteList @"note.php?m=list" //笔记列表
 #define URL_ArticleList @"article.php?m=list" //文章列表
+#define URL_ArchiveList @"archive.php?m=list" //档案列表
 
 #endif /* ServerUrl_h */

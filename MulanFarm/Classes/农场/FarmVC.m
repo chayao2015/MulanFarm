@@ -92,7 +92,8 @@
     }
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         _titleTF.text, @"content",
+                         _titleTF.text, @"title",
+                         _contentTF.text,@"content",
                          nil];
     [[NetworkManager sharedManager] postJSON:URL_SaveNote parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
         

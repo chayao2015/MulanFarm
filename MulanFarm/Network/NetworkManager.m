@@ -11,6 +11,8 @@
 #import "NetworkUtil.h"
 #import "Utils.h"
 #import "NSDictionary+DeleteNULL.h"
+#import "BaseNC.h"
+#import "LoginVC.h"
 
 #define TIMEOUT 20;
 
@@ -36,6 +38,13 @@ static NetworkManager *_manager = nil;
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
     [self POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSLog(@"状态码：%ld",(long)response.statusCode);
+        if([self isTokenInvalid:(int)response.statusCode]) {
+            return;
+        }
+        
         id _Nullable object = [NSDictionary changeType:responseObject];
         NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
         
@@ -48,6 +57,13 @@ static NetworkManager *_manager = nil;
             [Utils showToast:object[@"msg"]];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSLog(@"状态码：%ld",(long)response.statusCode);
+        if([self isTokenInvalid:(int)response.statusCode]) {
+            return;
+        }
+        
         completion(nil,Request_TimeoOut,error);
         NSLog(@"参数%@%@\n%@请求失败信息：%@错误码：%ld",urlStr,parameters,name,[error localizedDescription],(long)[error code]);
         [Utils showToast:@"请求超时"];
@@ -64,6 +80,13 @@ static NetworkManager *_manager = nil;
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
     [self GET:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSLog(@"状态码：%ld",(long)response.statusCode);
+        if([self isTokenInvalid:(int)response.statusCode]) {
+            return;
+        }
+        
         id _Nullable object = [NSDictionary changeType:responseObject];
         if ([object[@"result"] isEqualToString:@"true"]) { //成功
             id _Nullable dataObject = object[@"data"];
@@ -78,6 +101,13 @@ static NetworkManager *_manager = nil;
         }
         NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSLog(@"状态码：%ld",(long)response.statusCode);
+        if([self isTokenInvalid:(int)response.statusCode]) {
+            return;
+        }
+        
         completion(nil,Request_TimeoOut,error);
         NSLog(@"参数%@%@\n%@请求失败信息：%@",urlStr,parameters,name,[error localizedDescription]);
         [Utils showToast:@"请求超时"];
@@ -95,6 +125,7 @@ static NetworkManager *_manager = nil;
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
     [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
         if (imgDataArr.count > 0) {
             //在网络开发中，上传文件时，是文件不允许被覆盖，文件重名。要解决此问题，可以在上传时使用当前的系统事件作为文件名
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -109,6 +140,13 @@ static NetworkManager *_manager = nil;
             }
         }
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSLog(@"状态码：%ld",(long)response.statusCode);
+        if([self isTokenInvalid:(int)response.statusCode]) {
+            return;
+        }
+        
         id _Nullable object = [NSDictionary changeType:responseObject];
         NSLog(@"参数%@%@\n%@返回结果：%@",urlStr,parameters,name,object);
         
@@ -121,6 +159,13 @@ static NetworkManager *_manager = nil;
             [Utils showToast:object[@"msg"]];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSLog(@"状态码：%ld",(long)response.statusCode);
+        if([self isTokenInvalid:(int)response.statusCode]) {
+            return;
+        }
+        
         completion(nil,Request_TimeoOut,error);
         NSLog(@"参数%@%@\n%@请求失败信息：%@错误码：%ld",urlStr,parameters,name,[error localizedDescription],(long)[error code]);
         [Utils showToast:@"请求超时"];
@@ -143,6 +188,54 @@ static NetworkManager *_manager = nil;
         NSLog(@"access_token值：%@",[UserInfo share].access_token);
         [self.requestSerializer setValue:[UserInfo share].access_token forHTTPHeaderField:@"accesstoken"];
     }
+}
+
+//token失效判断
+- (BOOL)isTokenInvalid:(int)statusCode {
+    if (statusCode==403) { //token失效或者账号在其它地方登录
+        
+        [Utils showToast:@"登录失效，请重新登录"];
+        
+        [[UserInfo share] setUserInfo:nil]; //清除用户信息
+        
+        //跳转到登录页作为根视图
+        BaseNC *nc = [[BaseNC alloc] initWithRootViewController:[self setLoginController]];
+        [UIApplication sharedApplication].keyWindow.rootViewController = nc;
+        
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+#pragma mark - 主页
+
+- (UITabBarController *)setTabBarController {
+    
+    //第一步：要获取单独控制器所在的UIStoryboard
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //第二步：获取该控制器的Identifier并赋给你的单独控制器
+    UITabBarController *tabBarController = [story instantiateViewControllerWithIdentifier:@"tabBarController"];
+    
+    return tabBarController;
+}
+
+#pragma mark - 登录页
+
+- (UIViewController *)setLoginController {
+    //第一步：要获取单独控制器所在的UIStoryboard
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //第二步：获取该控制器的Identifier并赋给你的单独控制器
+    LoginVC *loginVC = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+    
+    [loginVC setButtonBlock:^(){
+        //进入应用主界面
+        [UIApplication sharedApplication].keyWindow.rootViewController = [self setTabBarController];
+    }];
+    
+    return loginVC;
 }
 
 @end

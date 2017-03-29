@@ -23,8 +23,11 @@
 		2064007E1E86B50B0060560E /* Articleinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2064007D1E86B50B0060560E /* Articleinfo.m */; };
 		206400831E86BAAF0060560E /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400801E86BAAF0060560E /* BaseWebVC.m */; };
 		206400841E86BAAF0060560E /* WKDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400821E86BAAF0060560E /* WKDelegateController.m */; };
+		2094FAFE1E8AA178004715C7 /* ArchiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094FAFD1E8AA178004715C7 /* ArchiveInfo.m */; };
+		2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
 		20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F28F2A1E80065200D8E218 /* GuidePageVC.m */; };
+		20FC28C51E8C0C0400A0412E /* HZBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC28C41E8C0C0400A0412E /* HZBPickerView.m */; };
 		20FD286E1E711227008B7C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD286D1E711227008B7C5B /* main.m */; };
 		20FD28711E711227008B7C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD28701E711227008B7C5B /* AppDelegate.m */; };
 		20FD28741E711227008B7C5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD28731E711227008B7C5B /* ViewController.m */; };
@@ -144,10 +147,16 @@
 		206400801E86BAAF0060560E /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
 		206400811E86BAAF0060560E /* WKDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKDelegateController.h; sourceTree = "<group>"; };
 		206400821E86BAAF0060560E /* WKDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKDelegateController.m; sourceTree = "<group>"; };
+		2094FAFC1E8AA178004715C7 /* ArchiveInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveInfo.h; sourceTree = "<group>"; };
+		2094FAFD1E8AA178004715C7 /* ArchiveInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveInfo.m; sourceTree = "<group>"; };
+		2094FAFF1E8AA3B5004715C7 /* RecordDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailVC.h; sourceTree = "<group>"; };
+		2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailVC.m; sourceTree = "<group>"; };
 		20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		20F28F291E80065200D8E218 /* GuidePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageVC.h; sourceTree = "<group>"; };
 		20F28F2A1E80065200D8E218 /* GuidePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageVC.m; sourceTree = "<group>"; };
+		20FC28C31E8C0C0400A0412E /* HZBPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZBPickerView.h; sourceTree = "<group>"; };
+		20FC28C41E8C0C0400A0412E /* HZBPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZBPickerView.m; sourceTree = "<group>"; };
 		20FD28691E711227008B7C5B /* MulanFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MulanFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FD286D1E711227008B7C5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		20FD286F1E711227008B7C5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -344,6 +353,15 @@
 			path = "导航";
 			sourceTree = "<group>";
 		};
+		20FC28C21E8C0C0300A0412E /* HZBPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				20FC28C31E8C0C0400A0412E /* HZBPickerView.h */,
+				20FC28C41E8C0C0400A0412E /* HZBPickerView.m */,
+			);
+			path = HZBPickerView;
+			sourceTree = "<group>";
+		};
 		20FD28601E711227008B7C5B = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +510,8 @@
 				2064006C1E867F4A0060560E /* NoteInfo.m */,
 				2064007C1E86B50B0060560E /* Articleinfo.h */,
 				2064007D1E86B50B0060560E /* Articleinfo.m */,
+				2094FAFC1E8AA178004715C7 /* ArchiveInfo.h */,
+				2094FAFD1E8AA178004715C7 /* ArchiveInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -519,6 +539,7 @@
 			children = (
 				20FD28DC1E711706008B7C5B /* AEFilePath.h */,
 				20FD28DD1E711706008B7C5B /* AEFilePath.m */,
+				20FC28C21E8C0C0300A0412E /* HZBPickerView */,
 				20FD28DE1E711706008B7C5B /* AlterView(弹框) */,
 				20FD28E71E711706008B7C5B /* CounterAnimation(计数动画) */,
 				20FD28F11E711706008B7C5B /* CoverFlow(经典分页展示) */,
@@ -720,6 +741,8 @@
 			children = (
 				20FD297B1E711955008B7C5B /* RecordVC.h */,
 				20FD297C1E711955008B7C5B /* RecordVC.m */,
+				2094FAFF1E8AA3B5004715C7 /* RecordDetailVC.h */,
+				2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */,
 			);
 			path = "档案";
 			sourceTree = "<group>";
@@ -986,6 +1009,7 @@
 				20FD29641E711706008B7C5B /* OptionsBarView.m in Sources */,
 				20FD29561E711706008B7C5B /* AEEmitterButton.m in Sources */,
 				20FD28711E711227008B7C5B /* AppDelegate.m in Sources */,
+				20FC28C51E8C0C0400A0412E /* HZBPickerView.m in Sources */,
 				20FD29531E711706008B7C5B /* NewPagedFlowView.m in Sources */,
 				20FD29591E711706008B7C5B /* ImageViewer.m in Sources */,
 				20FD29801E711992008B7C5B /* GuideVC.m in Sources */,
@@ -995,11 +1019,13 @@
 				20FD297D1E711955008B7C5B /* RecordVC.m in Sources */,
 				2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */,
 				206400781E86A33B0060560E /* AboutUsVC.m in Sources */,
+				2094FAFE1E8AA178004715C7 /* ArchiveInfo.m in Sources */,
 				20FD29611E711706008B7C5B /* BottomLineView.m in Sources */,
 				20FD293F1E711706008B7C5B /* LoginVC.m in Sources */,
 				20FD296D1E711706008B7C5B /* AEButton.m in Sources */,
 				206400711E8692FA0060560E /* SetVC.m in Sources */,
 				20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */,
+				2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */,
 				20FD29501E711706008B7C5B /* PPCounterEngine.m in Sources */,
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
 				20FD29511E711706008B7C5B /* UIButton+PPCounter.m in Sources */,
