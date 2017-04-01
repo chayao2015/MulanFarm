@@ -69,6 +69,8 @@
             
             [[UserInfo share] setUserInfo:responseData];
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccNotification object:nil];
+            
             if (self.buttonBlock) {
                 self.buttonBlock();
             }

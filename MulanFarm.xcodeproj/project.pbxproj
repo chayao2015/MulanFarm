@@ -14,6 +14,7 @@
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
 		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
+		205563971E8D33A90088F0DE /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 205563961E8D33A80088F0DE /* Address.plist */; };
 		206400651E867E1B0060560E /* NoteCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400641E867E1B0060560E /* NoteCenterVC.m */; };
 		206400691E867EB60060560E /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400671E867EB60060560E /* NoteCell.m */; };
 		2064006D1E867F4A0060560E /* NoteInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2064006C1E867F4A0060560E /* NoteInfo.m */; };
@@ -129,6 +130,7 @@
 		2054DC5C1E817592004DFC27 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
 		2054DC5E1E8175AA004DFC27 /* ForgetPswVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPswVC.h; sourceTree = "<group>"; };
 		2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPswVC.m; sourceTree = "<group>"; };
+		205563961E8D33A80088F0DE /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
 		206400631E867E1B0060560E /* NoteCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCenterVC.h; sourceTree = "<group>"; };
 		206400641E867E1B0060560E /* NoteCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCenterVC.m; sourceTree = "<group>"; };
 		206400661E867EB60060560E /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		20FD286C1E711227008B7C5B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				205563961E8D33A80088F0DE /* Address.plist */,
 				20FD287D1E711227008B7C5B /* Info.plist */,
 				20FD28751E711227008B7C5B /* Main.storyboard */,
 				20FD287A1E711227008B7C5B /* LaunchScreen.storyboard */,
@@ -914,6 +917,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205563971E8D33A90088F0DE /* Address.plist in Resources */,
 				20FD29571E711706008B7C5B /* Sparkle.png in Resources */,
 				20FD29691E711706008B7C5B /* star_full@2x.png in Resources */,
 				20FD29661E711706008B7C5B /* sline_@3x.png in Resources */,

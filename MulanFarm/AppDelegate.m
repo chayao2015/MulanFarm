@@ -9,10 +9,6 @@
 #import "AppDelegate.h"
 #import "GuidePageVC.h"
 #import "LoginVC.h"
-#import "FarmVC.h"
-#import "RecordVC.h"
-#import "GuideVC.h"
-#import "MineVC.h"
 #import <IQKeyboardManager.h>
 #import "NetworkUtil.h"
 #import "AEFilePath.h"

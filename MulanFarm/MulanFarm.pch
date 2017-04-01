@@ -33,6 +33,12 @@
 
 #define kCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
+/******************************通知****************************/
+
+#define kLoginSuccNotification  @"kLoginSuccNotification"
+#define kLogoutSuccNotification  @"kLogoutSuccNotification"
+#define kUpdateInfoSuccNotification  @"kUpdateInfoSuccNotification"
+
 /*****************************屏幕宽高**************************/
 
 #define SCREEN_BOUNDS [[UIScreen mainScreen] bounds]

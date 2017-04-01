@@ -27,26 +27,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-//    if ([Utils isUserLogin]) {
-//        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-//                             @"啄木鸟", @"nick_name",
-//                             @"0", @"gender",
-//                             @"上海上海市", @"area",
-//                             @"浦东新区金海路2100号", @"address",
-//                             @"无个性,不签名", @"signature",
-//                             nil];
-//        [[NetworkManager sharedManager] postJSON:URL_UpdateUserInfo parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
-//            
-//            if (status == Request_Success) {
-//                [Utils showToast:@"修改信息成功"];
-//                
-//                //[[UserInfo share] setUserInfo:responseData];
-//            } else {
-//                [Utils showToast:@"修改信息失败"];
-//            }
-//        }];
-//    }
-    
 }
 
 - (void)viewDidLoad {
@@ -59,6 +39,12 @@
     dataArr = @[@"我的钱包",@"关于我们",@"设置",@"笔记中心"];
     
     [self setNavBar];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInfoSucc) name:kUpdateInfoSuccNotification object:nil]; //更新信息成功
+}
+
+//更新信息成功
+- (void)updateInfoSucc {
     
 }
 
