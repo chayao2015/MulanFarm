@@ -55,7 +55,7 @@
     header.backgroundColor = [UIColor clearColor];
     
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 15, WIDTH, 150)];
-    bgView.backgroundColor = AEColor(112, 195, 8, 1);
+    bgView.backgroundColor = AppThemeColor;
     [header addSubview:bgView];
     
     UIImageView *headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(WIDTH/2-30, 30, 60, 60)];
@@ -108,6 +108,14 @@
     
     if ([title isEqualToString:@"关于木兰农场"]) {
         
+        NSDictionary *dic = [NSDictionary dictionary];
+        [[NetworkManager sharedManager] postJSON:URL_AboutUs parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+            
+            if (status == Request_Success) {
+                
+                [BaseWebVC showWithContro:self withUrlStr:responseData withTitle:@"关于木兰农场" isPresent:NO];
+            }
+        }];
     }
     
     if ([title isEqualToString:@"用户协议"]) {

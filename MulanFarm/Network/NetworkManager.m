@@ -37,7 +37,11 @@ static NetworkManager *_manager = nil;
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
+    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    
     [self POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [JHHJView hideLoading]; //结束加载
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         NSLog(@"状态码：%ld",(long)response.statusCode);
@@ -79,7 +83,11 @@ static NetworkManager *_manager = nil;
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
+    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    
     [self GET:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [JHHJView hideLoading]; //结束加载
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         NSLog(@"状态码：%ld",(long)response.statusCode);
@@ -124,6 +132,8 @@ static NetworkManager *_manager = nil;
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
+    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    
     [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         if (imgDataArr.count > 0) {
@@ -140,6 +150,8 @@ static NetworkManager *_manager = nil;
             }
         }
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [JHHJView hideLoading]; //结束加载
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         NSLog(@"状态码：%ld",(long)response.statusCode);

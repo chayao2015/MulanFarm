@@ -22,6 +22,8 @@
 
 #define URL_Login @"user.php?m=login" //登录
 #define URL_Register @"user.php?m=reg" //注册
+#define URL_FindPwd @"user.php?m=findPwd" //找回密码
+#define URL_UpdatePwd @"user.php?m=updatePwd" //修改密码
 #define URL_Logout @"user.php?m=logout" //退出登录
 #define URL_UpdateUserInfo @"user.php?m=updateProfile" //修改信息
 #define URL_Agreement @"appinfo.php?m=agreement" //用户协议
@@ -37,5 +39,6 @@
 #define URL_NoteList @"note.php?m=list" //笔记列表
 #define URL_ArticleList @"article.php?m=list" //文章列表
 #define URL_ArchiveList @"archive.php?m=list" //档案列表
+#define URL_MsgList @"user.php?m=msgList" //消息列表
 
 #endif /* ServerUrl_h */

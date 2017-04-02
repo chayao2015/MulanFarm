@@ -17,6 +17,8 @@
 
 - (IBAction)bellAction:(id)sender;
 
+- (IBAction)clickBellAction:(id)sender;
+
 - (IBAction)signAction:(id)sender;
 
 

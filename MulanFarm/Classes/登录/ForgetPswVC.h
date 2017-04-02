@@ -10,4 +10,13 @@
 
 @interface ForgetPswVC : BaseVC
 
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
+@property (weak, nonatomic) IBOutlet UITextField *codeTF;
+@property (weak, nonatomic) IBOutlet UIButton *codeBtn;
+
+
+- (IBAction)getEmailCode:(id)sender;
+
+- (IBAction)findPswAction:(id)sender;
+
 @end

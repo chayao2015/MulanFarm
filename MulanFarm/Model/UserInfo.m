@@ -23,7 +23,7 @@ static NSUserDefaults *_defaults = nil;
     return _userInfo;
 }
 
-- (void)getUserInfo {
+- (NSDictionary *)getUserInfo {
     
     NSDictionary *userDic = [_defaults objectForKey:@"UserInfo"];
     
@@ -31,6 +31,8 @@ static NSUserDefaults *_defaults = nil;
     if (userDic) {
         [self loadUserDic:userDic];
     }
+    
+    return userDic;
 }
 
 - (void)setUserInfo:(NSDictionary *)userDic {
@@ -43,29 +45,29 @@ static NSUserDefaults *_defaults = nil;
 
 - (void)loadUserDic:(NSDictionary *)userDic {
     
-    self.access_token = userDic[@"access_token"];;
-    self.address = userDic[@"address"];;
-    self.area = userDic[@"area"];;
-    self.avatar = userDic[@"avatar"];;
-    self.create_date = userDic[@"create_date"];;
-    self.email = userDic[@"email"];;
-    self.end_date = userDic[@"end_date"];;
-    self.gender = userDic[@"gender"];;
+    self.access_token = userDic[@"access_token"];
+    self.address = userDic[@"address"];
+    self.area = userDic[@"area"];
+    self.avatar = userDic[@"avatar"];
+    self.create_date = userDic[@"create_date"];
+    self.email = userDic[@"email"];
+    self.end_date = userDic[@"end_date"];
+    self.gender = userDic[@"gender"];
     
-    self.ID = userDic[@"id"];;
-    self.levle = userDic[@"levle"];;
-    self.name = userDic[@"name"];;
-    self.nick_name = userDic[@"nick_name"];;
-    self.open_id = userDic[@"open_id"];;
+    self.ID = userDic[@"id"];
+    self.levle = userDic[@"levle"];
+    self.name = userDic[@"name"];
+    self.nick_name = userDic[@"nick_name"];
+    self.open_id = userDic[@"open_id"];
     
-    self.phone = userDic[@"phone"];;
-    self.qq = userDic[@"qq"];;
-    self.signature = userDic[@"signature"];;
-    self.start_date = userDic[@"start_date"];;
-    self.status = userDic[@"status"];;
+    self.phone = userDic[@"phone"];
+    self.qq = userDic[@"qq"];
+    self.signature = userDic[@"signature"];
+    self.start_date = userDic[@"start_date"];
+    self.status = userDic[@"status"];
     
-    self.user_name = userDic[@"user_name"];;
-    self.user_pwd = userDic[@"user_pwd"];;
+    self.user_name = userDic[@"user_name"];
+    self.user_pwd = userDic[@"user_pwd"];
     self.wechat = userDic[@"wechat"];
 }
 

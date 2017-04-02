@@ -42,7 +42,7 @@
 
 + (UserInfo *)share;
 
-- (void)getUserInfo;
+- (NSDictionary *)getUserInfo;
 
 - (void)setUserInfo:(NSDictionary *)userDic;
 

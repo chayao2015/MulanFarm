@@ -1,37 +1,49 @@
 //
-//  NoteCenterVC.m
+//  BellListVC.m
 //  MulanFarm
 //
 //  Created by zyl on 17/3/22.
 //  Copyright © 2017年 cydf. All rights reserved.
 //
 
-#import "NoteCenterVC.h"
-#import "NoteCell.h"
-#import "NoteDetailVC.h"
+#import "BellListVC.h"
+#import "BellCell.h"
+#import "BellDetailVC.h"
 
-@interface NoteCenterVC ()
+@interface BellListVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *_dataArr;
 }
 @end
 
-@implementation NoteCenterVC
+@implementation BellListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"笔记中心";
+    self.title = @"消息列表";
+    
+    self.bellTableView.delegate = self;
+    self.bellTableView.dataSource = self;
     
     NSDictionary *dic = [NSDictionary dictionary];
-    [[NetworkManager sharedManager] postJSON:URL_NoteList parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_MsgList parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             
-            _dataArr = [NoteInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
+            _dataArr = [BellInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
             
-            [_noteTableView reloadData];
+            BellInfo *info = [[BellInfo alloc] init];
+            info.title = @"erhgiorhot";
+            info.content = @"uhruirgeghir";
+            info.create_date = @"kwinfgorig";
+            [_dataArr addObject:info];
+            [_dataArr addObject:info];
+            
+            NSLog(@"%@",_dataArr);
+            
+            [_bellTableView reloadData];
         }
     }];
 }
@@ -52,14 +64,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"NoteCell";
+    static NSString *ID = @"BellCell";
     
-    NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    BellCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+
+    if(cell == nil)
+    {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"BellCell" owner:nil options:nil] firstObject];
+    }
     
-    NoteInfo *info = _dataArr[indexPath.row];
+    BellInfo *info = _dataArr[indexPath.row];
     
     cell.info = info;
-        
+    
     return cell;
 }
 
@@ -67,9 +84,9 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; //取消选择状态
     
-    NoteInfo *info = _dataArr[indexPath.row];
+    BellInfo *info = _dataArr[indexPath.row];
     
-    NoteDetailVC *vc = [[NoteDetailVC alloc] init];
+    BellDetailVC *vc = [[BellDetailVC alloc] init];
     vc.info = info;
     [self.navigationController pushViewController:vc animated:YES];
 }

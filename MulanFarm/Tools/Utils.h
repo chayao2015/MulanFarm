@@ -21,6 +21,11 @@
 + (void)showToast:(NSString *)message;
 
 /*!
+ *  @brief 验证邮箱
+ */
++ (BOOL)validateEmail:(NSString *)email;
+
+/*!
  *  @brief 判断字符串是否为空
  */
 + (BOOL)isBlankString:(id)string;

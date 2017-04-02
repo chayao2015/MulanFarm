@@ -18,6 +18,8 @@
 
 - (IBAction)getCodeAction:(id)sender;
 
+- (IBAction)checkProtocalAction:(id)sender;
+
 - (IBAction)clickProtocalAction:(id)sender;
 
 - (IBAction)registerAction:(id)sender;

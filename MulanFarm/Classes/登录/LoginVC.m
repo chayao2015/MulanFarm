@@ -43,6 +43,11 @@
         return;
     }
     
+    if (![Utils validateEmail:_accountTF.text]) {
+        [Utils showToast:@"请输入正确的邮箱"];
+        return;
+    }
+    
     if ([Utils isBlankString:_pswTF.text]) {
         [Utils showToast:@"请输入密码"];
         return;

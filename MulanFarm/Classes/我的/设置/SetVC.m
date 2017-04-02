@@ -87,12 +87,8 @@
     }])];
     [alertController addAction:([UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
-        
         NSDictionary *dic = [NSDictionary dictionary];
         [[NetworkManager sharedManager] postJSON:URL_Logout parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
-            
-            [JHHJView hideLoading]; //结束加载
             
             if (status == Request_Success) {
                 
@@ -189,7 +185,12 @@
     NSString *title = _dataList[indexPath.row];
     
     if ([title isEqualToString:@"密码修改"]) {
-        ChangePswVC *vc = [[ChangePswVC alloc] init];
+        
+        //第一步：要获取单独控制器所在的UIStoryboard
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //第二步：获取该控制器的Identifier并赋给你的单独控制器
+        ChangePswVC *vc = [story instantiateViewControllerWithIdentifier:@"ChangePswVC"];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

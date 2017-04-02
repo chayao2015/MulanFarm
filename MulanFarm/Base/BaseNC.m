@@ -20,7 +20,7 @@
     [super viewDidLoad];
 
     // 设置UINavigationBar的样式
-    [[UINavigationBar appearance] setBarTintColor:AEColor(112, 195, 8, 1)];
+    [[UINavigationBar appearance] setBarTintColor:AppThemeColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:

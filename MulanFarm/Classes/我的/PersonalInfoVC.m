@@ -20,6 +20,7 @@
     UIImageView *_headImgView;
     UIButton *_sexBtn;
     UIButton *_areaBtn;
+    UITextField *_detailAddress;
     UITextField *_signTF;
     CGFloat _headHeight;
     UIImagePickerController *_imagePickerC;
@@ -80,7 +81,7 @@
 - (void)initViews{
     
     UIButton *navRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 80, 44)];
-    [navRightBtn setTitle:@"保存" forState:UIControlStateNormal];
+    [navRightBtn setTitle:@"完成" forState:UIControlStateNormal];
     navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [navRightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     navRightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -110,7 +111,7 @@
     lineView1.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
     [topView addSubview:lineView1];
     
-    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, topView.maxY, WIDTH, 200)];
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, topView.maxY, WIDTH, 250)];
     bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomView];
     
@@ -185,48 +186,72 @@
     lineView4.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
     [bottomView addSubview:lineView4];
     
+    //详细地址
+    UILabel *label4 = [[UILabel alloc]initWithFrame:CGRectMake(15, label3.maxY, 80, 50)];
+    label4.text = @"详细地址";
+    label4.font = [UIFont systemFontOfSize:15];
+    [bottomView addSubview:label4];
+    
+    _detailAddress = [[UITextField alloc] initWithFrame:CGRectMake(label1.maxX+10, label3.maxY, WIDTH-(label1.maxX+10)-15, 50)];
+    _detailAddress.font = [UIFont systemFontOfSize:15];
+    _detailAddress.placeholder = @"请输入您的详细地址";
+    _detailAddress.delegate = self;
+    _detailAddress.textColor = [UIColor blackColor];
+    _detailAddress.textAlignment = NSTextAlignmentRight;
+    _detailAddress.text = [UserInfo share].address;
+    [bottomView addSubview:_detailAddress];
+    
+    UIView *lineView5 = [[UIView alloc]initWithFrame:CGRectMake(0, label4.maxY-0.5, WIDTH, .5)];
+    lineView5.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
+    [bottomView addSubview:lineView5];
+    
     //个性签名
-    UILabel *label5 = [[UILabel alloc]initWithFrame:CGRectMake(15, label3.maxY, 80, 50)];
+    UILabel *label5 = [[UILabel alloc]initWithFrame:CGRectMake(15, label4.maxY, 80, 50)];
     label5.text = @"个性签名";
     label5.font = [UIFont systemFontOfSize:15];
     [bottomView addSubview:label5];
     
-    _signTF = [[UITextField alloc] initWithFrame:CGRectMake(label1.maxX+10, label3.maxY, WIDTH-(label1.maxX+10)-15, 50)];
+    _signTF = [[UITextField alloc] initWithFrame:CGRectMake(label1.maxX+10, label4.maxY, WIDTH-(label1.maxX+10)-15, 50)];
     _signTF.font = [UIFont systemFontOfSize:15];
     _signTF.placeholder = @"请选择您的个性签名";
     _signTF.delegate = self;
     _signTF.textColor = [UIColor blackColor];
     _signTF.textAlignment = NSTextAlignmentRight;
+    _signTF.text = [UserInfo share].signature;
     [bottomView addSubview:_signTF];
     
-    UIView *lineView5 = [[UIView alloc]initWithFrame:CGRectMake(0, label5.maxY-0.5, WIDTH, .5)];
-    lineView5.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
-    [bottomView addSubview:lineView5];
+    UIView *lineView6 = [[UIView alloc]initWithFrame:CGRectMake(0, label5.maxY-0.5, WIDTH, .5)];
+    lineView6.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
+    [bottomView addSubview:lineView6];
 }
 
 #pragma mark - 保存修改的信息
 - (void)saveMyInfoData {
     [self.view endEditing:YES];
     
-    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
-    
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          _nickNameTextField.text, @"nick_name",
                          [_sexBtn.titleLabel.text isEqualToString:@"男"]?@"1":@"0", @"gender",
                          _areaBtn.titleLabel.text, @"area",
-                         @"", @"address",
+                         _detailAddress.text, @"address",
                          _signTF.text, @"signature",
                          nil];
     [[NetworkManager sharedManager] postJSON:URL_UpdateUserInfo parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
         
-        [JHHJView hideLoading]; //结束加载
-        
         if (status == Request_Success) {
             [Utils showToast:@"修改信息成功"];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateInfoSuccNotification object:nil];
+            NSMutableDictionary *userDic = [[[UserInfo share] getUserInfo] mutableCopy];
+            [userDic setObject:_nickNameTextField.text forKey:@"nick_name"];
+            [userDic setObject:[_sexBtn.titleLabel.text isEqualToString:@"男"]?@"1":@"0" forKey:@"gender"];
+            [userDic setObject:_areaBtn.titleLabel.text forKey:@"area"];
+            [userDic setObject:_detailAddress.text forKey:@"address"];
+            [userDic setObject:_signTF.text forKey:@"signature"];
+            [[UserInfo share] setUserInfo:userDic];
             
             [self.navigationController popViewControllerAnimated:YES];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateInfoSuccNotification object:nil];
             
         } else {
             [Utils showToast:@"修改信息失败"];
@@ -425,6 +450,11 @@
                 [Utils showToast:@"上传成功"];
                 _headImgView.image = image;
                 NSLog(@"头像路径：%@",responseData);
+                
+                NSMutableDictionary *userDic = [[[UserInfo share] getUserInfo] mutableCopy];
+                [userDic setObject:responseData forKey:@"avatar"];
+                [[UserInfo share] setUserInfo:userDic];
+                
             } else {
                 [Utils showToast:@"上传失败"];
             }

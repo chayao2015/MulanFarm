@@ -250,15 +250,12 @@
     }
     
     if ([title isEqualToString:@"https接口测试"]) {
-        [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
         
         NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"18611541125", @"uname",
                              @"1234567", @"password",
                              nil];
         [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
-            
-            [JHHJView hideLoading]; //结束加载
             
             NSLog(@"%d",status);
             

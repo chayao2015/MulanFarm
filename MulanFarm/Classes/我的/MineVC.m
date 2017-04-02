@@ -8,7 +8,6 @@
 
 #import "MineVC.h"
 #import "BellListVC.h"
-#import "EditInfoVC.h"
 #import "PersonalInfoVC.h"
 #import "MyWalletVC.h"
 #import "AboutUsVC.h"
@@ -17,6 +16,9 @@
 
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource>
 {
+    UIImageView *headImgView;
+    UILabel *nickLab;
+    
     NSArray *imgArr;
     NSArray *dataArr;
 }
@@ -46,6 +48,8 @@
 //更新信息成功
 - (void)updateInfoSucc {
     
+    [headImgView sd_setImageWithURL:[NSURL URLWithString:[UserInfo share].avatar] placeholderImage:[UIImage imageNamed:@"header"]];
+    nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?@"暂无昵称":[UserInfo share].nick_name;
 }
 
 - (void)setNavBar {
@@ -66,28 +70,26 @@
 
 //消息列表
 - (IBAction)bellAction:(id)sender {
-    BellListVC *vc = [[BellListVC alloc] init];
+    
+    
+}
+
+- (IBAction)clickBellAction:(id)sender {
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BellListVC *vc = [story instantiateViewControllerWithIdentifier:@"BellList"];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 //签到
 - (IBAction)signAction:(id)sender {
-    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"签到成功"];
-        } else {
-            [Utils showToast:@"签到失败"];
         }
     }];
-}
-
-//编辑信息
-- (void)editInfoAction {
-    EditInfoVC *vc = [[EditInfoVC alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //个人主页
@@ -109,28 +111,28 @@
     header.backgroundColor = [UIColor clearColor];
     
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 15, WIDTH, 150)];
-    bgView.backgroundColor = AEColor(112, 195, 8, 1);
+    bgView.backgroundColor = AppThemeColor;
     [header addSubview:bgView];
     
-    UIImageView *headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 35, 80, 80)];
-    headImgView.image = [UIImage imageNamed:@"logoIcon"];
+    headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 40, 70, 70)];
+    [headImgView sd_setImageWithURL:[NSURL URLWithString:[UserInfo share].avatar] placeholderImage:[UIImage imageNamed:@"header"]];
     [bgView addSubview:headImgView];
     
-    UILabel *nickLab = [[UILabel alloc] initWithFrame:CGRectMake(headImgView.maxX+5, headImgView.y, 120, 40)];
-    nickLab.text = @"农场大叔特朗普";
-    nickLab.textAlignment = NSTextAlignmentCenter;
+    nickLab = [[UILabel alloc] initWithFrame:CGRectMake(headImgView.maxX+10, headImgView.y, 120, 40)];
+    nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?@"暂无昵称":[UserInfo share].nick_name;
+    nickLab.textAlignment = NSTextAlignmentLeft;
     nickLab.textColor = [UIColor whiteColor];
-    nickLab.font = [UIFont systemFontOfSize:16];
+    nickLab.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:nickLab];
     
-    UIButton *editInfoBtn = [[UIButton alloc] initWithFrame:CGRectMake(nickLab.x, nickLab.maxY, 120, 30)];
+    UIButton *editInfoBtn = [[UIButton alloc] initWithFrame:CGRectMake(nickLab.x-5, nickLab.maxY, 120, 30)];
     [editInfoBtn setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
     [editInfoBtn setTitle:@"编辑资料" forState:UIControlStateNormal];
     [editInfoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     editInfoBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [editInfoBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -35, 0.0, 0.0)];
     [editInfoBtn setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 0.0, 15)];
-    [editInfoBtn addTarget:self action:@selector(editInfoAction) forControlEvents:UIControlEventTouchUpInside];
+    [editInfoBtn addTarget:self action:@selector(myInfoAction) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:editInfoBtn];
     
     UIButton *myInfoBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH-115, 65, 100, 30)];

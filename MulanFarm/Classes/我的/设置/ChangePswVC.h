@@ -10,4 +10,11 @@
 
 @interface ChangePswVC : BaseVC
 
+@property (weak, nonatomic) IBOutlet UITextField *oldPsw;
+@property (weak, nonatomic) IBOutlet UITextField *xinPsw;
+@property (weak, nonatomic) IBOutlet UITextField *confirmNewPsw;
+
+- (IBAction)doneAction:(id)sender;
+
+
 @end

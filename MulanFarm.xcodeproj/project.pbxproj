@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2033C6E51E82CB910007C35C /* MyWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6E41E82CB910007C35C /* MyWalletVC.m */; };
+		2014103C1E910225006A72DE /* BellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2014103B1E910225006A72DE /* BellInfo.m */; };
+		2014103F1E91062E006A72DE /* BellDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2014103E1E91062E006A72DE /* BellDetailVC.m */; };
+		201410461E910BD5006A72DE /* BellCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201410441E910BD5006A72DE /* BellCell.m */; };
+		201410471E910BD5006A72DE /* BellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201410451E910BD5006A72DE /* BellCell.xib */; };
 		2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F01E82CC380007C35C /* PersonalInfoVC.m */; };
-		2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F31E82CC540007C35C /* EditInfoVC.m */; };
-		2033C6F71E82CC6F0007C35C /* BellListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F61E82CC6F0007C35C /* BellListVC.m */; };
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
 		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
@@ -24,6 +25,9 @@
 		2064007E1E86B50B0060560E /* Articleinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2064007D1E86B50B0060560E /* Articleinfo.m */; };
 		206400831E86BAAF0060560E /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400801E86BAAF0060560E /* BaseWebVC.m */; };
 		206400841E86BAAF0060560E /* WKDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400821E86BAAF0060560E /* WKDelegateController.m */; };
+		20846B9F1E90EC5900FDFCAA /* MyWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20846B9B1E90EC5900FDFCAA /* MyWalletVC.m */; };
+		20846BA01E90EC5900FDFCAA /* BellListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20846B9E1E90EC5900FDFCAA /* BellListVC.m */; };
+		20846BA31E90F15300FDFCAA /* NoteDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20846BA21E90F15300FDFCAA /* NoteDetailVC.m */; };
 		2094FAFE1E8AA178004715C7 /* ArchiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094FAFD1E8AA178004715C7 /* ArchiveInfo.m */; };
 		2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
@@ -116,14 +120,15 @@
 
 /* Begin PBXFileReference section */
 		11078472052A7DEAC7557A2A /* libPods-MulanFarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MulanFarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2033C6E31E82CB910007C35C /* MyWalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletVC.h; sourceTree = "<group>"; };
-		2033C6E41E82CB910007C35C /* MyWalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletVC.m; sourceTree = "<group>"; };
+		2014103A1E910225006A72DE /* BellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellInfo.h; sourceTree = "<group>"; };
+		2014103B1E910225006A72DE /* BellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellInfo.m; sourceTree = "<group>"; };
+		2014103D1E91062E006A72DE /* BellDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellDetailVC.h; sourceTree = "<group>"; };
+		2014103E1E91062E006A72DE /* BellDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellDetailVC.m; sourceTree = "<group>"; };
+		201410431E910BD5006A72DE /* BellCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCell.h; sourceTree = "<group>"; };
+		201410441E910BD5006A72DE /* BellCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCell.m; sourceTree = "<group>"; };
+		201410451E910BD5006A72DE /* BellCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BellCell.xib; sourceTree = "<group>"; };
 		2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
 		2033C6F01E82CC380007C35C /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
-		2033C6F21E82CC540007C35C /* EditInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoVC.h; sourceTree = "<group>"; };
-		2033C6F31E82CC540007C35C /* EditInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoVC.m; sourceTree = "<group>"; };
-		2033C6F51E82CC6F0007C35C /* BellListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellListVC.h; sourceTree = "<group>"; };
-		2033C6F61E82CC6F0007C35C /* BellListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellListVC.m; sourceTree = "<group>"; };
 		2054DC581E817462004DFC27 /* ZBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextField.h; sourceTree = "<group>"; };
 		2054DC591E817462004DFC27 /* ZBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextField.m; sourceTree = "<group>"; };
 		2054DC5B1E817592004DFC27 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
@@ -149,6 +154,12 @@
 		206400801E86BAAF0060560E /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
 		206400811E86BAAF0060560E /* WKDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKDelegateController.h; sourceTree = "<group>"; };
 		206400821E86BAAF0060560E /* WKDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKDelegateController.m; sourceTree = "<group>"; };
+		20846B9A1E90EC5900FDFCAA /* MyWalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletVC.h; sourceTree = "<group>"; };
+		20846B9B1E90EC5900FDFCAA /* MyWalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletVC.m; sourceTree = "<group>"; };
+		20846B9D1E90EC5900FDFCAA /* BellListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellListVC.h; sourceTree = "<group>"; };
+		20846B9E1E90EC5900FDFCAA /* BellListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellListVC.m; sourceTree = "<group>"; };
+		20846BA11E90F15300FDFCAA /* NoteDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailVC.h; sourceTree = "<group>"; };
+		20846BA21E90F15300FDFCAA /* NoteDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailVC.m; sourceTree = "<group>"; };
 		2094FAFC1E8AA178004715C7 /* ArchiveInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveInfo.h; sourceTree = "<group>"; };
 		2094FAFD1E8AA178004715C7 /* ArchiveInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveInfo.m; sourceTree = "<group>"; };
 		2094FAFF1E8AA3B5004715C7 /* RecordDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailVC.h; sourceTree = "<group>"; };
@@ -320,6 +331,8 @@
 			children = (
 				206400631E867E1B0060560E /* NoteCenterVC.h */,
 				206400641E867E1B0060560E /* NoteCenterVC.m */,
+				20846BA11E90F15300FDFCAA /* NoteDetailVC.h */,
+				20846BA21E90F15300FDFCAA /* NoteDetailVC.m */,
 				206400661E867EB60060560E /* NoteCell.h */,
 				206400671E867EB60060560E /* NoteCell.m */,
 			);
@@ -344,6 +357,29 @@
 				206400771E86A33B0060560E /* AboutUsVC.m */,
 			);
 			path = "关于我们";
+			sourceTree = "<group>";
+		};
+		20846B991E90EC5900FDFCAA /* 钱包 */ = {
+			isa = PBXGroup;
+			children = (
+				20846B9A1E90EC5900FDFCAA /* MyWalletVC.h */,
+				20846B9B1E90EC5900FDFCAA /* MyWalletVC.m */,
+			);
+			path = "钱包";
+			sourceTree = "<group>";
+		};
+		20846B9C1E90EC5900FDFCAA /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				20846B9D1E90EC5900FDFCAA /* BellListVC.h */,
+				20846B9E1E90EC5900FDFCAA /* BellListVC.m */,
+				201410431E910BD5006A72DE /* BellCell.h */,
+				201410441E910BD5006A72DE /* BellCell.m */,
+				201410451E910BD5006A72DE /* BellCell.xib */,
+				2014103D1E91062E006A72DE /* BellDetailVC.h */,
+				2014103E1E91062E006A72DE /* BellDetailVC.m */,
+			);
+			path = "消息";
 			sourceTree = "<group>";
 		};
 		20F28F281E80063A00D8E218 /* 导航 */ = {
@@ -511,6 +547,8 @@
 				20FD29821E711A7C008B7C5B /* UserInfo.m */,
 				2064006B1E867F4A0060560E /* NoteInfo.h */,
 				2064006C1E867F4A0060560E /* NoteInfo.m */,
+				2014103A1E910225006A72DE /* BellInfo.h */,
+				2014103B1E910225006A72DE /* BellInfo.m */,
 				2064007C1E86B50B0060560E /* Articleinfo.h */,
 				2064007D1E86B50B0060560E /* Articleinfo.m */,
 				2094FAFC1E8AA178004715C7 /* ArchiveInfo.h */,
@@ -540,6 +578,10 @@
 		20FD28DB1E711706008B7C5B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				20FD29311E711706008B7C5B /* Utils.h */,
+				20FD29321E711706008B7C5B /* Utils.m */,
+				2054DC581E817462004DFC27 /* ZBTextField.h */,
+				2054DC591E817462004DFC27 /* ZBTextField.m */,
 				20FD28DC1E711706008B7C5B /* AEFilePath.h */,
 				20FD28DD1E711706008B7C5B /* AEFilePath.m */,
 				20FC28C21E8C0C0300A0412E /* HZBPickerView */,
@@ -556,10 +598,6 @@
 				20FD291F1E711706008B7C5B /* StarRating(星星评级) */,
 				20FD29271E711706008B7C5B /* Toast(仿安卓消息提示) */,
 				20FD292A1E711706008B7C5B /* UIWidgets(UI控件) */,
-				20FD29311E711706008B7C5B /* Utils.h */,
-				20FD29321E711706008B7C5B /* Utils.m */,
-				2054DC581E817462004DFC27 /* ZBTextField.h */,
-				2054DC591E817462004DFC27 /* ZBTextField.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -771,19 +809,15 @@
 		20FD29741E711907008B7C5B /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				20FD29751E711907008B7C5B /* MineVC.h */,
+				20FD29761E711907008B7C5B /* MineVC.m */,
+				2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */,
+				2033C6F01E82CC380007C35C /* PersonalInfoVC.m */,
+				20846B991E90EC5900FDFCAA /* 钱包 */,
+				20846B9C1E90EC5900FDFCAA /* 消息 */,
 				206400751E86A33B0060560E /* 关于我们 */,
 				2064006E1E8692FA0060560E /* 设置 */,
 				206400621E867E1B0060560E /* 笔记中心 */,
-				20FD29751E711907008B7C5B /* MineVC.h */,
-				20FD29761E711907008B7C5B /* MineVC.m */,
-				2033C6E31E82CB910007C35C /* MyWalletVC.h */,
-				2033C6E41E82CB910007C35C /* MyWalletVC.m */,
-				2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */,
-				2033C6F01E82CC380007C35C /* PersonalInfoVC.m */,
-				2033C6F21E82CC540007C35C /* EditInfoVC.h */,
-				2033C6F31E82CC540007C35C /* EditInfoVC.m */,
-				2033C6F51E82CC6F0007C35C /* BellListVC.h */,
-				2033C6F61E82CC6F0007C35C /* BellListVC.m */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -921,6 +955,7 @@
 				20FD29571E711706008B7C5B /* Sparkle.png in Resources */,
 				20FD29691E711706008B7C5B /* star_full@2x.png in Resources */,
 				20FD29661E711706008B7C5B /* sline_@3x.png in Resources */,
+				201410471E910BD5006A72DE /* BellCell.xib in Resources */,
 				20FD29651E711706008B7C5B /* sline_@2x.png in Resources */,
 				20FD296A1E711706008B7C5B /* star_full@3x.png in Resources */,
 				20FD29671E711706008B7C5B /* star_empty@2x.png in Resources */,
@@ -1012,16 +1047,17 @@
 				20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */,
 				20FD29641E711706008B7C5B /* OptionsBarView.m in Sources */,
 				20FD29561E711706008B7C5B /* AEEmitterButton.m in Sources */,
+				2014103C1E910225006A72DE /* BellInfo.m in Sources */,
 				20FD28711E711227008B7C5B /* AppDelegate.m in Sources */,
 				20FC28C51E8C0C0400A0412E /* HZBPickerView.m in Sources */,
 				20FD29531E711706008B7C5B /* NewPagedFlowView.m in Sources */,
 				20FD29591E711706008B7C5B /* ImageViewer.m in Sources */,
 				20FD29801E711992008B7C5B /* GuideVC.m in Sources */,
 				20FD293C1E711706008B7C5B /* UIView+Extension.m in Sources */,
+				2014103F1E91062E006A72DE /* BellDetailVC.m in Sources */,
 				206400841E86BAAF0060560E /* WKDelegateController.m in Sources */,
 				20FD286E1E711227008B7C5B /* main.m in Sources */,
 				20FD297D1E711955008B7C5B /* RecordVC.m in Sources */,
-				2033C6F41E82CC540007C35C /* EditInfoVC.m in Sources */,
 				206400781E86A33B0060560E /* AboutUsVC.m in Sources */,
 				2094FAFE1E8AA178004715C7 /* ArchiveInfo.m in Sources */,
 				20FD29611E711706008B7C5B /* BottomLineView.m in Sources */,
@@ -1032,6 +1068,7 @@
 				2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */,
 				20FD29501E711706008B7C5B /* PPCounterEngine.m in Sources */,
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
+				20846BA01E90EC5900FDFCAA /* BellListVC.m in Sources */,
 				20FD29511E711706008B7C5B /* UIButton+PPCounter.m in Sources */,
 				20FD295E1E711706008B7C5B /* JHHJAnimation.m in Sources */,
 				206400741E86931D0060560E /* ChangePswVC.m in Sources */,
@@ -1040,7 +1077,6 @@
 				20FD29521E711706008B7C5B /* UILabel+PPCounter.m in Sources */,
 				20FD29631E711706008B7C5B /* OptionsBarItem.m in Sources */,
 				20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */,
-				2033C6E51E82CB910007C35C /* MyWalletVC.m in Sources */,
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
 				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
 				206400651E867E1B0060560E /* NoteCenterVC.m in Sources */,
@@ -1048,6 +1084,7 @@
 				20FD29621E711706008B7C5B /* OptionBarController.m in Sources */,
 				20FD29581E711706008B7C5B /* AEFlowLayoutView.m in Sources */,
 				20FD29391E711706008B7C5B /* UITabBar+BadgeValue.m in Sources */,
+				20846BA31E90F15300FDFCAA /* NoteDetailVC.m in Sources */,
 				20FD29541E711706008B7C5B /* PGIndexBannerSubiew.m in Sources */,
 				20FD29341E711706008B7C5B /* BaseVC.m in Sources */,
 				20FD293A1E711706008B7C5B /* UITabBar+RedPoint.m in Sources */,
@@ -1055,10 +1092,11 @@
 				20FD29351E711706008B7C5B /* NSDictionary+DeleteNULL.m in Sources */,
 				20FD294F1E711706008B7C5B /* PPCounterConst.m in Sources */,
 				20FD29371E711706008B7C5B /* UIImage+Color.m in Sources */,
+				201410461E910BD5006A72DE /* BellCell.m in Sources */,
 				2064006D1E867F4A0060560E /* NoteInfo.m in Sources */,
 				20FD29331E711706008B7C5B /* BaseNC.m in Sources */,
 				20FD293B1E711706008B7C5B /* UIView+Animation.m in Sources */,
-				2033C6F71E82CC6F0007C35C /* BellListVC.m in Sources */,
+				20846B9F1E90EC5900FDFCAA /* MyWalletVC.m in Sources */,
 				2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */,
 				2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */,
 				20FD29701E711706008B7C5B /* Utils.m in Sources */,

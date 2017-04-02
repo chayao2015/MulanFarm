@@ -53,6 +53,8 @@
 
 //消息中心
 - (IBAction)addCameraBtn:(id)sender {
+    
+    
 }
 
 - (IBAction)bellAction:(id)sender {
@@ -63,12 +65,10 @@
 
 //签到
 - (IBAction)signAction:(id)sender {
-    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"签到成功"];
-        } else {
-            [Utils showToast:@"签到失败"];
         }
     }];
 }
@@ -81,7 +81,7 @@
 - (IBAction)clearNoteAction:(id)sender {
     
     _titleTF.text = nil;
-    _contentTF.text = nil;
+    _contentTF.text = @"输入内容";
 }
 
 - (IBAction)saveNoteAction:(id)sender {
@@ -99,6 +99,8 @@
         
         if (status == Request_Success) {
             [Utils showToast:@"保存成功"];
+            
+            [JHHJView hideLoading]; //结束加载
             
             _titleTF.text = nil;
             _contentTF.text = nil;
