@@ -180,7 +180,9 @@
     NSString *title = dataArr[indexPath.row];
     
     if ([title isEqualToString:@"我的钱包"]) {
-        MyWalletVC *vc = [[MyWalletVC alloc] init];
+        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MyWalletVC *vc = [story instantiateViewControllerWithIdentifier:@"MyWallet"];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

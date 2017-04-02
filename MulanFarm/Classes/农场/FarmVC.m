@@ -7,6 +7,7 @@
 //
 
 #import "FarmVC.h"
+#import "BellListVC.h"
 #import "ViewController.h"
 
 @interface FarmVC ()
@@ -51,16 +52,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-//消息中心
+//添加摄像头
 - (IBAction)addCameraBtn:(id)sender {
     
     
 }
 
+//消息中心
 - (IBAction)bellAction:(id)sender {
-    ViewController *testVC = [[ViewController alloc] init];
-    testVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:testVC animated:YES];
+    
+//    ViewController *testVC = [[ViewController alloc] init];
+//    testVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:testVC animated:YES];
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BellListVC *vc = [story instantiateViewControllerWithIdentifier:@"BellList"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //签到
