@@ -55,6 +55,7 @@ typedef void(^RequestCompletion)(id responseData,RequestState status,NSError *er
 - (void)postJSON:(NSString *)name
       parameters:(NSDictionary *)parameters
        imageDataArr:(NSMutableArray *)imgDataArr
+       imageName:(NSString *)imageName
       completion:(RequestCompletion)completion;
 
 

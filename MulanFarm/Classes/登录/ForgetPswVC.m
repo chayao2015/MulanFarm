@@ -128,7 +128,7 @@
                          _emailTF.text, @"email",
                          nil];
     
-    [[NetworkManager sharedManager] postJSON:URL_FindPwd parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_FindPwd parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"验证码已发送到您的邮箱"];

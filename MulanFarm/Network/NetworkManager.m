@@ -126,6 +126,7 @@ static NetworkManager *_manager = nil;
 - (void)postJSON:(NSString *)name
       parameters:(NSDictionary *)parameters
       imageDataArr:(NSMutableArray *)imgDataArr
+       imageName:(NSString *)imageName
       completion:(RequestCompletion)completion {
     
     [self configNetManager];
@@ -145,7 +146,7 @@ static NetworkManager *_manager = nil;
             for (int i = 0; i<imgDataArr.count; i++) {
                 NSData *data = (NSData *)imgDataArr[i];
                 if (data != NULL) {
-                    [formData appendPartWithFileData:data name:@"avatar[]" fileName:[NSString stringWithFormat:@"%@%d.png",fileName,i] mimeType:@"image/png"];
+                    [formData appendPartWithFileData:data name:imageName fileName:[NSString stringWithFormat:@"%@%d.png",fileName,i] mimeType:@"image/png"];
                 }
             }
         }

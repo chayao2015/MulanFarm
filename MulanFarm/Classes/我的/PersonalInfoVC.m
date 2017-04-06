@@ -445,7 +445,7 @@
         NSMutableArray *imgDataArr = [NSMutableArray array];
         [imgDataArr addObject:data];
         
-        [[NetworkManager sharedManager] postJSON:URL_UploadAvatar parameters:nil imageDataArr:imgDataArr completion:^(id responseData, RequestState status, NSError *error) {
+        [[NetworkManager sharedManager] postJSON:URL_UploadAvatar parameters:nil imageDataArr:imgDataArr imageName:@"avatar[]"  completion:^(id responseData, RequestState status, NSError *error) {
             if (status == Request_Success) {
                 [Utils showToast:@"上传成功"];
                 _headImgView.image = image;

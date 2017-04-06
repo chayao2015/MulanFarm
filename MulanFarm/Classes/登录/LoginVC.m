@@ -67,7 +67,7 @@
                          _accountTF.text, @"email",
                          [AESCrypt encrypt:_pswTF.text password:AESSecret], @"user_pwd",
                          nil];
-    [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"登录成功"];

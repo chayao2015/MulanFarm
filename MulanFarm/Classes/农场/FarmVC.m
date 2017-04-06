@@ -103,7 +103,7 @@
                          _titleTF.text, @"title",
                          _contentTF.text,@"content",
                          nil];
-    [[NetworkManager sharedManager] postJSON:URL_SaveNote parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_SaveNote parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"保存成功"];

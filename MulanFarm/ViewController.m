@@ -255,7 +255,7 @@
                              @"18611541125", @"uname",
                              @"1234567", @"password",
                              nil];
-        [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imageDataArr:nil completion:^(id responseData, RequestState status, NSError *error) {
+        [[NetworkManager sharedManager] postJSON:URL_Login parameters:dic imageDataArr:nil imageName:nil  completion:^(id responseData, RequestState status, NSError *error) {
             
             NSLog(@"%d",status);
             
@@ -318,7 +318,7 @@
         NSMutableArray *imgDataArr = [NSMutableArray array];
         [imgDataArr addObject:data];
         
-        [[NetworkManager sharedManager] postJSON:URL_UploadAvatar parameters:nil imageDataArr:imgDataArr completion:^(id responseData, RequestState status, NSError *error) {
+        [[NetworkManager sharedManager] postJSON:URL_UploadAvatar parameters:nil imageDataArr:imgDataArr imageName:@"avatar[]" completion:^(id responseData, RequestState status, NSError *error) {
             if (status == Request_Success) {
                 [Utils showToast:@"上传成功"];
                 NSLog(@"头像路径：%@",responseData);

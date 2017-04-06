@@ -11,6 +11,10 @@
 		2014103F1E91062E006A72DE /* BellDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2014103E1E91062E006A72DE /* BellDetailVC.m */; };
 		201410461E910BD5006A72DE /* BellCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201410441E910BD5006A72DE /* BellCell.m */; };
 		201410471E910BD5006A72DE /* BellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201410451E910BD5006A72DE /* BellCell.xib */; };
+		201A36BF1E9205B4007956CF /* CameraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A36BE1E9205B4007956CF /* CameraInfo.m */; };
+		201A36C21E9206D9007956CF /* CameraListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A36C11E9206D9007956CF /* CameraListVC.m */; };
+		201A36C91E920722007956CF /* CameraListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A36C71E920722007956CF /* CameraListCell.m */; };
+		201A36CA1E920722007956CF /* CameraListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201A36C81E920722007956CF /* CameraListCell.xib */; };
 		2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F01E82CC380007C35C /* PersonalInfoVC.m */; };
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
@@ -31,6 +35,7 @@
 		2094FAFE1E8AA178004715C7 /* ArchiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094FAFD1E8AA178004715C7 /* ArchiveInfo.m */; };
 		2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
+		20CFD2921E91350700BFD07D /* AddCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CFD2911E91350700BFD07D /* AddCameraVC.m */; };
 		20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F28F2A1E80065200D8E218 /* GuidePageVC.m */; };
 		20FC28C51E8C0C0400A0412E /* HZBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC28C41E8C0C0400A0412E /* HZBPickerView.m */; };
 		20FD286E1E711227008B7C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD286D1E711227008B7C5B /* main.m */; };
@@ -127,6 +132,13 @@
 		201410431E910BD5006A72DE /* BellCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCell.h; sourceTree = "<group>"; };
 		201410441E910BD5006A72DE /* BellCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCell.m; sourceTree = "<group>"; };
 		201410451E910BD5006A72DE /* BellCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BellCell.xib; sourceTree = "<group>"; };
+		201A36BD1E9205B4007956CF /* CameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraInfo.h; sourceTree = "<group>"; };
+		201A36BE1E9205B4007956CF /* CameraInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraInfo.m; sourceTree = "<group>"; };
+		201A36C01E9206D9007956CF /* CameraListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraListVC.h; sourceTree = "<group>"; };
+		201A36C11E9206D9007956CF /* CameraListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraListVC.m; sourceTree = "<group>"; };
+		201A36C61E920722007956CF /* CameraListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraListCell.h; sourceTree = "<group>"; };
+		201A36C71E920722007956CF /* CameraListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraListCell.m; sourceTree = "<group>"; };
+		201A36C81E920722007956CF /* CameraListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraListCell.xib; sourceTree = "<group>"; };
 		2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
 		2033C6F01E82CC380007C35C /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
 		2054DC581E817462004DFC27 /* ZBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextField.h; sourceTree = "<group>"; };
@@ -166,6 +178,8 @@
 		2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailVC.m; sourceTree = "<group>"; };
 		20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		20CFD2901E91350700BFD07D /* AddCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCameraVC.h; sourceTree = "<group>"; };
+		20CFD2911E91350700BFD07D /* AddCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCameraVC.m; sourceTree = "<group>"; };
 		20F28F291E80065200D8E218 /* GuidePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageVC.h; sourceTree = "<group>"; };
 		20F28F2A1E80065200D8E218 /* GuidePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageVC.m; sourceTree = "<group>"; };
 		20FC28C31E8C0C0400A0412E /* HZBPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZBPickerView.h; sourceTree = "<group>"; };
@@ -545,6 +559,8 @@
 			children = (
 				20FD29811E711A7C008B7C5B /* UserInfo.h */,
 				20FD29821E711A7C008B7C5B /* UserInfo.m */,
+				201A36BD1E9205B4007956CF /* CameraInfo.h */,
+				201A36BE1E9205B4007956CF /* CameraInfo.m */,
 				2064006B1E867F4A0060560E /* NoteInfo.h */,
 				2064006C1E867F4A0060560E /* NoteInfo.m */,
 				2014103A1E910225006A72DE /* BellInfo.h */,
@@ -793,6 +809,13 @@
 			children = (
 				20FD29781E711929008B7C5B /* FarmVC.h */,
 				20FD29791E711929008B7C5B /* FarmVC.m */,
+				201A36C01E9206D9007956CF /* CameraListVC.h */,
+				201A36C11E9206D9007956CF /* CameraListVC.m */,
+				201A36C61E920722007956CF /* CameraListCell.h */,
+				201A36C71E920722007956CF /* CameraListCell.m */,
+				201A36C81E920722007956CF /* CameraListCell.xib */,
+				20CFD2901E91350700BFD07D /* AddCameraVC.h */,
+				20CFD2911E91350700BFD07D /* AddCameraVC.m */,
 			);
 			path = "农场";
 			sourceTree = "<group>";
@@ -959,6 +982,7 @@
 				20FD29651E711706008B7C5B /* sline_@2x.png in Resources */,
 				20FD296A1E711706008B7C5B /* star_full@3x.png in Resources */,
 				20FD29671E711706008B7C5B /* star_empty@2x.png in Resources */,
+				201A36CA1E920722007956CF /* CameraListCell.xib in Resources */,
 				20FD287C1E711227008B7C5B /* LaunchScreen.storyboard in Resources */,
 				20FD28791E711227008B7C5B /* Assets.xcassets in Resources */,
 				20FD28771E711227008B7C5B /* Main.storyboard in Resources */,
@@ -1042,6 +1066,7 @@
 				206400831E86BAAF0060560E /* BaseWebVC.m in Sources */,
 				20FD296C1E711706008B7C5B /* AEToast.m in Sources */,
 				2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */,
+				201A36C21E9206D9007956CF /* CameraListVC.m in Sources */,
 				2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */,
 				20FD296F1E711706008B7C5B /* AEUIToolbar.m in Sources */,
 				20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */,
@@ -1066,6 +1091,7 @@
 				206400711E8692FA0060560E /* SetVC.m in Sources */,
 				20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */,
 				2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */,
+				201A36BF1E9205B4007956CF /* CameraInfo.m in Sources */,
 				20FD29501E711706008B7C5B /* PPCounterEngine.m in Sources */,
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
 				20846BA01E90EC5900FDFCAA /* BellListVC.m in Sources */,
@@ -1076,6 +1102,7 @@
 				20FD294C1E711706008B7C5B /* AEMoreView.m in Sources */,
 				20FD29521E711706008B7C5B /* UILabel+PPCounter.m in Sources */,
 				20FD29631E711706008B7C5B /* OptionsBarItem.m in Sources */,
+				201A36C91E920722007956CF /* CameraListCell.m in Sources */,
 				20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */,
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
 				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
@@ -1086,6 +1113,7 @@
 				20FD29391E711706008B7C5B /* UITabBar+BadgeValue.m in Sources */,
 				20846BA31E90F15300FDFCAA /* NoteDetailVC.m in Sources */,
 				20FD29541E711706008B7C5B /* PGIndexBannerSubiew.m in Sources */,
+				20CFD2921E91350700BFD07D /* AddCameraVC.m in Sources */,
 				20FD29341E711706008B7C5B /* BaseVC.m in Sources */,
 				20FD293A1E711706008B7C5B /* UITabBar+RedPoint.m in Sources */,
 				20FD29771E711907008B7C5B /* MineVC.m in Sources */,
