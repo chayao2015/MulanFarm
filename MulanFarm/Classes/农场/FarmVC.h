@@ -7,9 +7,11 @@
 //
 
 #import "BaseVC.h"
+#import "OpenGLView.h"
 
 @interface FarmVC : BaseVC
 
+@property (weak, nonatomic) IBOutlet OpenGLView *remoteView; //监控画面
 @property (weak, nonatomic) IBOutlet UIButton *signBtn;
 @property (weak, nonatomic) IBOutlet UILabel *bellCountLab;
 @property (weak, nonatomic) IBOutlet UIButton *bellBtn;

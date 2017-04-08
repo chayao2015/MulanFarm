@@ -35,6 +35,8 @@
     
     _dataArr = [NSMutableArray array];
     
+    self.recordTabView.tableFooterView = [UIView new];
+    
     [self getData];
 }
 
@@ -48,6 +50,22 @@
             [_dataArr removeAllObjects];
             
             _dataArr = [ArchiveInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
+            
+//            ArchiveInfo *info = [[ArchiveInfo alloc] init];
+//            info.ID = @"erhgiorhot";
+//            info.variety = @"uhruirgeghir";
+//            info.adop_time = @"kwinfgorig";
+//            info.name = @"erhgiorhot";
+//            info.age = @"uhruirgeghir";
+//            info.weight = @"kwinfgorig";
+//            info.height = @"kwinfgorig";
+//            info.address = @"erhgiorhot";
+//            info.hobby = @"uhruirgeghir";
+//            info.hate = @"kwinfgorig";
+//            [_dataArr addObject:info];
+//            [_dataArr addObject:info];
+//            
+//            NSLog(@"%@",_dataArr);
             
             [self.recordTabView reloadData];
         }
@@ -81,7 +99,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; //取消选择状态
     
     ArchiveInfo *info = _dataArr[indexPath.row];
-    RecordDetailVC *vc = [[RecordDetailVC alloc] init];
+    RecordDetailVC *vc = (RecordDetailVC *)[Utils GetStordyVC:@"Main" WithStordyID:@"RecordDetailVC"];
     vc.info = info;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

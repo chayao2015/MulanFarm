@@ -7,11 +7,13 @@
 //
 
 #import "BaseVC.h"
+#import "BackProtocol.h"
 
 @interface CameraListVC : BaseVC
 
 @property (weak, nonatomic) IBOutlet UITableView *cameraTableView;
 @property (weak, nonatomic) IBOutlet UIButton *addCameraBtn;
 
+@property (nonatomic, weak)  id<BackProtocol> backDelegate;
 
 @end

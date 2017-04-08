@@ -28,9 +28,20 @@
     }
 }
 
++(UIViewController *)GetStordyVC:(NSString *)name WithStordyID:(NSString *)name1{
+    
+    //第一步：要获取单独控制器所在的UIStoryboard
+    UIStoryboard *story = [UIStoryboard storyboardWithName:name bundle:nil];
+    
+    //第二步：获取该控制器的Identifier并赋给你的单独控制器
+   return  [story instantiateViewControllerWithIdentifier:name1];
+}
+
 //仿安卓消息提示
 + (void)showToast:(NSString *)message {
-    [AEToast showBottomWithText:message bottomOffset:100.0 duration:1.5];
+    if (![Utils isBlankString:message]) {
+        [AEToast showBottomWithText:message bottomOffset:100.0 duration:1.5];
+    }
 }
 
 + (BOOL)validateEmail:(NSString *)email
@@ -40,9 +51,9 @@
     return [emailTest evaluateWithObject:email];
 }
 
-+ (BOOL)isBlankString:(id)string
++ (BOOL)isBlankString:(id)str
 {
-    string = [NSString stringWithFormat:@"%@",string];
+   NSString * string = [NSString stringWithFormat:@"%@",str];
     
     if (string == nil) {
         return YES;
@@ -62,6 +73,9 @@
         return YES;
     }
     if ([string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length==0) {
+        return YES;
+    }
+    if (string.length==0) {
         return YES;
     }
     

@@ -129,7 +129,8 @@
     
     CameraInfo *info = _dataArr[indexPath.row];
     
-    
+    [self.backDelegate backAction:info];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

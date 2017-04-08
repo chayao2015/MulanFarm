@@ -160,4 +160,7 @@
  */
 + (NSString *)getDateAccordingTime:(NSString *)aTime formatStyle:(NSString *)formate;
 
+
++(UIViewController *)GetStordyVC:(NSString *)name WithStordyID:(NSString *)name1;
+
 @end
