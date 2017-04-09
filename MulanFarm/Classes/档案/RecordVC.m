@@ -89,7 +89,9 @@
     ArchiveInfo *info = _dataArr[indexPath.row];
     cell.nameLB.text = info.name;
     cell.ageLB.text = info.age;
-    cell.dateLB.text = info.adop_time;
+    
+    NSString *timeStr = [[info.create_date componentsSeparatedByString:@" "] firstObject];
+    cell.dateLB.text = [NSString stringWithFormat:@"创建日期:%@",timeStr];
     
     return cell;
 }

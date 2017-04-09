@@ -64,6 +64,8 @@
 		20AB365C1E98953D00AC433B /* PAIOUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB36521E98953D00AC433B /* PAIOUnit.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
 		20CB8F3B1E9A03ED007D410C /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB8F3A1E9A03ED007D410C /* SignView.m */; };
+		20CB8F3F1E9A151D007D410C /* DetailesTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB8F3D1E9A151D007D410C /* DetailesTabCell.m */; };
+		20CB8F401E9A151D007D410C /* DetailesTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20CB8F3E1E9A151D007D410C /* DetailesTabCell.xib */; };
 		20CFD2921E91350700BFD07D /* AddCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CFD2911E91350700BFD07D /* AddCameraVC.m */; };
 		20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F28F2A1E80065200D8E218 /* GuidePageVC.m */; };
 		20FC28C51E8C0C0400A0412E /* HZBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC28C41E8C0C0400A0412E /* HZBPickerView.m */; };
@@ -247,6 +249,9 @@
 		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		20CB8F391E9A03ED007D410C /* SignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
 		20CB8F3A1E9A03ED007D410C /* SignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignView.m; sourceTree = "<group>"; };
+		20CB8F3C1E9A151D007D410C /* DetailesTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailesTabCell.h; sourceTree = "<group>"; };
+		20CB8F3D1E9A151D007D410C /* DetailesTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailesTabCell.m; sourceTree = "<group>"; };
+		20CB8F3E1E9A151D007D410C /* DetailesTabCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailesTabCell.xib; sourceTree = "<group>"; };
 		20CFD2901E91350700BFD07D /* AddCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCameraVC.h; sourceTree = "<group>"; };
 		20CFD2911E91350700BFD07D /* AddCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCameraVC.m; sourceTree = "<group>"; };
 		20F28F291E80065200D8E218 /* GuidePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageVC.h; sourceTree = "<group>"; };
@@ -960,6 +965,9 @@
 				20FD297C1E711955008B7C5B /* RecordVC.m */,
 				2094FAFF1E8AA3B5004715C7 /* RecordDetailVC.h */,
 				2094FB001E8AA3B5004715C7 /* RecordDetailVC.m */,
+				20CB8F3C1E9A151D007D410C /* DetailesTabCell.h */,
+				20CB8F3D1E9A151D007D410C /* DetailesTabCell.m */,
+				20CB8F3E1E9A151D007D410C /* DetailesTabCell.xib */,
 			);
 			path = "档案";
 			sourceTree = "<group>";
@@ -1162,6 +1170,7 @@
 				20FD29651E711706008B7C5B /* sline_@2x.png in Resources */,
 				20FD296A1E711706008B7C5B /* star_full@3x.png in Resources */,
 				20FD29671E711706008B7C5B /* star_empty@2x.png in Resources */,
+				20CB8F401E9A151D007D410C /* DetailesTabCell.xib in Resources */,
 				201A36CA1E920722007956CF /* CameraListCell.xib in Resources */,
 				20FD287C1E711227008B7C5B /* LaunchScreen.storyboard in Resources */,
 				20FD28791E711227008B7C5B /* Assets.xcassets in Resources */,
@@ -1261,6 +1270,7 @@
 				20FD29801E711992008B7C5B /* GuideVC.m in Sources */,
 				20AB365A1E98953D00AC433B /* OpenGLView.m in Sources */,
 				20FD293C1E711706008B7C5B /* UIView+Extension.m in Sources */,
+				20CB8F3F1E9A151D007D410C /* DetailesTabCell.m in Sources */,
 				2014103F1E91062E006A72DE /* BellDetailVC.m in Sources */,
 				206400841E86BAAF0060560E /* WKDelegateController.m in Sources */,
 				20AB36551E98953D00AC433B /* Util.m in Sources */,

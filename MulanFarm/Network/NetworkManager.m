@@ -133,7 +133,9 @@ static NetworkManager *_manager = nil;
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",ProductUrl,name];
     
-    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    if (![name isEqualToString:URL_UploadAvatar]) {
+        [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    }
     
     [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         

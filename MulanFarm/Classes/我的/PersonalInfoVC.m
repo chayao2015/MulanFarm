@@ -101,6 +101,8 @@
     
     _headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH-_headHeight-15, 10, _headHeight, _headHeight)];
     [_headImgView sd_setImageWithURL:[NSURL URLWithString:[UserInfo share].avatar] placeholderImage:[UIImage imageNamed:@"header"]];
+    _headImgView.layer.cornerRadius = _headImgView.width/2;
+    [_headImgView.layer setMasksToBounds:YES];
     [topView addSubview:_headImgView];
     
     UIButton *headImageBtn = [[UIButton alloc]initWithFrame:CGRectMake(_headImgView.x, _headImgView.y, _headImgView.width,label.maxY-_headImgView.y)];

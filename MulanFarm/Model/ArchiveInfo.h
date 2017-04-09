@@ -13,6 +13,7 @@
 @property (nonatomic,copy) NSString *ID;
 @property (nonatomic,copy) NSString *variety;
 @property (nonatomic,copy) NSString *adop_time;
+@property (nonatomic,copy) NSString *create_date;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *age;
 @property (nonatomic,copy) NSString *weight;

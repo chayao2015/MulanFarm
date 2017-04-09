@@ -9,11 +9,11 @@
 #import "BaseVC.h"
 #import "ArchiveInfo.h"
 
-@interface DetailesTabCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nameLB;
-@property (weak, nonatomic) IBOutlet UILabel *valueLB;
-
-@end
+//@interface DetailesTabCell : UITableViewCell
+//@property (weak, nonatomic) IBOutlet UILabel *nameLB;
+//@property (weak, nonatomic) IBOutlet UILabel *valueLB;
+//
+//@end
 
 @interface RecordDetailVC : BaseVC
 
