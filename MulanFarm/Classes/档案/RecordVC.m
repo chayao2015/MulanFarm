@@ -94,6 +94,42 @@
     return cell;
 }
 
+//先要设Cell可编辑
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+//定义编辑样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+//进入编辑模式，按下出现的编辑按钮后
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        ArchiveInfo *info = _dataArr[indexPath.row];
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                             info.ID, @"id",
+                             nil];
+        [[NetworkManager sharedManager] postJSON:URL_ArchiveDelete parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+            
+            if (status == Request_Success) {
+                
+                [Utils showToast:@"删除成功"];
+                [self getData];
+            }
+        }];
+    }
+}
+
+//修改编辑按钮文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; //取消选择状态
