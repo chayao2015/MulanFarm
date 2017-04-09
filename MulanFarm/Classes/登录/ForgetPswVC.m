@@ -67,10 +67,17 @@
         return;
     }
     
+    if ([Utils isBlankString:_pswTF.text]) {
+        [Utils showToast:@"请输入新密码"];
+        return;
+    }
+    
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          _emailTF.text, @"email",
+                         _codeTF.text, @"verify_code",
+                         [AESCrypt encrypt:_pswTF.text password:AESSecret], @"user_pwd",
                         nil];
-    [[NetworkManager sharedManager] postJSON:URL_FindPwd parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_FindPwdVerify parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"找回密码成功"];

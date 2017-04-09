@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *codeTF;
+@property (weak, nonatomic) IBOutlet UITextField *pswTF;
 @property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 
 
