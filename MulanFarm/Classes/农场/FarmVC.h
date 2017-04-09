@@ -11,14 +11,16 @@
 
 @interface FarmVC : BaseVC
 
-@property (weak, nonatomic) IBOutlet OpenGLView *remoteView; //监控画面
+//@property (weak, nonatomic) IBOutlet OpenGLView *remoteView; //监控画面
 @property (weak, nonatomic) IBOutlet UIButton *signBtn;
 @property (weak, nonatomic) IBOutlet UILabel *bellCountLab;
 @property (weak, nonatomic) IBOutlet UIButton *bellBtn;
 @property (weak, nonatomic) IBOutlet UILabel *petLab;
+
 @property (weak, nonatomic) IBOutlet UITextField *titleTF;
 @property (weak, nonatomic) IBOutlet UITextView *contentTF;
 @property (weak, nonatomic) IBOutlet UIButton *clearNoteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *showRecordBtn;
 
 
 - (IBAction)bellAction:(id)sender;

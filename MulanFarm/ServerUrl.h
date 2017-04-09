@@ -40,7 +40,7 @@
 #define URL_ArticleList @"article.php?m=list" //文章列表
 #define URL_ArchiveList @"archive.php?m=list" //档案列表
 #define URL_ArchiveDetaile @"archive.php?m=detail" //档案列表
-
+#define URL_ArchiveEdit@"archive.php?m=update" //修改档案
 #define URL_MsgList @"user.php?m=msgList" //消息列表
 
 #endif /* ServerUrl_h */

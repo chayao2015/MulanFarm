@@ -16,6 +16,7 @@
 #import "CameraListVC.h"
 #import "ArchiveInfo.h"
 #import "RecordDetailVC.h"
+#import "SignView.h"
 
 //以下是 用户账号密码 设备id和密码,不保证一直有用,请使用您自己的账号密码和设备
 #define UserName @"0810090"
@@ -31,6 +32,9 @@
     BOOL _hadLogin;//是否成功登录
     BOOL _isReject;//是否挂断了
     
+    OpenGLView *_remoteView;//监控画面
+    UILabel *_tipLab; //监控提示
+    
     /**
      这个错误提示是来自P2PCInterface.h里的 dwErrorOption枚举,
      写在这里只是为了更好的展示错误信息,实际开发的时候请不要像我这样用这种不好的编程习惯
@@ -44,9 +48,31 @@
 
 @implementation FarmVC
 
+-(void)createMonitoView{
+    CGRect rect=CGRectMake(5, 104,WIDTH, 160);
+    _remoteView=[[OpenGLView alloc] init];
+    _remoteView.frame=rect;
+    _remoteView.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_remoteView];
+    
+    _tipLab = [[UILabel alloc] initWithFrame:_remoteView.frame];
+    _tipLab.text = @"加载中...";
+    _tipLab.textColor = [UIColor whiteColor];
+    _tipLab.font = [UIFont systemFontOfSize:14];
+    _tipLab.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_tipLab];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self startMoni];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self stopMoni];
 }
 
 - (void)viewDidLoad {
@@ -61,6 +87,8 @@
     self.clearNoteBtn.layer.borderWidth = 1;
     self.clearNoteBtn.layer.cornerRadius = 5;
     [self.clearNoteBtn.layer setMasksToBounds:YES];
+    
+    [self createMonitoView];
     
     _isReject=YES;
     _errorStrings=@[
@@ -81,8 +109,59 @@
                     @"连接不支持"
                     ];
     
-    [self startLogin];//开始登录
     [[P2PClient sharedClient] setDelegate:self];
+    
+    [self getData];
+}
+
+- (void)getData {
+    NSDictionary *dic = [NSDictionary dictionary];
+    [[NetworkManager sharedManager] postJSON:URL_CameraList parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+        
+        if (status == Request_Success) {
+            
+            NSArray *array = [CameraInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
+            
+            NSMutableArray *dataArr = [NSMutableArray array];
+            for (int i = 0; i<array.count; i++) {
+                CameraInfo *info = array[i];
+                
+                if ([info.user_id isEqualToString:[UserInfo share].ID]) {
+                    [dataArr addObject:info];
+                }
+            }
+            
+            if (dataArr.count>0) {
+                
+                NSString *saveCameraID = [UserInfo share].cameraID;
+                
+                if ([Utils isBlankString:saveCameraID]) {
+                    cameraInfo = dataArr[0];
+                } else {
+                    
+                    for (int i = 0; i<dataArr.count; i++) {
+                        CameraInfo *info = dataArr[i];
+                        
+                        if ([info.ID isEqualToString:saveCameraID]) {
+                            cameraInfo = info;
+                            break;
+                        }
+                    }
+                }
+                
+                _petLab.hidden = NO;
+                _petLab.text = cameraInfo.name;
+                _showRecordBtn.userInteractionEnabled = YES;
+                
+                [self startLogin];//开始登录
+            } else {
+                _tipLab.text = @"请先添加摄像头";
+                _petLab.hidden = YES;
+                _showRecordBtn.userInteractionEnabled = NO;
+            }
+            
+        }
+    }];
 }
 
 - (void)setNavBar {
@@ -124,7 +203,10 @@
     [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
-            [Utils showToast:@"签到成功"];
+            //[Utils showToast:@"签到成功"];
+            
+            SignView *signView = [[SignView alloc] init];
+            [self.view addSubview:signView];
         }
     }];
 }
@@ -162,12 +244,8 @@
         if (status == Request_Success) {
             [Utils showToast:@"保存成功"];
             
-            [JHHJView hideLoading]; //结束加载
-            
             _titleTF.text = nil;
             _contentTF.text = nil;
-        } else {
-            [Utils showToast:@"保存失败"];
         }
     }];
 }
@@ -178,10 +256,18 @@
     
     cameraInfo = info;
     
+    NSMutableDictionary *userDic = [[[UserInfo share] getUserInfo] mutableCopy];
+    [userDic setObject:cameraInfo.ID forKey:@"cameraID"];
+    [[UserInfo share] setUserInfo:userDic];
+    
+    _petLab.hidden = NO;
     _petLab.text = cameraInfo.name;
+    _showRecordBtn.userInteractionEnabled = YES;
     
-    NSLog(@"摄像头对应档案ID：%@",info.archive_id);
+    _tipLab.hidden = NO;
+    _tipLab.text = @"切换中...";
     
+    [self startLogin];//开始登录
 }
 
 #pragma mark - 摄像头
@@ -190,13 +276,13 @@
 - (void)startMoni {
     
     if (_isReject&&_hadLogin&&_hadInitDevice) {
-        //[Utils showToast:@"发送呼叫命令"];
+        NSLog(@"%@",@"发送呼叫命令");
         [[P2PClient sharedClient] setIsBCalled:NO];
         [[P2PClient sharedClient] setP2pCallState:P2PCALL_STATUS_CALLING];
         
         /**设备密码采用了加密算法加密处理,这样密码有字母也不怕了*/
-        [[P2PClient sharedClient] p2pCallWithId:DeviceId
-                                       password:[NSString stringWithFormat:@"%ud",[Util GetTreatedPassword:DevicePw]]
+        [[P2PClient sharedClient] p2pCallWithId:cameraInfo.camera_no
+                                       password:[NSString stringWithFormat:@"%ud",[Util GetTreatedPassword:cameraInfo.camera_device_pwd]]
                                        callType:P2PCALL_TYPE_MONITOR];
     }
 }
@@ -205,7 +291,7 @@
 - (void)stopMoni {
     
     if (!_isReject) {
-        //[Utils showToast:@"发送挂断命令"];
+        NSLog(@"%@",@"发送挂断命令");
         _isReject=YES;
         [[P2PClient sharedClient] p2pHungUp];
     }
@@ -214,13 +300,16 @@
 -(void)connectDevice{
     if (_hadLogin) {//只有登录了才去连接设备
         if (!_hadInitDevice) {
-            //[Utils showToast:@"正在初始化设备"];
+            NSLog(@"%@",@"正在初始化设备");
             _hadInitDevice=[[P2PClient sharedClient] p2pConnectWithId:_userIDName codeStr1:_p2pcode1 codeStr2:_p2pcode2];
             NSString* result=[NSString stringWithFormat:@"初始化连接设备 %@",_hadInitDevice?@"成功,你可以操作设备了":@"失败,你将不能操作设备"];
-            //[Utils showToast:result];
+            NSLog(@"%@",result);
         }
         
-        [self startMoni];//开始监控
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self startMoni];//开始监控
+        });
+        
     }
 }
 
@@ -230,7 +319,7 @@
     NSString* str=[NSString stringWithFormat:@"正在呼叫,%@,解释:%@",
                    [self stringFromDic:info],
                    [self stringErrorByError:[info[@"ErrorOption"] integerValue]]];
-    //[Utils showToast:str];
+    NSLog(@"%@",str);
 }
 
 - (void)P2PClientReject:(NSDictionary*)info{
@@ -238,21 +327,21 @@
     NSString* str=[NSString stringWithFormat:@"视频挂断,%@,解释:%@",
                    [self stringFromDic:info],
                    [self stringErrorByError:[info[@"ErrorOption"] integerValue]]];
-    //[Utils showToast:str];
+    NSLog(@"%@",str);
 }
 
 - (void)P2PClientAccept:(NSDictionary*)info{
     NSString* str=[NSString stringWithFormat:@"接收数据,%@,解释:%@",
                    [self stringFromDic:info],
                    [self stringErrorByError:[info[@"ErrorOption"] integerValue]]];
-    //[Utils showToast:str];
+    NSLog(@"%@",str);
 }
 
 - (void)P2PClientReady:(NSDictionary*)info{
     NSString* str=[NSString stringWithFormat:@"准备就绪,%@,解释:%@",
                    [self stringFromDic:info],
                    [self stringErrorByError:[info[@"ErrorOption"] integerValue]]];
-    [Utils showToast:str];
+    NSLog(@"%@",str);
     
     //开始渲染
     [[P2PClient sharedClient] setP2pCallState:P2PCALL_STATUS_READY_P2P];
@@ -265,7 +354,12 @@
 
 #pragma mark - 准备渲染监控界面
 -(void)monitorStartRender{
-    [Utils showToast:@"渲染>>>你可以看到画面了"];
+    NSLog(@"渲染>>>你可以看到画面了");
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _tipLab.hidden = YES;
+    });
+    
     _isReject = NO;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self renderView];
@@ -297,7 +391,7 @@
      登录的方法不是这个demo的重点,此处不详细介绍,欲知详情,请查看登录的demo
      */
 
-    //[Utils showToast:@"正在登录"];
+    NSLog(@"正在登录");
     
     /**    可供使用的服务器地址:
      api1.cloudlinks.cn
@@ -312,8 +406,8 @@
     NSDictionary* URLParams = @{
                                 @"AppOS": @"2",
                                 @"AppVersion":[NSString stringWithFormat:@"%d",2<<24|7<<16|3<<8|4],
-                                @"User":UserName,
-                                @"Pwd": [MD5 md5_32bit:UserPswd],
+                                @"User":cameraInfo.camera_user_name,
+                                @"Pwd": [MD5 md5_32bit:cameraInfo.camera_user_pswd],
                                 @"Opion": @"GetParam",
                                 @"VersionFlag": @" ",
                                 };
@@ -324,11 +418,11 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
                 NSDictionary* jsonDic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                //                NSLog(@"返回结果:%@",jsonDic);
+                // NSLog(@"返回结果:%@",jsonDic);
                 NSString* errCode=jsonDic[@"error_code"];
                 if ([errCode isEqualToString:@"0"]) {//返回0即认为是登录成功
                     _hadLogin=YES;
-                    //[Utils showToast:@"登录成功"];
+                    NSLog(@"登录成功");
                     //拿到登录成功之后的2个p2p连接码和用户名
                     _userIDName=[NSString stringWithFormat:@"%d",(int)[jsonDic[@"UserID"] integerValue]&0x7fffffff];//用户id就是这样得到的
                     _p2pcode1=jsonDic[@"P2PVerifyCode1"];
@@ -337,16 +431,17 @@
                     
                 }else{
                     _hadLogin=NO;
-                    [Utils showToast:@"登录失败,对设备的操作将无效,失败原因:"];
+                    NSLog(@"登录失败,对设备的操作将无效,失败原因:");
                     NSString* theErrStr=jsonDic[@"error"];
-                    //[Utils showToast:theErrStr];
+                    NSLog(@"%@",theErrStr);
+                    _tipLab.text = @"当前摄像头无效";
                 }
             }
             else {
                 _hadLogin=NO;
                 NSString* fal=@"登录失败,对设备的操作将无效,失败原因:";
                 fal=[fal stringByAppendingString:[error localizedDescription]];
-                //[Utils showToast:fal];
+                NSLog(@"%@",fal);
             }
         });
     }];

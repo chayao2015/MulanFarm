@@ -25,6 +25,8 @@
     
     self.title = @"摄像头";
     
+    _dataArr = [NSMutableArray array];
+    
     self.addCameraBtn.layer.borderColor = AppThemeColor.CGColor;
     self.addCameraBtn.layer.borderWidth = 1;
     self.addCameraBtn.layer.cornerRadius = 10;
@@ -48,7 +50,17 @@
         
         if (status == Request_Success) {
             
-            _dataArr = [CameraInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
+            [_dataArr removeAllObjects];
+            
+            NSArray *array = [CameraInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
+            
+            for (int i = 0; i<array.count; i++) {
+                CameraInfo *info = array[i];
+            
+                if ([info.user_id isEqualToString:[UserInfo share].ID]) {
+                    [_dataArr addObject:info];
+                }
+            }
             
             [_cameraTableView reloadData];
         }

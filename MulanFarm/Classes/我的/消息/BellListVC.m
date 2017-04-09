@@ -34,15 +34,6 @@
             
             _dataArr = [BellInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
             
-            BellInfo *info = [[BellInfo alloc] init];
-            info.title = @"erhgiorhot";
-            info.content = @"uhruirgeghir";
-            info.create_date = @"kwinfgorig";
-            [_dataArr addObject:info];
-            [_dataArr addObject:info];
-            
-            NSLog(@"%@",_dataArr);
-            
             [_bellTableView reloadData];
         }
     }];

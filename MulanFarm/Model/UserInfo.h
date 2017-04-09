@@ -40,6 +40,8 @@
 @property (nonatomic,copy) NSString *user_pwd;
 @property (nonatomic,copy) NSString *wechat;
 
+@property (nonatomic,copy) NSString *cameraID; //摄像头ID
+
 + (UserInfo *)share;
 
 - (NSDictionary *)getUserInfo;

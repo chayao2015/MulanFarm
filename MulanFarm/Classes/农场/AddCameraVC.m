@@ -96,6 +96,8 @@
 
 - (IBAction)bindingCameraAction:(id)sender {
     
+    [self.view endEditing:YES];
+    
     if (imgDataArr.count<=0) {
         [Utils showToast:@"请上传摄像头图片"];
         return;
@@ -122,8 +124,6 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kCameraBindSuccNotification object:nil];
             
             [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            [Utils showToast:@"绑定失败"];
         }
     }];
 }

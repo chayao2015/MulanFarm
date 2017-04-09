@@ -13,6 +13,7 @@
 #import "AboutUsVC.h"
 #import "SetVC.h"
 #import "NoteCenterVC.h"
+#import "SignView.h"
 
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -87,7 +88,10 @@
     [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
-            [Utils showToast:@"签到成功"];
+            //[Utils showToast:@"签到成功"];
+            
+            SignView *signView = [[SignView alloc] init];
+            [self.view addSubview:signView];
         }
     }];
 }
@@ -116,6 +120,8 @@
     
     headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 40, 70, 70)];
     [headImgView sd_setImageWithURL:[NSURL URLWithString:[UserInfo share].avatar] placeholderImage:[UIImage imageNamed:@"header"]];
+    headImgView.layer.cornerRadius = headImgView.width/2;
+    [headImgView.layer setMasksToBounds:YES];
     [bgView addSubview:headImgView];
     
     nickLab = [[UILabel alloc] initWithFrame:CGRectMake(headImgView.maxX+10, headImgView.y, 120, 40)];

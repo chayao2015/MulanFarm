@@ -17,9 +17,7 @@
     [self.imgView.layer setMasksToBounds:YES];
     self.titleLab.text = info.title;
     self.contentLab.text = info.content;
-    self.titleLab.text = info.create_date;
-    
-    NSLog(@"%@",info.title);
+    self.timeLab.text = info.create_date;
 }
 
 - (void)awakeFromNib {

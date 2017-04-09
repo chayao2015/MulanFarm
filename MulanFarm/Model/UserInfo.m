@@ -69,6 +69,8 @@ static NSUserDefaults *_defaults = nil;
     self.user_name = userDic[@"user_name"];
     self.user_pwd = userDic[@"user_pwd"];
     self.wechat = userDic[@"wechat"];
+    
+    self.cameraID = userDic[@"cameraID"];
 }
 
 @end

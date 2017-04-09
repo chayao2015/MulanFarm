@@ -15,11 +15,15 @@
 
 @end
 
-@interface RecordDetailVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface RecordDetailVC ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     NSArray *titleArr;
-    NSArray *valueArr;
+    NSMutableArray *valueArr;
     NSArray *imgBtnArr;
+    NSMutableDictionary *postDic;
+    NSArray *postKeyArr;
+    BOOL isCanEdit;
+    NSInteger currentIndex;
 }
 @end
 
@@ -30,10 +34,15 @@
     // Do any additional setup after loading the view.
 
     self.title = @"档案详情";
-    titleArr = @[@"品种",@"领养时间",@"年龄",@"体重(kg)",@"身高(cm)",@"爱好",@"讨厌"];
-    valueArr = @[@"",@"",@"",@"",@"",@"",@""];
+    titleArr = @[@"姓名",@"品种",@"领养时间",@"年龄",@"体重(kg)",@"身高(cm)",@"爱好",@"讨厌",@"地址"];
+    valueArr = [NSMutableArray arrayWithArray:@[@"",@"",@"",@"",@"",@"",@"",@"",@""]];
+    postKeyArr = @[@"id",@"name",@"variety",@"adop_time",@"age",@"weight",@"height",@"hobby",@"hate",@"address"];
     self.detaileTabView.tableHeaderView = _headView;
     imgBtnArr = @[_imgBtn1,_imgBtn2,_imgBtn3,_imgBtn4,_imgtn5];
+    for (NSInteger  i = 0 ; i< imgBtnArr.count;i++) {
+        UIButton *btn = imgBtnArr[i];
+        btn.backgroundColor = AppThemeColor;
+    }
     [self getData];
     
     self.detaileTabView.tableFooterView = [UIView new];
@@ -46,7 +55,11 @@
          if (status == Request_Success) {
              NSLog(@"%@",responseData);
              NSDictionary *dataDic = responseData;
-             valueArr = @[dataDic[@"variety"],dataDic[@"create_date"],dataDic[@"variety"],dataDic[@"weight"],dataDic[@"height"],dataDic[@"hobby"],dataDic[@"hate"]];
+             valueArr = [NSMutableArray arrayWithArray:@[dataDic[@"name"],dataDic[@"variety"],dataDic[@"adop_time"],dataDic[@"age"],dataDic[@"weight"],dataDic[@"height"],dataDic[@"hobby"],dataDic[@"hate"],dataDic[@"address"]]];
+             postDic = [NSMutableDictionary dictionary];
+             for (NSString *keys in postKeyArr) {
+                 [postDic setValue:dataDic[keys] forKey:keys];
+             }
              NSArray *listArr =  dataDic[@"albums"];
              NSInteger count = MIN(listArr.count, imgBtnArr.count);
              for (NSInteger  i = 0 ; i< count;i++) {
@@ -54,7 +67,7 @@
                  NSDictionary *dic = listArr[i];
                  [btn sd_setImageWithURL:[NSURL URLWithString:dic[@"pic_path"]] forState:0];
                  btn.imageView.contentMode = UIViewContentModeScaleAspectFill;
-                 btn.backgroundColor = [UIColor clearColor];
+                 btn.backgroundColor = AppThemeColor;
              }
              [self.detaileTabView reloadData];
          }
@@ -71,6 +84,40 @@
     cell.valueLB.text = [NSString stringWithFormat:@"%@",valueArr[indexPath.row]];
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    isCanEdit = YES;
+    if (isCanEdit) {
+        currentIndex = indexPath.row+1;
+        NSString *values = [NSString stringWithFormat:@"%@",valueArr[indexPath.row]];
+        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"修改内容" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alert show];
+        UITextField *tefiled = [alert textFieldAtIndex:0];
+        tefiled.placeholder = @"输入要修改的内容";
+        tefiled.text = values;
+        if (indexPath.row==3) {
+            tefiled.keyboardType = UIKeyboardTypeNumberPad;
+        }else if (indexPath.row==4||indexPath.row==5){
+            tefiled.keyboardType = UIKeyboardTypeDecimalPad;
+        }
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        UITextField *tefiled = [alertView textFieldAtIndex:0];
+        NSString *values =tefiled.text;
+        NSString *keys = postKeyArr[currentIndex];
+        [postDic setValue:values forKey:keys];
+         [[NetworkManager sharedManager] postJSON:URL_ArchiveEdit parameters:postDic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
+             if (status==Request_Success) {
+                 [valueArr replaceObjectAtIndex:currentIndex-1 withObject:values];
+                 [self.detaileTabView reloadData];
+             }
+         }];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
