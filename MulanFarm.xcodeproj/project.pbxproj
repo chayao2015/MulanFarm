@@ -16,6 +16,7 @@
 		201A36C91E920722007956CF /* CameraListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A36C71E920722007956CF /* CameraListCell.m */; };
 		201A36CA1E920722007956CF /* CameraListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201A36C81E920722007956CF /* CameraListCell.xib */; };
 		2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2033C6F01E82CC380007C35C /* PersonalInfoVC.m */; };
+		2035790C1E9B8DFF006D36E3 /* 启动页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2035790B1E9B8DFF006D36E3 /* 启动页@2x.png */; };
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
 		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
@@ -172,6 +173,7 @@
 		201A36C81E920722007956CF /* CameraListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraListCell.xib; sourceTree = "<group>"; };
 		2033C6EF1E82CC380007C35C /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
 		2033C6F01E82CC380007C35C /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
+		2035790B1E9B8DFF006D36E3 /* 启动页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页@2x.png"; sourceTree = "<group>"; };
 		2054DC581E817462004DFC27 /* ZBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextField.h; sourceTree = "<group>"; };
 		2054DC591E817462004DFC27 /* ZBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextField.m; sourceTree = "<group>"; };
 		2054DC5B1E817592004DFC27 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 		20FD286C1E711227008B7C5B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2035790B1E9B8DFF006D36E3 /* 启动页@2x.png */,
 				205563961E8D33A80088F0DE /* Address.plist */,
 				20FD287D1E711227008B7C5B /* Info.plist */,
 				20FD28751E711227008B7C5B /* Main.storyboard */,
@@ -1120,7 +1123,7 @@
 				TargetAttributes = {
 					20FD28681E711227008B7C5B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = M2CBW36AQZ;
+						DevelopmentTeam = KPJVYXL9VV;
 						ProvisioningStyle = Automatic;
 					};
 					20FD28811E711228008B7C5B = {
@@ -1173,6 +1176,7 @@
 				20CB8F401E9A151D007D410C /* DetailesTabCell.xib in Resources */,
 				201A36CA1E920722007956CF /* CameraListCell.xib in Resources */,
 				20FD287C1E711227008B7C5B /* LaunchScreen.storyboard in Resources */,
+				2035790C1E9B8DFF006D36E3 /* 启动页@2x.png in Resources */,
 				20FD28791E711227008B7C5B /* Assets.xcassets in Resources */,
 				20FD28771E711227008B7C5B /* Main.storyboard in Resources */,
 				20FD29681E711706008B7C5B /* star_empty@3x.png in Resources */,
@@ -1483,17 +1487,18 @@
 			baseConfigurationReference = 50D5295F48A095D3F7F9FFC4 /* Pods-MulanFarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M2CBW36AQZ;
+				DEVELOPMENT_TEAM = KPJVYXL9VV;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = MulanFarm/MulanFarm.pch;
 				INFOPLIST_FILE = MulanFarm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/MD5Pwd",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/P2P/Files",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cydf.MulanFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.XDY.MulanFarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1503,17 +1508,18 @@
 			baseConfigurationReference = 455DF7D05FA02566F57BC816 /* Pods-MulanFarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M2CBW36AQZ;
+				DEVELOPMENT_TEAM = KPJVYXL9VV;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = MulanFarm/MulanFarm.pch;
 				INFOPLIST_FILE = MulanFarm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/MD5Pwd",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/P2P/Files",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cydf.MulanFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.XDY.MulanFarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
