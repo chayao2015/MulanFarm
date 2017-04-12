@@ -22,6 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[NSUserDefaults standardUserDefaults] setObject:@"已读" forKey:@"MessageRead"];
+    
     self.title = @"消息列表";
     
     self.bellTableView.delegate = self;

@@ -30,6 +30,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    NSString *readStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"MessageRead"];
+    if (![Utils isBlankString:readStr]) {
+        self.bellCountLab.hidden = YES;
+    } else {
+        self.bellCountLab.hidden = NO;
+    }
 }
 
 - (void)viewDidLoad {

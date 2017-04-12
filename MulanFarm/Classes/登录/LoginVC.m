@@ -25,9 +25,11 @@
     // Do any additional setup after loading the view.
     
     self.checkBtn.layer.borderWidth = 1;
-    self.checkBtn.layer.borderColor = AppThemeColor.CGColor;
+    self.checkBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     self.checkBtn.layer.cornerRadius = 3;
     [self.checkBtn.layer setMasksToBounds:YES];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

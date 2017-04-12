@@ -37,6 +37,7 @@
     UITextView *txtView = [[UITextView alloc] initWithFrame:CGRectMake(13, lineView.maxY+5, WIDTH-30, HEIGHT-110)];
     txtView.textColor = [UIColor colorWithRed:0.298 green:0.298 blue:0.306 alpha:1.000];
     txtView.text = [NSString stringWithFormat:@"%@",self.info.content];
+    txtView.userInteractionEnabled = NO;
     txtView.font = [UIFont systemFontOfSize:14];
     txtView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:txtView];

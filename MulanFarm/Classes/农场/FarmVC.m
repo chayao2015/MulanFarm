@@ -67,6 +67,13 @@
     [super viewWillAppear:animated];
     
     [self startMoni];
+    
+    NSString *readStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"MessageRead"];
+    if (![Utils isBlankString:readStr]) {
+        self.bellCountLab.hidden = YES;
+    } else {
+        self.bellCountLab.hidden = NO;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
