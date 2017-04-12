@@ -29,7 +29,7 @@
     
     self.title = @"设置";
     
-    _dataList = @[@"密码修改",@"清除缓存"];
+    _dataList = @[@"非wifi禁止观看",@"密码修改",@"清除缓存"];
     
     UIButton *navRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 80, 44)];
     [navRightBtn setTitle:@"" forState:UIControlStateNormal];
@@ -165,6 +165,18 @@
     cell.textLabel.textColor = LightBlackColor;
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     
+    if ([cell.textLabel.text isEqualToString:@"非wifi禁止观看"]) {
+        cell.accessoryView = [[UIView alloc] init];
+        
+        UISwitch *switchBtn = [[UISwitch alloc] initWithFrame:CGRectMake(WIDTH-70, 10, 50, 30)];
+        switchBtn.onTintColor = AppThemeColor;
+        [switchBtn setOn:YES];
+        NSString *status = [[NSUserDefaults standardUserDefaults] objectForKey:@"ForbidWifiWatch"];
+        switchBtn.on = [Utils isBlankString:status]?YES:NO;
+        [switchBtn addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+        [cell addSubview:switchBtn];
+    }
+    
     if ([cell.textLabel.text isEqualToString:@"清除缓存"]) {
         cacheLab = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-120, 15, 100, 20)];
         cacheLab.text = [AEFilePath folderSizeAtPath:kCachePath];
@@ -176,6 +188,18 @@
     }
     
     return cell;
+}
+
+- (void)switchAction:(id)sender {
+    
+    UISwitch *switchBtn = (UISwitch *)sender;
+    if (switchBtn.on==YES) {
+        NSLog(@"开");
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"ForbidWifiWatch"];
+    } else {
+        NSLog(@"关");
+        [[NSUserDefaults standardUserDefaults] setObject:@"unForbid" forKey:@"ForbidWifiWatch"];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

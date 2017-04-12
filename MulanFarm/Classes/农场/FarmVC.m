@@ -17,6 +17,7 @@
 #import "ArchiveInfo.h"
 #import "RecordDetailVC.h"
 #import "SignView.h"
+#import "NetworkUtil.h"
 
 //以下是 用户账号密码 设备id和密码,不保证一直有用,请使用您自己的账号密码和设备
 #define UserName @"0810090"
@@ -282,6 +283,13 @@
 //开始监控
 - (void)startMoni {
     
+    NSString *status = [[NSUserDefaults standardUserDefaults] objectForKey:@"ForbidWifiWatch"];
+    if ([Utils isBlankString:status] && [NetworkUtil currentNetworkStatus]!=NET_WIFI) {
+        [[[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"请在wifi环境下观看" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil , nil] show];
+        
+        return;
+    }
+    
     if (_isReject&&_hadLogin&&_hadInitDevice) {
         NSLog(@"%@",@"发送呼叫命令");
         [[P2PClient sharedClient] setIsBCalled:NO];
@@ -393,6 +401,13 @@
 #pragma mark - 登录相关
 /**开始登录*/
 -(void)startLogin{
+    
+    NSString *status = [[NSUserDefaults standardUserDefaults] objectForKey:@"ForbidWifiWatch"];
+    if ([Utils isBlankString:status] && [NetworkUtil currentNetworkStatus]!=NET_WIFI) {
+        [[[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"请在wifi环境下观看" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil , nil] show];
+        
+        return;
+    }
     
     /**
      登录的方法不是这个demo的重点,此处不详细介绍,欲知详情,请查看登录的demo
