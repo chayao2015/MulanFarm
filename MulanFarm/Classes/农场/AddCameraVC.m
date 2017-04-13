@@ -121,6 +121,7 @@
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          _numberTF.text, @"camera_no",
                          _nameTF.text, @"name",
+                         _pswTF.text,@"camera_device_pwd",
                          nil];
     [[NetworkManager sharedManager] postJSON:URL_CameraBind parameters:dic imageDataArr:imgDataArr imageName:@"thumbnail[]" completion:^(id responseData, RequestState status, NSError *error) {
         if (status == Request_Success) {
