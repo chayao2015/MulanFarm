@@ -98,10 +98,10 @@
     
     [self.view endEditing:YES];
     
-//    if (imgDataArr.count<=0) {
-//        [Utils showToast:@"请上传摄像头图片"];
-//        return;
-//    }
+    if (imgDataArr.count<=0) {
+        [Utils showToast:@"请上传摄像头图片"];
+        return;
+    }
     
     if ([Utils isBlankString:_numberTF.text]) {
         [Utils showToast:@"请输入摄像头编号"];
