@@ -13,7 +13,7 @@
 
 #pragma mark - ---------------接口地址---------------
 
-#define ProductUrl @"http://114.215.46.8/farm/controller/api/"
+#define ProductUrl @"http://180.101.72.94:8888/farm/controller/api/"
 #define WebUrl @"http://www.cydf.com/"
 #define PictureUrl @"http://images-app.cydf.com/"
 
