@@ -34,7 +34,9 @@
     BOOL _isReject;//是否挂断了
     
     OpenGLView *_remoteView;//监控画面
+    OpenGLView *_allRemoteView;//全屏监控画面
     UILabel *_tipLab; //监控提示
+    UIButton *_switchBtn; //切换横竖屏
     
     /**
      这个错误提示是来自P2PCInterface.h里的 dwErrorOption枚举,
@@ -50,18 +52,56 @@
 @implementation FarmVC
 
 -(void)createMonitoView{
-    CGRect rect=CGRectMake(5, 104,WIDTH, 160);
-    _remoteView=[[OpenGLView alloc] init];
-    _remoteView.frame=rect;
+
+    _remoteView = [[OpenGLView alloc] initWithFrame:CGRectMake(0, 104, WIDTH, 160)];
     _remoteView.backgroundColor=[UIColor blackColor];
+    _remoteView.hidden = NO;
     [self.view addSubview:_remoteView];
     
-    _tipLab = [[UILabel alloc] initWithFrame:_remoteView.frame];
+    _tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,WIDTH, 160)];
     _tipLab.text = @"加载中...";
     _tipLab.textColor = [UIColor whiteColor];
     _tipLab.font = [UIFont systemFontOfSize:14];
     _tipLab.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_tipLab];
+    [_remoteView addSubview:_tipLab];
+    
+    _switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH-50, 107, 45, 45)];
+    [_switchBtn setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
+    [_switchBtn addTarget:self action:@selector(switchOpenGLView) forControlEvents:UIControlEventTouchUpInside];
+    [_remoteView addSubview:_switchBtn];
+}
+
+-(void)createAllMonitoView{
+    
+    _allRemoteView = [[OpenGLView alloc] initWithFrame:CGRectMake(-(HEIGHT-WIDTH)/2, (HEIGHT-WIDTH)/2, HEIGHT, WIDTH)];
+    _allRemoteView.hidden = YES;
+    _allRemoteView.backgroundColor=[UIColor blackColor];
+    [[UIApplication sharedApplication].keyWindow addSubview:_allRemoteView];
+    
+    _tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, HEIGHT, WIDTH)];
+    _tipLab.text = @"加载中...";
+    _tipLab.textColor = [UIColor whiteColor];
+    _tipLab.font = [UIFont systemFontOfSize:14];
+    _tipLab.textAlignment = NSTextAlignmentCenter;
+    [_allRemoteView addSubview:_tipLab];
+    
+    _switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(HEIGHT-55, WIDTH-55, 45, 45)];
+    [_switchBtn setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
+    [_switchBtn addTarget:self action:@selector(switchOpenGLView) forControlEvents:UIControlEventTouchUpInside];
+    [_allRemoteView addSubview:_switchBtn];
+    
+    _allRemoteView.transform = CGAffineTransformMakeRotation(M_PI/2);
+}
+
+- (void)switchOpenGLView {
+    
+    if (_remoteView.hidden==NO) {
+        _remoteView.hidden = YES;
+        _allRemoteView.hidden = NO;
+    } else {
+        _remoteView.hidden = NO;
+        _allRemoteView.hidden = YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -97,6 +137,7 @@
     [self.clearNoteBtn.layer setMasksToBounds:YES];
     
     [self createMonitoView];
+    [self createAllMonitoView];
     
     _isReject=YES;
     _errorStrings=@[
@@ -342,6 +383,11 @@
     NSString* str=[NSString stringWithFormat:@"视频挂断,%@,解释:%@",
                    [self stringFromDic:info],
                    [self stringErrorByError:[info[@"ErrorOption"] integerValue]]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _tipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
+    });
+    
     NSLog(@"%@",str);
 }
 
@@ -392,6 +438,7 @@
         if(fgGetVideoFrameToDisplay(&m_pAVFrame))
         {
             [_remoteView render:m_pAVFrame];
+            [_allRemoteView render:m_pAVFrame];
             vReleaseVideoFrame();
         }
         usleep(10000);

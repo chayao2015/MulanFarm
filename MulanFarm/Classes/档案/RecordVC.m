@@ -25,6 +25,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    [self getData];
 }
 
 - (void)viewDidLoad {
@@ -36,8 +37,6 @@
     _dataArr = [NSMutableArray array];
     
     self.recordTabView.tableFooterView = [UIView new];
-    
-    [self getData];
 }
 
 - (void)getData {
