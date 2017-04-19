@@ -11,6 +11,7 @@
 #import <TZImagePickerController.h>
 #import "DetailesTabCell.h"
 #import "HZBPickerView.h"
+#import "HZBDatePicker.h"
 
 #define Count 5  //一行最多放几张图片
 #define MaxCount 5
@@ -45,6 +46,14 @@
 
     self.title = @"档案详情";
     
+    UIButton *navRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 80, 44)];
+    [navRightBtn setTitle:@"完成" forState:UIControlStateNormal];
+    navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [navRightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    navRightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [navRightBtn addTarget:self action:@selector(saveInfo) forControlEvents:UIControlEventTouchUpInside];
+    self.navItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:navRightBtn];
+    
     imageArr = [NSMutableArray array];
     titleArr = @[@"姓名",@"品种",@"领养时间",@"年龄",@"体重(kg)",@"身高(cm)",@"爱好",@"讨厌",@"地址"];
     valueArr = [NSMutableArray arrayWithArray:@[@"",@"",@"",@"",@"",@"",@"",@"",@""]];
@@ -54,27 +63,46 @@
     imgBtnArr = @[_imgBtn1,_imgBtn2,_imgBtn3,_imgBtn4,_imgtn5];
     for (NSInteger  i = 0 ; i< imgBtnArr.count;i++) {
         UIButton *btn = imgBtnArr[i];
-//        btn.backgroundColor = AppThemeColor;
         [btn addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
         UIImageView *img = [[UIImageView alloc]initWithFrame:btn.bounds];
         img.tag = 1;
         img.clipsToBounds = YES;
         img.contentMode = UIViewContentModeScaleAspectFill;
         [btn addSubview:img];
-        
-        
     }
     [self getData];
     
     self.detaileTabView.tableFooterView = [UIView new];
-    
 }
+
+
+//保存档案详情
+- (void)saveInfo {
+    
+    [self.view endEditing:YES];
+    
+    for (int i = 0; i<postKeyArr.count-1; i++) {
+        
+        UITextField *textField = [self.view viewWithTag:10000+i];
+        [postDic setValue:textField.text forKey:postKeyArr[i+1]];
+    }
+    
+    NSLog(@"hrbfurjebgirbg%@",postDic);
+    
+    [[NetworkManager sharedManager] postJSON:URL_ArchiveEdit parameters:postDic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
+        if (status==Request_Success) {
+            [Utils showToast:@"档案修改成功"];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
 - (void)longPressTouch:(UILongPressGestureRecognizer *)ttt{
     UIButton *btn = (UIButton *)ttt.view;
     
-    
-   
 }
+
 -(void)getData{
     NSDictionary *dic = @{@"id":_info.ID};
      [[NetworkManager sharedManager] postJSON:URL_ArchiveDetaile parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
@@ -244,15 +272,53 @@
     if(cell == nil)
     {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"DetailesTabCell" owner:nil options:nil] firstObject];
+        [cell setAccessoryType:UITableViewCellAccessoryNone]; 
+        UIColor *color =  [[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
+        //通过RGB来定义自己的颜色
+        cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+        cell.selectedBackgroundView.backgroundColor = color;
     }
     
     cell.nameLab.text = titleArr[indexPath.row];
-    cell.valueLab.text = [NSString stringWithFormat:@"%@",valueArr[indexPath.row]];
+    cell.valueTF.text = [NSString stringWithFormat:@"%@",valueArr[indexPath.row]];
+    cell.valueTF.tag = 10000+indexPath.row;
+    
+    if (indexPath.row==2) {
+        cell.valueTF.userInteractionEnabled = NO;
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    __weak RecordDetailVC *weakSelf = self;
+    
+    switch (indexPath.row) {
+        case 2: //领养时间
+        {
+            HZBDatePicker *picker = [[HZBDatePicker alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) leftTitle:@"取消" rightTitle:@"确定" baseView:weakSelf.view];
+            picker.cancelBlock = ^()
+            {
+                NSLog(@"取消");
+            };
+            picker.doneBlock = ^(NSString *dateStr) {
+                valueArr[indexPath.row] = dateStr;
+                
+                [self.detaileTabView reloadData];
+            };
+            [picker show];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return;
+    
     isCanEdit = YES;
     if (isCanEdit) {
         currentIndex = indexPath.row+1;

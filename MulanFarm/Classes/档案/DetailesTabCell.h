@@ -11,7 +11,6 @@
 @interface DetailesTabCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *valueLab;
-
+@property (weak, nonatomic) IBOutlet UITextField *valueTF;
 
 @end

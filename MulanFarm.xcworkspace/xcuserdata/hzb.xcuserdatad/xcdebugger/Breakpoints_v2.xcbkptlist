@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MulanFarm/Classes/&#x6863;&#x6848;/RecordDetailVC.m"
-            timestampString = "513420172.361839"
+            timestampString = "514288770.035005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "-imagePickerControllerDidCancel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MulanFarm/Classes/&#x6863;&#x6848;/RecordDetailVC.m"
-            timestampString = "513419898.773949"
+            timestampString = "514288770.035005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-LocalPhoto"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MulanFarm/Classes/&#x6863;&#x6848;/RecordDetailVC.m"
-            timestampString = "513420172.361839"
+            timestampString = "514288770.035005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MulanFarm/Classes/&#x6863;&#x6848;/RecordDetailVC.m"
-            timestampString = "513420172.361839"
+            timestampString = "514288770.035005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>

@@ -9,6 +9,8 @@
 #ifndef ServerUrl_h
 #define ServerUrl_h
 
+#define InterfaceHtml @"http://180.101.72.94:8888/farm/bin/doc/farm_api.pdf"
+
 #define AESSecret @"F$0.%a~+r^#=`M|?" //加密密钥
 
 #pragma mark - ---------------接口地址---------------

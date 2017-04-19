@@ -63,6 +63,7 @@
 		20AB365A1E98953D00AC433B /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB364D1E98953D00AC433B /* OpenGLView.m */; };
 		20AB365B1E98953D00AC433B /* P2PClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB36501E98953D00AC433B /* P2PClient.m */; };
 		20AB365C1E98953D00AC433B /* PAIOUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB36521E98953D00AC433B /* PAIOUnit.m */; };
+		20AB40C61EA75A1B009D7B40 /* HZBDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB40C51EA75A1B009D7B40 /* HZBDatePicker.m */; };
 		20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */; };
 		20CB8F3B1E9A03ED007D410C /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB8F3A1E9A03ED007D410C /* SignView.m */; };
 		20CB8F3F1E9A151D007D410C /* DetailesTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB8F3D1E9A151D007D410C /* DetailesTabCell.m */; };
@@ -247,6 +248,8 @@
 		20AB36511E98953D00AC433B /* PAIOUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAIOUnit.h; sourceTree = "<group>"; };
 		20AB36521E98953D00AC433B /* PAIOUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAIOUnit.m; sourceTree = "<group>"; };
 		20AB365D1E98CF9D00AC433B /* BackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackProtocol.h; sourceTree = "<group>"; };
+		20AB40C41EA75A1B009D7B40 /* HZBDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZBDatePicker.h; sourceTree = "<group>"; };
+		20AB40C51EA75A1B009D7B40 /* HZBDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZBDatePicker.m; sourceTree = "<group>"; };
 		20B1C0E11E72ECC200F1A7A5 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		20B1C0E21E72ECC200F1A7A5 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		20CB8F391E9A03ED007D410C /* SignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
@@ -553,6 +556,15 @@
 			path = Files;
 			sourceTree = "<group>";
 		};
+		20AB40C31EA75A1B009D7B40 /* HZBDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				20AB40C41EA75A1B009D7B40 /* HZBDatePicker.h */,
+				20AB40C51EA75A1B009D7B40 /* HZBDatePicker.m */,
+			);
+			path = HZBDatePicker;
+			sourceTree = "<group>";
+		};
 		20CB8F381E9A03BF007D410C /* 签到 */ = {
 			isa = PBXGroup;
 			children = (
@@ -768,6 +780,7 @@
 				2054DC591E817462004DFC27 /* ZBTextField.m */,
 				20FD28DC1E711706008B7C5B /* AEFilePath.h */,
 				20FD28DD1E711706008B7C5B /* AEFilePath.m */,
+				20AB40C31EA75A1B009D7B40 /* HZBDatePicker */,
 				20FC28C21E8C0C0300A0412E /* HZBPickerView */,
 				20FD28DE1E711706008B7C5B /* AlterView(弹框) */,
 				20FD28E71E711706008B7C5B /* CounterAnimation(计数动画) */,
@@ -1289,6 +1302,7 @@
 				206400711E8692FA0060560E /* SetVC.m in Sources */,
 				20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */,
 				2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */,
+				20AB40C61EA75A1B009D7B40 /* HZBDatePicker.m in Sources */,
 				201A36BF1E9205B4007956CF /* CameraInfo.m in Sources */,
 				20FD29501E711706008B7C5B /* PPCounterEngine.m in Sources */,
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
