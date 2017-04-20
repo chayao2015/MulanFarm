@@ -36,6 +36,7 @@
     OpenGLView *_remoteView;//监控画面
     OpenGLView *_allRemoteView;//全屏监控画面
     UILabel *_tipLab; //监控提示
+    UILabel *_allTipLab; //全屏监控提示
     UIButton *_switchBtn; //切换横竖屏
     
     /**
@@ -78,12 +79,12 @@
     _allRemoteView.backgroundColor=[UIColor blackColor];
     [[UIApplication sharedApplication].keyWindow addSubview:_allRemoteView];
     
-    _tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, HEIGHT, WIDTH)];
-    _tipLab.text = @"加载中...";
-    _tipLab.textColor = [UIColor whiteColor];
-    _tipLab.font = [UIFont systemFontOfSize:14];
-    _tipLab.textAlignment = NSTextAlignmentCenter;
-    [_allRemoteView addSubview:_tipLab];
+    _allTipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, HEIGHT, WIDTH)];
+    _allTipLab.text = @"加载中...";
+    _allTipLab.textColor = [UIColor whiteColor];
+    _allTipLab.font = [UIFont systemFontOfSize:14];
+    _allTipLab.textAlignment = NSTextAlignmentCenter;
+    [_allRemoteView addSubview:_allTipLab];
     
     _switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(HEIGHT-55, WIDTH-55, 45, 45)];
     [_switchBtn setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
@@ -205,6 +206,7 @@
                 [self startLogin];//开始登录
             } else {
                 _tipLab.text = @"请先添加摄像头";
+                _allTipLab.text = @"请先添加摄像头";
                 _petLab.hidden = YES;
                 _showRecordBtn.userInteractionEnabled = NO;
             }
@@ -315,6 +317,8 @@
     
     _tipLab.hidden = NO;
     _tipLab.text = @"切换中...";
+    _allTipLab.hidden = NO;
+    _allTipLab.text = @"切换中...";
     
     [self startLogin];//开始登录
 }
@@ -386,6 +390,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _tipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
+        _allTipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
     });
     
     NSLog(@"%@",str);
@@ -419,6 +424,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _tipLab.hidden = YES;
+        _allTipLab.hidden = YES;
     });
     
     _isReject = NO;
@@ -504,6 +510,7 @@
                     NSString* theErrStr=jsonDic[@"error"];
                     NSLog(@"%@",theErrStr);
                     _tipLab.text = @"当前摄像头无效";
+                    _allTipLab.text = @"当前摄像头无效";
                 }
             }
             else {
