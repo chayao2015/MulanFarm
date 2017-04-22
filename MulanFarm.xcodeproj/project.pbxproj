@@ -1136,8 +1136,8 @@
 				TargetAttributes = {
 					20FD28681E711227008B7C5B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = KPJVYXL9VV;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = M2CBW36AQZ;
+						ProvisioningStyle = Manual;
 					};
 					20FD28811E711228008B7C5B = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1429,7 +1429,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: QiuSheng Li (784JT9VY92)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: QiuSheng Li (784JT9VY92)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1476,7 +1477,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Yibao Network Culture Co., Ltd. (M2CBW36AQZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Yibao Network Culture Co., Ltd. (M2CBW36AQZ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1501,7 +1503,8 @@
 			baseConfigurationReference = 50D5295F48A095D3F7F9FFC4 /* Pods-MulanFarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KPJVYXL9VV;
+				CODE_SIGN_IDENTITY = "iPhone Developer: QiuSheng Li (784JT9VY92)";
+				DEVELOPMENT_TEAM = M2CBW36AQZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = MulanFarm/MulanFarm.pch;
 				INFOPLIST_FILE = MulanFarm/Info.plist;
@@ -1512,8 +1515,10 @@
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/MD5Pwd",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/P2P/Files",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XDY.MulanFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cydf.MulanFarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d4aca783-f687-4c4c-a45a-36fea2e73f87";
+				PROVISIONING_PROFILE_SPECIFIER = CydfCMDev;
 			};
 			name = Debug;
 		};
@@ -1522,7 +1527,9 @@
 			baseConfigurationReference = 455DF7D05FA02566F57BC816 /* Pods-MulanFarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KPJVYXL9VV;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Yibao Network Culture Co., Ltd. (M2CBW36AQZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Yibao Network Culture Co., Ltd. (M2CBW36AQZ)";
+				DEVELOPMENT_TEAM = M2CBW36AQZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = MulanFarm/MulanFarm.pch;
 				INFOPLIST_FILE = MulanFarm/Info.plist;
@@ -1533,8 +1540,10 @@
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/MD5Pwd",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/P2P/Files",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XDY.MulanFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cydf.MulanFarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "027a8192-72b4-495b-863b-8677c35fd29d";
+				PROVISIONING_PROFILE_SPECIFIER = CydfCMDis;
 			};
 			name = Release;
 		};

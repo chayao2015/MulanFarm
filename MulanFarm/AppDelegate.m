@@ -34,7 +34,7 @@
     manager.enable = YES;
     manager.shouldResignOnTouchOutside = YES;
     manager.shouldToolbarUsesTextFieldTintColor = YES;
-    manager.enableAutoToolbar = NO;
+    manager.enableAutoToolbar = YES;
     
     [[UserInfo share] getUserInfo];
     [AEFilePath createDirPath];
