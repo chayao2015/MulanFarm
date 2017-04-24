@@ -1515,10 +1515,10 @@
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/MD5Pwd",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/P2P/Files",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cydf.MulanFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daweichang.vcfarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d4aca783-f687-4c4c-a45a-36fea2e73f87";
-				PROVISIONING_PROFILE_SPECIFIER = CydfCMDev;
+				PROVISIONING_PROFILE = "4d8f9627-5056-42b7-9617-230e667e9275";
+				PROVISIONING_PROFILE_SPECIFIER = FarmDev;
 			};
 			name = Debug;
 		};
@@ -1540,10 +1540,10 @@
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/MD5Pwd",
 					"$(PROJECT_DIR)/MulanFarm/ThirdParty/CameraSDK/P2P/Files",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cydf.MulanFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daweichang.vcfarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "027a8192-72b4-495b-863b-8677c35fd29d";
-				PROVISIONING_PROFILE_SPECIFIER = CydfCMDis;
+				PROVISIONING_PROFILE = "caa277cc-70cd-4d36-9651-565433183737";
+				PROVISIONING_PROFILE_SPECIFIER = FarmDis;
 			};
 			name = Release;
 		};
