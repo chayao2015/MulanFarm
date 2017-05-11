@@ -34,9 +34,7 @@
     BOOL _isReject;//是否挂断了
     
     OpenGLView *_remoteView;//监控画面
-    OpenGLView *_allRemoteView;//全屏监控画面
     UILabel *_tipLab; //监控提示
-    UILabel *_allTipLab; //全屏监控提示
     UIButton *_switchBtn; //切换横竖屏
     
     /**
@@ -54,12 +52,15 @@
 
 -(void)createMonitoView{
 
-    _remoteView = [[OpenGLView alloc] initWithFrame:CGRectMake(0, 104, WIDTH, 160)];
+    CGRect rect=CGRectMake(0, 104, WIDTH, 160);
+    
+    _remoteView = [[OpenGLView alloc] init];
+    _remoteView.frame = rect;
     _remoteView.backgroundColor=[UIColor blackColor];
     _remoteView.hidden = NO;
-    [self.view addSubview:_remoteView];
+    [[UIApplication sharedApplication].keyWindow addSubview:_remoteView];
     
-    _tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,WIDTH, 160)];
+    _tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 160)];
     _tipLab.text = @"加载中...";
     _tipLab.textColor = [UIColor whiteColor];
     _tipLab.font = [UIFont systemFontOfSize:14];
@@ -72,36 +73,27 @@
     [_remoteView addSubview:_switchBtn];
 }
 
--(void)createAllMonitoView{
-    
-    _allRemoteView = [[OpenGLView alloc] initWithFrame:CGRectMake(-(HEIGHT-WIDTH)/2, (HEIGHT-WIDTH)/2, HEIGHT, WIDTH)];
-    _allRemoteView.hidden = YES;
-    _allRemoteView.backgroundColor=[UIColor blackColor];
-    [[UIApplication sharedApplication].keyWindow addSubview:_allRemoteView];
-    
-    _allTipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, HEIGHT, WIDTH)];
-    _allTipLab.text = @"加载中...";
-    _allTipLab.textColor = [UIColor whiteColor];
-    _allTipLab.font = [UIFont systemFontOfSize:14];
-    _allTipLab.textAlignment = NSTextAlignmentCenter;
-    [_allRemoteView addSubview:_allTipLab];
-    
-    _switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(HEIGHT-55, WIDTH-55, 45, 45)];
-    [_switchBtn setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
-    [_switchBtn addTarget:self action:@selector(switchOpenGLView) forControlEvents:UIControlEventTouchUpInside];
-    [_allRemoteView addSubview:_switchBtn];
-    
-    _allRemoteView.transform = CGAffineTransformMakeRotation(M_PI/2);
-}
-
 - (void)switchOpenGLView {
     
-    if (_remoteView.hidden==NO) {
-        _remoteView.hidden = YES;
-        _allRemoteView.hidden = NO;
+    NSLog(@"控件高度：%f",_remoteView.frame.size.height);
+    
+    CGRect rect;
+    if (_remoteView.frame.size.height<200) {
+        rect = CGRectMake(-(HEIGHT-WIDTH)/2, (HEIGHT-WIDTH)/2, HEIGHT, WIDTH);
+        _remoteView.frame = rect;
+        
+        _tipLab.frame = CGRectMake(0, 0, HEIGHT, WIDTH);
+        _switchBtn.frame = CGRectMake(HEIGHT-55, WIDTH-55, 45, 45);
+        
+        _remoteView.transform = CGAffineTransformMakeRotation(M_PI/2);
     } else {
-        _remoteView.hidden = NO;
-        _allRemoteView.hidden = YES;
+        
+        _remoteView.transform = CGAffineTransformMakeRotation(M_PI*2);
+        rect = CGRectMake(0, 104, WIDTH, 160);
+        _remoteView.frame = rect;
+        
+        _tipLab.frame = CGRectMake(0, 0, WIDTH, 160);
+        _switchBtn.frame = CGRectMake(WIDTH-50, 107, 45, 45);
     }
 }
 
@@ -138,7 +130,7 @@
     [self.clearNoteBtn.layer setMasksToBounds:YES];
     
     [self createMonitoView];
-    [self createAllMonitoView];
+//    [self createAllMonitoView];
     
     _isReject=YES;
     _errorStrings=@[
@@ -158,8 +150,6 @@
                     @"连接失败",
                     @"连接不支持"
                     ];
-    
-    [[P2PClient sharedClient] setDelegate:self];
     
     [self getData];
 }
@@ -204,9 +194,9 @@
                 _showRecordBtn.userInteractionEnabled = YES;
                 
                 [self startLogin];//开始登录
+                [[P2PClient sharedClient] setDelegate:self];
             } else {
                 _tipLab.text = @"请先添加摄像头";
-                _allTipLab.text = @"请先添加摄像头";
                 _petLab.hidden = YES;
                 _showRecordBtn.userInteractionEnabled = NO;
             }
@@ -317,8 +307,6 @@
     
     _tipLab.hidden = NO;
     _tipLab.text = @"切换中...";
-    _allTipLab.hidden = NO;
-    _allTipLab.text = @"切换中...";
     
     [self startLogin];//开始登录
 }
@@ -390,7 +378,6 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _tipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
-        _allTipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
     });
     
     NSLog(@"%@",str);
@@ -424,7 +411,6 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _tipLab.hidden = YES;
-        _allTipLab.hidden = YES;
     });
     
     _isReject = NO;
@@ -444,7 +430,6 @@
         if(fgGetVideoFrameToDisplay(&m_pAVFrame))
         {
             [_remoteView render:m_pAVFrame];
-            [_allRemoteView render:m_pAVFrame];
             vReleaseVideoFrame();
         }
         usleep(10000);
@@ -510,7 +495,6 @@
                     NSString* theErrStr=jsonDic[@"error"];
                     NSLog(@"%@",theErrStr);
                     _tipLab.text = @"当前摄像头无效";
-                    _allTipLab.text = @"当前摄像头无效";
                 }
             }
             else {
