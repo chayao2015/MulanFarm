@@ -100,6 +100,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    _remoteView.hidden = NO;
     [self startMoni];
     
     NSString *readStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"MessageRead"];
@@ -113,6 +114,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
+    _remoteView.hidden = YES;
     [self stopMoni];
 }
 

@@ -113,7 +113,7 @@
     lineView1.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
     [topView addSubview:lineView1];
     
-    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, topView.maxY, WIDTH, 250)];
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, topView.maxY, WIDTH, 300)];
     bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomView];
     
@@ -161,17 +161,35 @@
     _sexBtn.tag = 10000;
     [bottomView addSubview:_sexBtn];
     
-    UIView *lineView3 = [[UIView alloc]initWithFrame:CGRectMake(0, label2.maxY-0.5, WIDTH, .5)];
+    UIView *lineView33 = [[UIView alloc]initWithFrame:CGRectMake(0, label2.maxY-0.5, WIDTH, .5)];
+    lineView33.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
+    [bottomView addSubview:lineView33];
+    
+    //用户名
+    UILabel *label33 = [[UILabel alloc]initWithFrame:CGRectMake(15, label2.maxY, 80, 50)];
+    label33.text = @"用户名";
+    label33.font = [UIFont systemFontOfSize:15];
+    [bottomView addSubview:label33];
+    
+    _areaBtn = [[UIButton alloc] initWithFrame:CGRectMake(label1.maxX+10, label2.maxY, WIDTH-(label1.maxX+10)-15, 50)];
+    _areaBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_areaBtn setTitle:[UserInfo share].email forState:UIControlStateNormal];
+    _areaBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [_areaBtn setTitleColor:[UIColor colorWithWhite:0.267 alpha:1.000] forState:UIControlStateNormal];
+    [_areaBtn addTarget:self action:@selector(sureSelect) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:_areaBtn];
+    
+    UIView *lineView3 = [[UIView alloc]initWithFrame:CGRectMake(0, label33.maxY-0.5, WIDTH, .5)];
     lineView3.backgroundColor = [UIColor colorWithRed:0.8424 green:0.8424 blue:0.8424 alpha:1.0];
     [bottomView addSubview:lineView3];
     
     //地区
-    UILabel *label3 = [[UILabel alloc]initWithFrame:CGRectMake(15, label2.maxY, 80, 50)];
+    UILabel *label3 = [[UILabel alloc]initWithFrame:CGRectMake(15, label33.maxY, 80, 50)];
     label3.text = @"地区";
     label3.font = [UIFont systemFontOfSize:15];
     [bottomView addSubview:label3];
     
-    _areaBtn = [[UIButton alloc] initWithFrame:CGRectMake(label1.maxX+10, label2.maxY, WIDTH-(label1.maxX+10)-15, 50)];
+    _areaBtn = [[UIButton alloc] initWithFrame:CGRectMake(label1.maxX+10, label33.maxY, WIDTH-(label1.maxX+10)-15, 50)];
     _areaBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [_areaBtn setTitle:@"请选择" forState:UIControlStateNormal];
     if ([UserInfo share].area.length==0) {
