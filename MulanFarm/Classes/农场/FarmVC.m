@@ -44,6 +44,8 @@
     NSArray<NSString*>* _errorStrings;
     
     CameraInfo *cameraInfo;
+    
+    BOOL _enterStatus; //从后台进入前台状态
 }
 
 @end
@@ -100,6 +102,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //屏幕常亮
+    
     _remoteView.hidden = NO;
     [self startMoni];
     
@@ -113,6 +117,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO]; //屏幕不常亮
     
     _remoteView.hidden = YES;
     [self stopMoni];
@@ -132,7 +138,6 @@
     [self.clearNoteBtn.layer setMasksToBounds:YES];
     
     [self createMonitoView];
-//    [self createAllMonitoView];
     
     _isReject=YES;
     _errorStrings=@[
@@ -154,6 +159,19 @@
                     ];
     
     [self getData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartCamera) name:kEnterForgroundNotification object:nil]; //应用进入前台
+}
+
+//重启摄像头
+- (void)restartCamera {
+    
+    _enterStatus = YES;
+    _tipLab.hidden = NO;
+    _tipLab.text = @"重启中...";
+    
+    [self startLogin];//开始登录
+    [[P2PClient sharedClient] setDelegate:self];
 }
 
 - (void)getData {
@@ -311,6 +329,7 @@
     _tipLab.text = @"切换中...";
     
     [self startLogin];//开始登录
+    [[P2PClient sharedClient] setDelegate:self];
 }
 
 #pragma mark - 摄像头
@@ -379,7 +398,10 @@
                    [self stringErrorByError:[info[@"ErrorOption"] integerValue]]];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _tipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
+        if (_enterStatus == NO) {
+            _tipLab.text = [self stringErrorByError:[info[@"ErrorOption"] integerValue]];
+        }
+        _enterStatus = NO;
     });
     
     NSLog(@"%@",str);

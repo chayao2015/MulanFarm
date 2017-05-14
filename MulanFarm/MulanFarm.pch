@@ -39,6 +39,7 @@
 #define kLogoutSuccNotification  @"kLogoutSuccNotification"
 #define kUpdateInfoSuccNotification  @"kUpdateInfoSuccNotification"
 #define kCameraBindSuccNotification  @"kCameraBindSuccNotification"
+#define kEnterForgroundNotification  @"kEnterForgroundNotification"
 
 /*****************************屏幕宽高**************************/
 

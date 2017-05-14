@@ -349,7 +349,7 @@
                                 <rect key="frame" x="100" y="320" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="点击添加摄像头">
+                                <state key="normal" title="切换/添加摄像头">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
