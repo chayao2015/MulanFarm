@@ -18,7 +18,7 @@
     
     self.imgView.layer.cornerRadius = self.imgView.width/2;
     [self.imgView.layer setMasksToBounds:YES];
-
+    self.imgView.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:_info.thumbnail] placeholderImage:[UIImage imageNamed:@"logoIcon"]];
     self.numberLab.text = _info.camera_no;

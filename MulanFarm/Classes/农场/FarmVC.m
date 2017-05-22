@@ -36,6 +36,7 @@
     OpenGLView *_remoteView;//监控画面
     UILabel *_tipLab; //监控提示
     UIButton *_switchBtn; //切换横竖屏
+    UIButton *_restartBtn; //重连监控
     
     /**
      这个错误提示是来自P2PCInterface.h里的 dwErrorOption枚举,
@@ -60,7 +61,7 @@
     _remoteView.frame = rect;
     _remoteView.backgroundColor=[UIColor blackColor];
     _remoteView.hidden = NO;
-    [[UIApplication sharedApplication].keyWindow addSubview:_remoteView];
+    [self.view addSubview:_remoteView];
     
     _tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 160)];
     _tipLab.text = @"加载中...";
@@ -69,7 +70,13 @@
     _tipLab.textAlignment = NSTextAlignmentCenter;
     [_remoteView addSubview:_tipLab];
     
-    _switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH-50, 107, 45, 45)];
+//    _restartBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 115, 80, 50)];
+//    _restartBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+//    [_restartBtn setTitle:@"点击重连" forState:UIControlStateNormal];
+//    [_restartBtn addTarget:self action:@selector(startMoni) forControlEvents:UIControlEventTouchUpInside];
+//    [_remoteView addSubview:_restartBtn];
+    
+    _switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH-45, 112, 40, 40)];
     [_switchBtn setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
     [_switchBtn addTarget:self action:@selector(switchOpenGLView) forControlEvents:UIControlEventTouchUpInside];
     [_remoteView addSubview:_switchBtn];
@@ -85,9 +92,11 @@
         _remoteView.frame = rect;
         
         _tipLab.frame = CGRectMake(0, 0, HEIGHT, WIDTH);
-        _switchBtn.frame = CGRectMake(HEIGHT-55, WIDTH-55, 45, 45);
-        
+        _switchBtn.frame = CGRectMake(HEIGHT-50, WIDTH-50, 40, 40);
+//        _restartBtn.frame = CGRectMake(0, WIDTH-60, 80, 50);
         _remoteView.transform = CGAffineTransformMakeRotation(M_PI/2);
+        
+        self.tabBarController.tabBar.hidden = YES;
     } else {
         
         _remoteView.transform = CGAffineTransformMakeRotation(M_PI*2);
@@ -95,7 +104,10 @@
         _remoteView.frame = rect;
         
         _tipLab.frame = CGRectMake(0, 0, WIDTH, 160);
-        _switchBtn.frame = CGRectMake(WIDTH-50, 107, 45, 45);
+//        _restartBtn.frame = CGRectMake(0, 115, 80, 50);
+        _switchBtn.frame = CGRectMake(WIDTH-45, 112, 40, 40);
+        
+        self.tabBarController.tabBar.hidden = NO;
     }
 }
 
@@ -104,8 +116,9 @@
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //屏幕常亮
     
-    _remoteView.hidden = NO;
-    [self startMoni];
+    if (![_tipLab.text isEqualToString:@"切换中..."]) {
+        [self startMoni];
+    }
     
     NSString *readStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"MessageRead"];
     if (![Utils isBlankString:readStr]) {
@@ -120,7 +133,6 @@
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO]; //屏幕不常亮
     
-    _remoteView.hidden = YES;
     [self stopMoni];
 }
 
@@ -180,33 +192,23 @@
         
         if (status == Request_Success) {
             
-            NSArray *array = [CameraInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
-            
-            NSMutableArray *dataArr = [NSMutableArray array];
-            for (int i = 0; i<array.count; i++) {
-                CameraInfo *info = array[i];
-                
-                if ([info.user_id isEqualToString:[UserInfo share].ID]) {
-                    [dataArr addObject:info];
-                }
-            }
+            NSMutableArray *dataArr = [CameraInfo mj_objectArrayWithKeyValuesArray:(NSArray *)responseData];
             
             if (dataArr.count>0) {
                 
-                NSString *saveCameraID = [UserInfo share].cameraID;
-                
-                if ([Utils isBlankString:saveCameraID]) {
-                    cameraInfo = dataArr[0];
-                } else {
+                BOOL isSelected = NO;
+                for (int i = 0; i<dataArr.count; i++) {
+                    CameraInfo *info = dataArr[i];
                     
-                    for (int i = 0; i<dataArr.count; i++) {
-                        CameraInfo *info = dataArr[i];
-                        
-                        if ([info.ID isEqualToString:saveCameraID]) {
-                            cameraInfo = info;
-                            break;
-                        }
+                    if ([info.is_selected isEqualToString:@"1"]) {
+                        cameraInfo = info;
+                        isSelected = YES;
+                        break;
                     }
+                }
+                
+                if (isSelected == NO) { //没有默认选中的
+                    cameraInfo = dataArr[0];
                 }
                 
                 _petLab.hidden = NO;
@@ -264,7 +266,6 @@
     [[NetworkManager sharedManager] postJSON:URL_SignIn parameters:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
-            //[Utils showToast:@"签到成功"];
             
             SignView *signView = [[SignView alloc] init];
             [self.view addSubview:signView];
@@ -317,16 +318,13 @@
     
     cameraInfo = info;
     
-    NSMutableDictionary *userDic = [[[UserInfo share] getUserInfo] mutableCopy];
-    [userDic setObject:cameraInfo.ID forKey:@"cameraID"];
-    [[UserInfo share] setUserInfo:userDic];
-    
     _petLab.hidden = NO;
     _petLab.text = cameraInfo.name;
     _showRecordBtn.userInteractionEnabled = YES;
     
     _tipLab.hidden = NO;
     _tipLab.text = @"切换中...";
+    _enterStatus = YES;
     
     [self startLogin];//开始登录
     [[P2PClient sharedClient] setDelegate:self];
@@ -336,6 +334,9 @@
 
 //开始监控
 - (void)startMoni {
+    
+    _tipLab.hidden = NO;
+    _tipLab.text = @"连接中...";
     
     NSString *status = [[NSUserDefaults standardUserDefaults] objectForKey:@"ForbidWifiWatch"];
     if ([Utils isBlankString:status] && [NetworkUtil currentNetworkStatus]!=NET_WIFI) {
@@ -441,8 +442,18 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self renderView];
     });
-    [[PAIOUnit sharedUnit] setMuteAudio:NO];
+    [[PAIOUnit sharedUnit] setMuteAudio:YES]; //监控静音
     [[PAIOUnit sharedUnit] setSpeckState:YES];
+}
+
+//打开监控声音
+- (void)openVoice {
+    [[PAIOUnit sharedUnit] setMuteAudio:NO]; //声音打开
+}
+
+//关闭监控声音
+- (void)closeVoice {
+    [[PAIOUnit sharedUnit] setMuteAudio:YES]; //监控静音
 }
 
 #pragma mark - 开始渲染监控画面

@@ -32,16 +32,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)picClickAction:(id)sender {
     
     [self.view endEditing:YES]; //隐藏键盘
@@ -108,11 +98,6 @@
         return;
     }
     
-    if ([Utils isBlankString:_nameTF.text]) {
-        [Utils showToast:@"请输入摄像头名称"];
-        return;
-    }
-    
     if ([Utils isBlankString:_pswTF.text]) {
         [Utils showToast:@"请输入摄像头密码"];
         return;
@@ -120,7 +105,7 @@
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          _numberTF.text, @"camera_no",
-                         _nameTF.text, @"name",
+//                         _nameTF.text, @"name",
                          _pswTF.text,@"camera_device_pwd",
                          nil];
     [[NetworkManager sharedManager] postJSON:URL_CameraBind parameters:dic imageDataArr:imgDataArr imageName:@"thumbnail[]" completion:^(id responseData, RequestState status, NSError *error) {

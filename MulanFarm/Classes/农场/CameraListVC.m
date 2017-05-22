@@ -141,8 +141,16 @@
     
     CameraInfo *info = _dataArr[indexPath.row];
     
-    [self.backDelegate backAction:info];
-    [self.navigationController popViewControllerAnimated:YES];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         info.ID, @"id",
+                         nil];
+    [[NetworkManager sharedManager] postJSON:URL_CameraSelect parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
+        if (status == Request_Success) {
+            
+            [self.backDelegate backAction:info];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -29,7 +29,9 @@
     self.checkBtn.layer.cornerRadius = 3;
     [self.checkBtn.layer setMasksToBounds:YES];
     
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _accountTF.text = [defaults objectForKey:@"UserAccount"];
+    _pswTF.text = [defaults objectForKey:@"UserPsw"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,6 +77,8 @@
             [Utils showToast:@"登录成功"];
             
             [[UserInfo share] setUserInfo:responseData];
+            [[NSUserDefaults standardUserDefaults] setObject:_accountTF.text forKey:@"UserAccount"];
+            [[NSUserDefaults standardUserDefaults] setObject:_pswTF.text forKey:@"UserPsw"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccNotification object:nil];
             

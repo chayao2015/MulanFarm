@@ -17,6 +17,7 @@
 @property (nonatomic,copy) NSString *create_date; //创建日期
 @property (nonatomic,copy) NSString *user_id; //用户ID
 @property (nonatomic,copy) NSString *is_bound; //是否绑定
+@property (nonatomic,copy) NSString *is_selected; //是否选中
 
 @property (nonatomic,copy) NSString *camera_user_name; //摄像头用户名
 @property (nonatomic,copy) NSString *camera_user_pswd; //摄像头用户密码

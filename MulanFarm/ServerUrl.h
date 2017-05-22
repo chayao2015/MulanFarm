@@ -37,6 +37,7 @@
 #define URL_SendEmailCaptcha @"user.php?m=sendEmailCaptcha" //发送邮箱验证码
 #define URL_CameraList @"camera.php?m=list" //摄像头列表
 #define URL_CameraBind @"camera.php?m=bind" //绑定摄像头
+#define URL_CameraSelect @"camera.php?m=select" //选择摄像头
 #define URL_CameraDelete @"camera.php?m=delete" //删除摄像头
 #define URL_SaveNote @"note.php?m=save" //保存笔记
 #define URL_NoteList @"note.php?m=list" //笔记列表
