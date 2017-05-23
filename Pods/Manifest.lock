@@ -18,6 +18,7 @@ PODS:
   - FXBlurView (1.6.4)
   - IQKeyboardManager (4.0.6)
   - JPush-iOS-SDK (2.1.9)
+  - libWeChatSDK (1.7.5)
   - MJExtension (3.0.13)
   - MJRefresh (3.0.8)
   - RealReachability (1.1.8):
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - FXBlurView (~> 1.6.4)
   - IQKeyboardManager
   - JPush-iOS-SDK (~> 2.1.9)
+  - libWeChatSDK
   - MJExtension (~> 3.0.13)
   - MJRefresh (~> 3.0.8)
   - RealReachability (~> 1.1.7)
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   IQKeyboardManager: c52debb1967799ae7addb98eab0cf328083a874f
   JPush-iOS-SDK: c74e4f8d066dacf27c3d37257ee20157e44c316c
+  libWeChatSDK: e34a813bccc704856a33943bde8279be4e4c82a0
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
@@ -58,6 +61,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   TZImagePickerController: d3b16a1ab3393b251a23fbb22ac2d6bc83a50d5f
 
-PODFILE CHECKSUM: 883d98470ba3974715a513ccaa0bd304b9923b73
+PODFILE CHECKSUM: f471aa7189f3d481682e25c3389aa4b23ea5b014
 
 COCOAPODS: 1.2.0

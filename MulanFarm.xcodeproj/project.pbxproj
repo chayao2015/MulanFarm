@@ -30,6 +30,9 @@
 		2064007E1E86B50B0060560E /* Articleinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2064007D1E86B50B0060560E /* Articleinfo.m */; };
 		206400831E86BAAF0060560E /* BaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400801E86BAAF0060560E /* BaseWebVC.m */; };
 		206400841E86BAAF0060560E /* WKDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206400821E86BAAF0060560E /* WKDelegateController.m */; };
+		206873F11ED3E5CF00692C6D /* RechargeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206873F01ED3E5CF00692C6D /* RechargeVC.m */; };
+		206873F41ED3E5E700692C6D /* PayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 206873F31ED3E5E700692C6D /* PayVC.m */; };
+		2077976D1ED404E000222674 /* 收款二维码.png in Resources */ = {isa = PBXBuildFile; fileRef = 2077976C1ED404E000222674 /* 收款二维码.png */; };
 		20846B9F1E90EC5900FDFCAA /* MyWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20846B9B1E90EC5900FDFCAA /* MyWalletVC.m */; };
 		20846BA01E90EC5900FDFCAA /* BellListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20846B9E1E90EC5900FDFCAA /* BellListVC.m */; };
 		20846BA31E90F15300FDFCAA /* NoteDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20846BA21E90F15300FDFCAA /* NoteDetailVC.m */; };
@@ -200,6 +203,11 @@
 		206400801E86BAAF0060560E /* BaseWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebVC.m; sourceTree = "<group>"; };
 		206400811E86BAAF0060560E /* WKDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKDelegateController.h; sourceTree = "<group>"; };
 		206400821E86BAAF0060560E /* WKDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKDelegateController.m; sourceTree = "<group>"; };
+		206873EF1ED3E5CF00692C6D /* RechargeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeVC.h; sourceTree = "<group>"; };
+		206873F01ED3E5CF00692C6D /* RechargeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeVC.m; sourceTree = "<group>"; };
+		206873F21ED3E5E700692C6D /* PayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayVC.h; sourceTree = "<group>"; };
+		206873F31ED3E5E700692C6D /* PayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayVC.m; sourceTree = "<group>"; };
+		2077976C1ED404E000222674 /* 收款二维码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "收款二维码.png"; sourceTree = "<group>"; };
 		20846B9A1E90EC5900FDFCAA /* MyWalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletVC.h; sourceTree = "<group>"; };
 		20846B9B1E90EC5900FDFCAA /* MyWalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletVC.m; sourceTree = "<group>"; };
 		20846B9D1E90EC5900FDFCAA /* BellListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellListVC.h; sourceTree = "<group>"; };
@@ -480,6 +488,10 @@
 			children = (
 				20846B9A1E90EC5900FDFCAA /* MyWalletVC.h */,
 				20846B9B1E90EC5900FDFCAA /* MyWalletVC.m */,
+				206873EF1ED3E5CF00692C6D /* RechargeVC.h */,
+				206873F01ED3E5CF00692C6D /* RechargeVC.m */,
+				206873F21ED3E5E700692C6D /* PayVC.h */,
+				206873F31ED3E5E700692C6D /* PayVC.m */,
 			);
 			path = "钱包";
 			sourceTree = "<group>";
@@ -639,6 +651,7 @@
 		20FD286C1E711227008B7C5B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2077976C1ED404E000222674 /* 收款二维码.png */,
 				2035790B1E9B8DFF006D36E3 /* 启动页@2x.png */,
 				205563961E8D33A80088F0DE /* Address.plist */,
 				20FD287D1E711227008B7C5B /* Info.plist */,
@@ -1189,6 +1202,7 @@
 				20CB8F401E9A151D007D410C /* DetailesTabCell.xib in Resources */,
 				201A36CA1E920722007956CF /* CameraListCell.xib in Resources */,
 				20FD287C1E711227008B7C5B /* LaunchScreen.storyboard in Resources */,
+				2077976D1ED404E000222674 /* 收款二维码.png in Resources */,
 				2035790C1E9B8DFF006D36E3 /* 启动页@2x.png in Resources */,
 				20FD28791E711227008B7C5B /* Assets.xcassets in Resources */,
 				20FD28771E711227008B7C5B /* Main.storyboard in Resources */,
@@ -1321,6 +1335,7 @@
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
 				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
 				206400651E867E1B0060560E /* NoteCenterVC.m in Sources */,
+				206873F41ED3E5E700692C6D /* PayVC.m in Sources */,
 				20FD295C1E711706008B7C5B /* TapImageView.m in Sources */,
 				20FD29621E711706008B7C5B /* OptionBarController.m in Sources */,
 				20FD29581E711706008B7C5B /* AEFlowLayoutView.m in Sources */,
@@ -1348,6 +1363,7 @@
 				20FD295B1E711706008B7C5B /* ImgScrollView.m in Sources */,
 				20FD294A1E711706008B7C5B /* AEFilePath.m in Sources */,
 				20FD29381E711706008B7C5B /* UILabel+Add.m in Sources */,
+				206873F11ED3E5CF00692C6D /* RechargeVC.m in Sources */,
 				206400691E867EB60060560E /* NoteCell.m in Sources */,
 				20FD29361E711706008B7C5B /* UIImage+Additions.m in Sources */,
 				2064007E1E86B50B0060560E /* Articleinfo.m in Sources */,

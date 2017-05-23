@@ -7,6 +7,8 @@
 //
 
 #import "MyWalletVC.h"
+#import "RechargeVC.h"
+#import "PayVC.h"
 
 @interface MyWalletVC ()
 
@@ -35,19 +37,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+//充值
 - (IBAction)chongzhiAction:(id)sender {
+    
+    RechargeVC *vc = [[RechargeVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
+//付款
 - (IBAction)fukuanAction:(id)sender {
+    
+    PayVC *vc = [[PayVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
 @end

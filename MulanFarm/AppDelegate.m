@@ -16,8 +16,9 @@
 #import "BaseNC.h"
 
 #import "P2PClient.h"
+#import "WXApi.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 {
     UITabBarController *myTabBarController;
 }
@@ -39,6 +40,10 @@
     [[UserInfo share] getUserInfo];
     [AEFilePath createDirPath];
     [[NetworkUtil sharedInstance] listening]; //监测网络
+    
+    NSString *WecahtAppKey=@"wx55bc4907e6c26338";
+    NSString *WechatDescription=@"微信注册";
+    [WXApi registerApp:WecahtAppKey withDescription:WechatDescription];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = PageColor;
@@ -103,6 +108,56 @@
     }];
     
     return loginVC;
+}
+
+#pragma mark - 分享、支付功能
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [self applicationOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [self applicationOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary*)options {
+    return [self applicationOpenURL:url];
+}
+
+- (BOOL)applicationOpenURL:(NSURL *)url {
+    
+    //微信支付回调
+    if([[url absoluteString] rangeOfString:@"wx55bc4907e6c26338://pay"].location == 0) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    return YES;
+}
+
+#pragma mark - WXApiDelegate
+
+-(void)onResp:(BaseResp *)resp {
+    //微信支付信息
+    if ([resp isKindOfClass:[PayResp class]]) {
+        PayResp *payResp = (PayResp *)resp;
+        
+        NSLog(@"微信支付成功回调：%d",payResp.errCode);
+        
+        switch (payResp.errCode) {
+            case 0:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PaySuccess" object:nil];
+                break;
+            case -1:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PayFail" object:nil];
+                break;
+            case -2:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PayCancel" object:nil];
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -15,5 +15,6 @@ pod 'JPush-iOS-SDK', '~> 2.1.9'
 pod 'IQKeyboardManager'
 pod 'AESCrypt'
 pod 'SDCycleScrollView'
+pod 'libWeChatSDK'
 
 end
