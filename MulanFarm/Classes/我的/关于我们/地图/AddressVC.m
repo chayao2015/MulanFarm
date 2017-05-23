@@ -37,9 +37,10 @@
     [super viewDidLoad];
     
     self.title = @"地图详情";
+    _destinationCoordinate = CLLocationCoordinate2DMake(29.96,121.72);
     
     [self initMapView]; //高德地图
-    
+    [self initCompanyView];
 }
 
 //高德地图
@@ -70,6 +71,47 @@
     //搜索
     _search = [[AMapSearchAPI alloc] init];
     _search.delegate = self;
+}
+
+- (void)initCompanyView {
+    
+    UIButton *naviBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH-60, 70, 50, 30)];
+    naviBtn.layer.cornerRadius = 5;
+    [naviBtn.layer setMasksToBounds:YES];
+    naviBtn.backgroundColor = AppThemeColor;
+    naviBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [naviBtn setTitle:@"导航" forState:UIControlStateNormal];
+    [naviBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [naviBtn addTarget:self action:@selector(gpsNavAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:naviBtn];
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT-75, WIDTH, 75)];
+    bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:bottomView];
+    
+    UILabel *addressLab = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, WIDTH-10, 40)];
+    addressLab.numberOfLines = 0;
+    addressLab.text = @"地址：河北省承德市围场满族蒙古族自治县大头山乡";
+    addressLab.font = [UIFont systemFontOfSize:14];
+    [bottomView addSubview:addressLab];
+    
+    UILabel *phoneLab = [[UILabel alloc] initWithFrame:CGRectMake(5, addressLab.maxY+5, 45, 20)];
+    phoneLab.text = @"电话：";
+    phoneLab.font = [UIFont systemFontOfSize:14];
+    [bottomView addSubview:phoneLab];
+    
+    UIButton *phoneBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, addressLab.maxY+5, 100, 20)];
+    [phoneBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    phoneBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [phoneBtn setTitle:@"15737936517" forState:UIControlStateNormal];
+    [phoneBtn addTarget:self action:@selector(phoneClick) forControlEvents:UIControlEventTouchUpInside];
+    phoneBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [bottomView addSubview:phoneBtn];
+}
+
+//打电话
+- (void)phoneClick {
+    [Utils call:@"15737936517"];
 }
 
 #pragma mark - 导航
