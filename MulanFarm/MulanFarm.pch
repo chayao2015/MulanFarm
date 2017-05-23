@@ -31,6 +31,9 @@
 
 #endif
 
+//高德地图key
+#define kMapKey         @"952811ddbc02601dac91f53de820f504"
+
 #define kCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 /******************************通知****************************/
