@@ -44,8 +44,11 @@
     
     self.title = @"我的";
     
-    imgArr = @[@"wallet",@"about",@"set",@"notes"];
-    dataArr = @[@"我的钱包",@"关于我们",@"设置",@"笔记中心"];
+//    imgArr = @[@"wallet",@"about",@"set",@"notes"];
+//    dataArr = @[@"我的钱包",@"关于我们",@"设置",@"笔记中心"];
+    
+    imgArr = @[@"wallet",@"notes",@"set",@"about"];
+    dataArr = @[@"我的钱包",@"笔记中心",@"设置",@"关于我们"];
     
     [self setNavBar];
     

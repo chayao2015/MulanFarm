@@ -26,7 +26,6 @@
     
     CLLocationCoordinate2D _startCoordinate; /* 起始点经纬度. */
     CLLocationCoordinate2D _destinationCoordinate; /* 终点经纬度. */
-    CLLocationCoordinate2D _centerCoordinate; /* 中心点经纬度. */
 }
 
 @end

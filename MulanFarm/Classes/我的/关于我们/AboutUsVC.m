@@ -8,6 +8,7 @@
 
 #import "AboutUsVC.h"
 #import "AddressVC.h"
+#import "MapDetailVC.h"
 
 @interface AboutUsVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -133,7 +134,8 @@
     
     if ([title isEqualToString:@"地图详情"]) {
         
-        AddressVC *vc = [[AddressVC alloc] init];
+//        AddressVC *vc = [[AddressVC alloc] init];
+        MapDetailVC *vc = [[MapDetailVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

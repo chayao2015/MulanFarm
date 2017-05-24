@@ -14,6 +14,7 @@
 #import "AEFilePath.h"
 #import "UserInfo.h"
 #import "BaseNC.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 #import "P2PClient.h"
 #import "WXApi.h"
@@ -40,6 +41,9 @@
     [[UserInfo share] getUserInfo];
     [AEFilePath createDirPath];
     [[NetworkUtil sharedInstance] listening]; //监测网络
+    
+    //高德地图注册
+    [AMapServices sharedServices].apiKey = kMapKey;
     
     NSString *WecahtAppKey=@"wx55bc4907e6c26338";
     NSString *WechatDescription=@"微信注册";
