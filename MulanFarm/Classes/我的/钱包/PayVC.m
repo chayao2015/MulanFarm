@@ -47,52 +47,35 @@
     rechargeBtn.backgroundColor = AppThemeColor;
     rechargeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [rechargeBtn setTitle:@"付款" forState:UIControlStateNormal];
-    [rechargeBtn addTarget:self action:@selector(wxpay) forControlEvents:UIControlEventTouchUpInside];
+    [rechargeBtn addTarget:self action:@selector(transferPay) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rechargeBtn];
 }
 
-#pragma mark - 微信支付
+#pragma mark - 转账
 
-- (void)wxpay
+- (void)transferPay
 {
     if ([Utils isBlankString:moneyTF.text]) {
         [Utils showToast:@"请输入付款金额"];
         return;
     }
     
-    if (![WXApi isWXAppInstalled] && ![WXApi isWXAppSupportApi]) {
-        [Utils showToast:@"您未安装微信客户端，请安装微信以完成支付"];
-    } else {
+    [self.view endEditing:YES];
+    
+    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         moneyTF.text, @"amount",
+                         @"admin", @"payee",
+                        nil];
+    [[NetworkManager sharedManager] postJSON:URL_Transfer parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
         
-        [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+        [JHHJView hideLoading]; //结束加载
         
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [UserInfo share].ID, @"memberID",
-                             @"", @"payment_order_id",
-                             @"wxpay", @"payment_pay_app_id",
-                             @"wx55bc4907e6c26338", @"openid",
-                             nil];
-        [[NetworkManager sharedManager] postJSON:URL_UpdateUserInfo parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
-            
-            [JHHJView hideLoading]; //结束加载
-            
-            if (status == Request_Success) {
-                if ([responseData isKindOfClass:[NSDictionary class]]) {
-                    //调起微信支付
-                    PayReq* req             = [[PayReq alloc] init];
-                    req.openID              = responseData[@"appid"];
-                    req.partnerId           = responseData[@"partnerid"];
-                    req.prepayId            = responseData[@"prepay_id"];
-                    req.nonceStr            = responseData[@"noncestr"];
-                    NSMutableString *stamp  = responseData[@"timestamp"];
-                    req.timeStamp           = stamp.intValue;
-                    req.package             = responseData[@"package1"];
-                    req.sign                = responseData[@"sign"];
-                    [WXApi sendReq:req];
-                }
-            }
-        }];
-    }
+        if (status == Request_Success) {
+            [Utils showToast:@"付款成功"];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

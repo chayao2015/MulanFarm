@@ -30,6 +30,31 @@
     
     self.fukuanBtn.layer.borderColor = AppThemeColor.CGColor;
     self.fukuanBtn.layer.borderWidth = 0.6;
+    
+    [self getData];
+}
+
+- (void)getData {
+    
+    [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
+    
+    NSDictionary *dic = [NSDictionary dictionary];
+    [[NetworkManager sharedManager] postJSON:URL_Query parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
+        
+        [JHHJView hideLoading]; //结束加载
+        
+        if (status == Request_Success) {
+            
+            NSString *balance = [NSString stringWithFormat:@"%@",responseData[@"balance"]];
+            NSString *status = [NSString stringWithFormat:@"%@",responseData[@"status"]];
+            
+            if ([status isEqualToString:@"0"]) {
+                self.moneyLab.text = [NSString stringWithFormat:@"总资产：￥%@",balance];
+            } else {
+                self.moneyLab.text = [NSString stringWithFormat:@"总资产：￥%@(已冻结)",balance];
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

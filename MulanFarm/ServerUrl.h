@@ -50,4 +50,9 @@
 #define URL_DeleteAlbum @"archive.php?m=deleteAlbum"  //删除相册
 #define URL_MsgList @"user.php?m=msgList" //消息列表
 
+#define URL_Recharge @"account.php?m=topup" //充值
+#define URL_Transfer @"account.php?m=transfer" //转账
+#define URL_Query @"account.php?m=query" //查询余额
+#define URL_PayQuery @"account.php?m=payQuery" //查询充值结果
+
 #endif /* ServerUrl_h */

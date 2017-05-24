@@ -133,7 +133,7 @@
     [headImgView.layer setMasksToBounds:YES];
     [bgView addSubview:headImgView];
     
-    nickLab = [[UILabel alloc] initWithFrame:CGRectMake(headImgView.maxX+10, headImgView.y, 120, 40)];
+    nickLab = [[UILabel alloc] initWithFrame:CGRectMake(headImgView.maxX+10, headImgView.y, 200, 40)];
     nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?[UserInfo share].user_name:[UserInfo share].nick_name;
     nickLab.textAlignment = NSTextAlignmentLeft;
     nickLab.textColor = [UIColor whiteColor];

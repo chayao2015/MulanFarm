@@ -14,6 +14,8 @@
     UILabel *moneyLab;
     UITextField *moneyTF;
     UIButton *rechargeBtn;
+    
+    NSString *prepay_id;
 }
 @end
 
@@ -49,6 +51,36 @@
     [rechargeBtn setTitle:@"充值" forState:UIControlStateNormal];
     [rechargeBtn addTarget:self action:@selector(wxpay) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rechargeBtn];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paySuccess) name:@"PaySuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFail) name:@"PayFail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payCancel) name:@"PayCancel" object:nil];
+}
+
+//支付成功
+- (void)paySuccess {
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         prepay_id, @"prepay_id",
+                         nil];
+    [[NetworkManager sharedManager] postJSON:URL_PayQuery parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+        
+        if (status == Request_Success) {
+            [Utils showToast:@"支付成功"];
+        } else {
+            [Utils showToast:@"支付失败，请重新支付"];
+        }
+    }];
+}
+
+//支付失败
+- (void)payFail {
+    [Utils showToast:@"支付失败，请重新支付"];
+}
+
+//支付取消
+-(void)payCancel {
+    [Utils showToast:@"支付取消"];
 }
 
 #pragma mark - 微信支付
@@ -60,6 +92,8 @@
         return;
     }
     
+    [self.view endEditing:YES];
+    
     if (![WXApi isWXAppInstalled] && ![WXApi isWXAppSupportApi]) {
         [Utils showToast:@"您未安装微信客户端，请安装微信以完成支付"];
     } else {
@@ -67,12 +101,11 @@
         [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
         
         NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [UserInfo share].ID, @"memberID",
-                             @"", @"payment_order_id",
-                             @"wxpay", @"payment_pay_app_id",
-                             @"wx55bc4907e6c26338", @"openid",
+                             @"wx55bc4907e6c26338", @"appid",
+                             moneyTF.text, @"total_fee",
+                             [Utils getIPAddress], @"spbill_create_ip",
                              nil];
-        [[NetworkManager sharedManager] postJSON:URL_UpdateUserInfo parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+        [[NetworkManager sharedManager] postJSON:URL_Recharge parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
             
             [JHHJView hideLoading]; //结束加载
             
@@ -83,10 +116,11 @@
                     req.openID              = responseData[@"appid"];
                     req.partnerId           = responseData[@"partnerid"];
                     req.prepayId            = responseData[@"prepay_id"];
+                    prepay_id               = responseData[@"prepay_id"];
                     req.nonceStr            = responseData[@"noncestr"];
                     NSMutableString *stamp  = responseData[@"timestamp"];
                     req.timeStamp           = stamp.intValue;
-                    req.package             = responseData[@"package1"];
+                    req.package             = responseData[@"package"];
                     req.sign                = responseData[@"sign"];
                     [WXApi sendReq:req];
                 }
