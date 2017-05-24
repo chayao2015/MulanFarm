@@ -39,7 +39,7 @@
     [JHHJView showLoadingOnTheKeyWindowWithType:JHHJViewTypeSingleLine]; //开始加载
     
     NSDictionary *dic = [NSDictionary dictionary];
-    [[NetworkManager sharedManager] postJSON:URL_Query parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_Query parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
         
         [JHHJView hideLoading]; //结束加载
         
@@ -49,9 +49,9 @@
             NSString *status = [NSString stringWithFormat:@"%@",responseData[@"status"]];
             
             if ([status isEqualToString:@"0"]) {
-                self.moneyLab.text = [NSString stringWithFormat:@"总资产：￥%@",balance];
+                self.moneyLab.text = [NSString stringWithFormat:@"￥%@",balance];
             } else {
-                self.moneyLab.text = [NSString stringWithFormat:@"总资产：￥%@(已冻结)",balance];
+                self.moneyLab.text = [NSString stringWithFormat:@"￥%@(已冻结)",balance];
             }
         }
     }];
