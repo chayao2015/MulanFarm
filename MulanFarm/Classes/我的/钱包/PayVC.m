@@ -37,7 +37,6 @@
     
     moneyTF = [[UITextField alloc] initWithFrame:CGRectMake(moneyLab.maxX, 15, WIDTH-120, 20)];
     moneyTF.placeholder = @"请输入付款金额(元)";
-    moneyTF.keyboardType = UIKeyboardTypeNumberPad;
     moneyTF.font = [UIFont systemFontOfSize:15];
     [topView addSubview:moneyTF];
     

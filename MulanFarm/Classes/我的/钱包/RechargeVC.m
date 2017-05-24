@@ -39,7 +39,6 @@
     
     moneyTF = [[UITextField alloc] initWithFrame:CGRectMake(moneyLab.maxX, 15, WIDTH-120, 20)];
     moneyTF.placeholder = @"请输入充值金额(元)";
-    moneyTF.keyboardType = UIKeyboardTypeNumberPad;
     moneyTF.font = [UIFont systemFontOfSize:15];
     [topView addSubview:moneyTF];
     
@@ -63,7 +62,7 @@
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          prepay_id, @"prepay_id",
                          nil];
-    [[NetworkManager sharedManager] postJSON:URL_PayQuery parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
+    [[NetworkManager sharedManager] postJSON:URL_PayQuery parameters:dic imageDataArr:nil imageName:nil completion:^(id responseData, RequestState status, NSError *error) {
         
         if (status == Request_Success) {
             [Utils showToast:@"支付成功"];
@@ -115,8 +114,8 @@
                     PayReq* req             = [[PayReq alloc] init];
                     req.openID              = responseData[@"appid"];
                     req.partnerId           = responseData[@"partnerid"];
-                    req.prepayId            = responseData[@"prepay_id"];
-                    prepay_id               = responseData[@"prepay_id"];
+                    req.prepayId            = responseData[@"prepayid"];
+                    prepay_id               = responseData[@"prepayid"];
                     req.nonceStr            = responseData[@"noncestr"];
                     NSMutableString *stamp  = responseData[@"timestamp"];
                     req.timeStamp           = stamp.intValue;
