@@ -73,6 +73,8 @@
         
         if (status == Request_Success) {
             [Utils showToast:@"付款成功"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPaySuccNotification object:nil];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }

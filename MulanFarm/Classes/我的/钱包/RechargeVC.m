@@ -66,6 +66,8 @@
         
         if (status == Request_Success) {
             [Utils showToast:@"支付成功"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kRechargeSuccNotification object:nil];
         } else {
             [Utils showToast:@"支付失败，请重新支付"];
         }

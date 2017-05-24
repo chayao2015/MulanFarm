@@ -32,6 +32,13 @@
     self.fukuanBtn.layer.borderWidth = 0.6;
     
     [self getData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:kRechargeSuccNotification object:nil]; //充值成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:kPaySuccNotification object:nil]; //付款成功
+}
+
+//重启摄像头
+- (void)restartCamera {
 }
 
 - (void)getData {

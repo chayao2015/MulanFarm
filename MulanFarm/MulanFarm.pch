@@ -43,6 +43,8 @@
 #define kUpdateInfoSuccNotification  @"kUpdateInfoSuccNotification"
 #define kCameraBindSuccNotification  @"kCameraBindSuccNotification"
 #define kEnterForgroundNotification  @"kEnterForgroundNotification"
+#define kRechargeSuccNotification  @"kRechargeSuccNotification"
+#define kPaySuccNotification  @"kPaySuccNotification"
 
 /*****************************屏幕宽高**************************/
 
