@@ -23,7 +23,7 @@
     self.title = @"我的钱包";
     
     [self.headImgView sd_setImageWithURL:[NSURL URLWithString:[UserInfo share].avatar] placeholderImage:[UIImage imageNamed:@"header"]];
-    self.nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?@"暂无昵称":[UserInfo share].nick_name;
+    self.nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?[UserInfo share].user_name:[UserInfo share].nick_name;
     
     self.headImgView.layer.cornerRadius = self.headImgView.width/2;
     [self.headImgView.layer setMasksToBounds:YES];

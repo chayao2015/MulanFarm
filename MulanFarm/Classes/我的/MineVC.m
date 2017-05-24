@@ -59,7 +59,7 @@
 - (void)updateInfoSucc {
     
     [headImgView sd_setImageWithURL:[NSURL URLWithString:[UserInfo share].avatar] placeholderImage:[UIImage imageNamed:@"header"]];
-    nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?@"暂无昵称":[UserInfo share].nick_name;
+    nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?[UserInfo share].user_name:[UserInfo share].nick_name;
 }
 
 - (void)setNavBar {
@@ -134,7 +134,7 @@
     [bgView addSubview:headImgView];
     
     nickLab = [[UILabel alloc] initWithFrame:CGRectMake(headImgView.maxX+10, headImgView.y, 120, 40)];
-    nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?@"暂无昵称":[UserInfo share].nick_name;
+    nickLab.text = [Utils isBlankString:[UserInfo share].nick_name]?[UserInfo share].user_name:[UserInfo share].nick_name;
     nickLab.textAlignment = NSTextAlignmentLeft;
     nickLab.textColor = [UIColor whiteColor];
     nickLab.font = [UIFont systemFontOfSize:15];
