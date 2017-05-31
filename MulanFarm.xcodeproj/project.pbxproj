@@ -22,6 +22,10 @@
 		2042F6731ED53A480013F1A0 /* MANaviAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2042F66D1ED53A480013F1A0 /* MANaviAnnotation.m */; };
 		2042F6741ED53A480013F1A0 /* MANaviPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2042F66F1ED53A480013F1A0 /* MANaviPolyline.m */; };
 		2042F6751ED53A480013F1A0 /* MANaviRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2042F6711ED53A480013F1A0 /* MANaviRoute.m */; };
+		204423E51ED96CEE0062263F /* AEIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 204423DD1ED96CEE0062263F /* AEIndicator.m */; };
+		204423E61ED96CEE0062263F /* JHHJAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 204423E01ED96CEE0062263F /* JHHJAnimation.m */; };
+		204423E71ED96CEE0062263F /* JHHJCenterBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 204423E21ED96CEE0062263F /* JHHJCenterBGView.m */; };
+		204423E81ED96CEE0062263F /* JHHJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 204423E41ED96CEE0062263F /* JHHJView.m */; };
 		2054DC5A1E817462004DFC27 /* ZBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC591E817462004DFC27 /* ZBTextField.m */; };
 		2054DC5D1E817592004DFC27 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5C1E817592004DFC27 /* RegisterVC.m */; };
 		2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054DC5F1E8175AA004DFC27 /* ForgetPswVC.m */; };
@@ -142,10 +146,6 @@
 		20FD295A1E711706008B7C5B /* ImgLargeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29051E711706008B7C5B /* ImgLargeScrollView.m */; };
 		20FD295B1E711706008B7C5B /* ImgScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29071E711706008B7C5B /* ImgScrollView.m */; };
 		20FD295C1E711706008B7C5B /* TapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29091E711706008B7C5B /* TapImageView.m */; };
-		20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD290C1E711706008B7C5B /* AEIndicator.m */; };
-		20FD295E1E711706008B7C5B /* JHHJAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD290F1E711706008B7C5B /* JHHJAnimation.m */; };
-		20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29111E711706008B7C5B /* JHHJCenterBGView.m */; };
-		20FD29601E711706008B7C5B /* JHHJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29131E711706008B7C5B /* JHHJView.m */; };
 		20FD29611E711706008B7C5B /* BottomLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29161E711706008B7C5B /* BottomLineView.m */; };
 		20FD29621E711706008B7C5B /* OptionBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD29181E711706008B7C5B /* OptionBarController.m */; };
 		20FD29631E711706008B7C5B /* OptionsBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD291A1E711706008B7C5B /* OptionsBarItem.m */; };
@@ -216,6 +216,14 @@
 		2042F66F1ED53A480013F1A0 /* MANaviPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviPolyline.m; sourceTree = "<group>"; };
 		2042F6701ED53A480013F1A0 /* MANaviRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviRoute.h; sourceTree = "<group>"; };
 		2042F6711ED53A480013F1A0 /* MANaviRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviRoute.m; sourceTree = "<group>"; };
+		204423DC1ED96CEE0062263F /* AEIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEIndicator.h; sourceTree = "<group>"; };
+		204423DD1ED96CEE0062263F /* AEIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEIndicator.m; sourceTree = "<group>"; };
+		204423DF1ED96CEE0062263F /* JHHJAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHJAnimation.h; sourceTree = "<group>"; };
+		204423E01ED96CEE0062263F /* JHHJAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHJAnimation.m; sourceTree = "<group>"; };
+		204423E11ED96CEE0062263F /* JHHJCenterBGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHJCenterBGView.h; sourceTree = "<group>"; };
+		204423E21ED96CEE0062263F /* JHHJCenterBGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHJCenterBGView.m; sourceTree = "<group>"; };
+		204423E31ED96CEE0062263F /* JHHJView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHJView.h; sourceTree = "<group>"; };
+		204423E41ED96CEE0062263F /* JHHJView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHJView.m; sourceTree = "<group>"; };
 		2054DC581E817462004DFC27 /* ZBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextField.h; sourceTree = "<group>"; };
 		2054DC591E817462004DFC27 /* ZBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextField.m; sourceTree = "<group>"; };
 		2054DC5B1E817592004DFC27 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
@@ -422,14 +430,6 @@
 		20FD29071E711706008B7C5B /* ImgScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgScrollView.m; sourceTree = "<group>"; };
 		20FD29081E711706008B7C5B /* TapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapImageView.h; sourceTree = "<group>"; };
 		20FD29091E711706008B7C5B /* TapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapImageView.m; sourceTree = "<group>"; };
-		20FD290B1E711706008B7C5B /* AEIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEIndicator.h; sourceTree = "<group>"; };
-		20FD290C1E711706008B7C5B /* AEIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEIndicator.m; sourceTree = "<group>"; };
-		20FD290E1E711706008B7C5B /* JHHJAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHJAnimation.h; sourceTree = "<group>"; };
-		20FD290F1E711706008B7C5B /* JHHJAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHJAnimation.m; sourceTree = "<group>"; };
-		20FD29101E711706008B7C5B /* JHHJCenterBGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHJCenterBGView.h; sourceTree = "<group>"; };
-		20FD29111E711706008B7C5B /* JHHJCenterBGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHJCenterBGView.m; sourceTree = "<group>"; };
-		20FD29121E711706008B7C5B /* JHHJView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHJView.h; sourceTree = "<group>"; };
-		20FD29131E711706008B7C5B /* JHHJView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHJView.m; sourceTree = "<group>"; };
 		20FD29151E711706008B7C5B /* BottomLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomLineView.h; sourceTree = "<group>"; };
 		20FD29161E711706008B7C5B /* BottomLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomLineView.m; sourceTree = "<group>"; };
 		20FD29171E711706008B7C5B /* OptionBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionBarController.h; sourceTree = "<group>"; };
@@ -545,6 +545,29 @@
 				2042F6711ED53A480013F1A0 /* MANaviRoute.m */,
 			);
 			path = WalkRoute;
+			sourceTree = "<group>";
+		};
+		204423DB1ED96CEE0062263F /* Indicator(指示器) */ = {
+			isa = PBXGroup;
+			children = (
+				204423DC1ED96CEE0062263F /* AEIndicator.h */,
+				204423DD1ED96CEE0062263F /* AEIndicator.m */,
+				204423DE1ED96CEE0062263F /* JHLoadingForHJ */,
+			);
+			path = "Indicator(指示器)";
+			sourceTree = "<group>";
+		};
+		204423DE1ED96CEE0062263F /* JHLoadingForHJ */ = {
+			isa = PBXGroup;
+			children = (
+				204423DF1ED96CEE0062263F /* JHHJAnimation.h */,
+				204423E01ED96CEE0062263F /* JHHJAnimation.m */,
+				204423E11ED96CEE0062263F /* JHHJCenterBGView.h */,
+				204423E21ED96CEE0062263F /* JHHJCenterBGView.m */,
+				204423E31ED96CEE0062263F /* JHHJView.h */,
+				204423E41ED96CEE0062263F /* JHHJView.m */,
+			);
+			path = JHLoadingForHJ;
 			sourceTree = "<group>";
 		};
 		206400621E867E1B0060560E /* 笔记中心 */ = {
@@ -982,8 +1005,8 @@
 				20FD28FD1E711706008B7C5B /* FlowLayout(仿安卓流式布局) */,
 				20FD29001E711706008B7C5B /* ImagesViewer(图片浏览) */,
 				20FD29031E711706008B7C5B /* ImgLargeView(动画图片放大展示) */,
-				20FD290A1E711706008B7C5B /* Indicator(指示器) */,
 				20FD29141E711706008B7C5B /* OptionsBar(切换卡) */,
+				204423DB1ED96CEE0062263F /* Indicator(指示器) */,
 				20FD291F1E711706008B7C5B /* StarRating(星星评级) */,
 				20FD29271E711706008B7C5B /* Toast(仿安卓消息提示) */,
 				20FD292A1E711706008B7C5B /* UIWidgets(UI控件) */,
@@ -1081,29 +1104,6 @@
 				20FD29091E711706008B7C5B /* TapImageView.m */,
 			);
 			path = "ImgLargeView(动画图片放大展示)";
-			sourceTree = "<group>";
-		};
-		20FD290A1E711706008B7C5B /* Indicator(指示器) */ = {
-			isa = PBXGroup;
-			children = (
-				20FD290B1E711706008B7C5B /* AEIndicator.h */,
-				20FD290C1E711706008B7C5B /* AEIndicator.m */,
-				20FD290D1E711706008B7C5B /* JHLoadingForHJ */,
-			);
-			path = "Indicator(指示器)";
-			sourceTree = "<group>";
-		};
-		20FD290D1E711706008B7C5B /* JHLoadingForHJ */ = {
-			isa = PBXGroup;
-			children = (
-				20FD290E1E711706008B7C5B /* JHHJAnimation.h */,
-				20FD290F1E711706008B7C5B /* JHHJAnimation.m */,
-				20FD29101E711706008B7C5B /* JHHJCenterBGView.h */,
-				20FD29111E711706008B7C5B /* JHHJCenterBGView.m */,
-				20FD29121E711706008B7C5B /* JHHJView.h */,
-				20FD29131E711706008B7C5B /* JHHJView.m */,
-			);
-			path = JHLoadingForHJ;
 			sourceTree = "<group>";
 		};
 		20FD29141E711706008B7C5B /* OptionsBar(切换卡) */ = {
@@ -1487,6 +1487,7 @@
 				20FD296F1E711706008B7C5B /* AEUIToolbar.m in Sources */,
 				20CB8F3B1E9A03ED007D410C /* SignView.m in Sources */,
 				206874321ED434DE00692C6D /* ErrorInfoUtility.m in Sources */,
+				204423E61ED96CEE0062263F /* JHHJAnimation.m in Sources */,
 				20F28F2B1E80065200D8E218 /* GuidePageVC.m in Sources */,
 				20FD29641E711706008B7C5B /* OptionsBarView.m in Sources */,
 				20FD29561E711706008B7C5B /* AEEmitterButton.m in Sources */,
@@ -1512,7 +1513,6 @@
 				20FD293F1E711706008B7C5B /* LoginVC.m in Sources */,
 				20FD296D1E711706008B7C5B /* AEButton.m in Sources */,
 				206400711E8692FA0060560E /* SetVC.m in Sources */,
-				20FD295D1E711706008B7C5B /* AEIndicator.m in Sources */,
 				2094FB011E8AA3B5004715C7 /* RecordDetailVC.m in Sources */,
 				20AB40C61EA75A1B009D7B40 /* HZBDatePicker.m in Sources */,
 				206874311ED434DE00692C6D /* CommonUtility.m in Sources */,
@@ -1521,7 +1521,6 @@
 				20FD297A1E711929008B7C5B /* FarmVC.m in Sources */,
 				20846BA01E90EC5900FDFCAA /* BellListVC.m in Sources */,
 				20FD29511E711706008B7C5B /* UIButton+PPCounter.m in Sources */,
-				20FD295E1E711706008B7C5B /* JHHJAnimation.m in Sources */,
 				206400741E86931D0060560E /* ChangePswVC.m in Sources */,
 				20AB365C1E98953D00AC433B /* PAIOUnit.m in Sources */,
 				20FD296B1E711706008B7C5B /* StarRatingView.m in Sources */,
@@ -1532,7 +1531,6 @@
 				20AB365B1E98953D00AC433B /* P2PClient.m in Sources */,
 				20B1C0E31E72ECC200F1A7A5 /* NSArray+Log.m in Sources */,
 				20FD294D1E711706008B7C5B /* AEUpdateView.m in Sources */,
-				20FD295F1E711706008B7C5B /* JHHJCenterBGView.m in Sources */,
 				2068741A1ED434A500692C6D /* AddressVC.m in Sources */,
 				206400651E867E1B0060560E /* NoteCenterVC.m in Sources */,
 				206873F41ED3E5E700692C6D /* PayVC.m in Sources */,
@@ -1551,6 +1549,7 @@
 				2042F6751ED53A480013F1A0 /* MANaviRoute.m in Sources */,
 				2042F6741ED53A480013F1A0 /* MANaviPolyline.m in Sources */,
 				20FD29351E711706008B7C5B /* NSDictionary+DeleteNULL.m in Sources */,
+				204423E51ED96CEE0062263F /* AEIndicator.m in Sources */,
 				206874301ED434DE00692C6D /* SpeechSynthesizer.m in Sources */,
 				206874341ED434DE00692C6D /* LocationTransform.m in Sources */,
 				20FD294F1E711706008B7C5B /* PPCounterConst.m in Sources */,
@@ -1561,10 +1560,10 @@
 				20FD293B1E711706008B7C5B /* UIView+Animation.m in Sources */,
 				2042F6721ED53A480013F1A0 /* LineDashPolyline.m in Sources */,
 				20846B9F1E90EC5900FDFCAA /* MyWalletVC.m in Sources */,
+				204423E71ED96CEE0062263F /* JHHJCenterBGView.m in Sources */,
 				2033C6F11E82CC380007C35C /* PersonalInfoVC.m in Sources */,
 				2054DC601E8175AA004DFC27 /* ForgetPswVC.m in Sources */,
 				20FD29701E711706008B7C5B /* Utils.m in Sources */,
-				20FD29601E711706008B7C5B /* JHHJView.m in Sources */,
 				20FD295A1E711706008B7C5B /* ImgLargeScrollView.m in Sources */,
 				20FD294B1E711706008B7C5B /* AEAlertView.m in Sources */,
 				20FD295B1E711706008B7C5B /* ImgScrollView.m in Sources */,
@@ -1574,6 +1573,7 @@
 				206400691E867EB60060560E /* NoteCell.m in Sources */,
 				20FD29361E711706008B7C5B /* UIImage+Additions.m in Sources */,
 				2064007E1E86B50B0060560E /* Articleinfo.m in Sources */,
+				204423E81ED96CEE0062263F /* JHHJView.m in Sources */,
 				20FD29481E711706008B7C5B /* NetworkManager.m in Sources */,
 				20FD296E1E711706008B7C5B /* AEUITextField.m in Sources */,
 				20FD29831E711A7C008B7C5B /* UserInfo.m in Sources */,
@@ -1736,7 +1736,7 @@
 				);
 				GCC_PREFIX_HEADER = MulanFarm/MulanFarm.pch;
 				INFOPLIST_FILE = MulanFarm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1793,7 +1793,7 @@
 				);
 				GCC_PREFIX_HEADER = MulanFarm/MulanFarm.pch;
 				INFOPLIST_FILE = MulanFarm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

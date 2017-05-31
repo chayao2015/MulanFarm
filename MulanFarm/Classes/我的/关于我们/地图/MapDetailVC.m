@@ -55,7 +55,7 @@ static const NSInteger RoutePlanningPaddingEdge                    = 20;
 //    self.startCoordinate        = CLLocationCoordinate2DMake(39.910267, 116.370888);
     self.destinationCoordinate  = CLLocationCoordinate2DMake(41.890090, 117.276375);
     
-    self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 64, WIDTH, HEIGHT-64-75)];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];

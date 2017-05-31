@@ -9,13 +9,13 @@
 #ifndef ServerUrl_h
 #define ServerUrl_h
 
-#define InterfaceHtml @"http://180.101.72.94:8888/farm/bin/doc/farm_api.pdf"
+#define InterfaceHtml @"http://103.239.247.30:8090/farm/bin/doc/farm_api.pdf"
 
 #define AESSecret @"F$0.%a~+r^#=`M|?" //加密密钥
 
 #pragma mark - ---------------接口地址---------------
 
-#define ProductUrl @"http://180.101.72.94:8888/farm/controller/api/"
+#define ProductUrl @"http://103.239.247.30:8090/farm/controller/api/"
 #define WebUrl @"http://www.cydf.com/"
 #define PictureUrl @"http://images-app.cydf.com/"
 
