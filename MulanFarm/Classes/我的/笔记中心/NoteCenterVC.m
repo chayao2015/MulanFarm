@@ -24,6 +24,12 @@
     
     self.title = @"笔记中心";
     
+    UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake(WIDTH-35, 7, 30, 30)];
+    [addBtn setImage:[UIImage imageNamed:@"AddNote"] forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
+    self.navItem.rightBarButtonItem = addBarButtonItem;
+    
     NSDictionary *dic = [NSDictionary dictionary];
     [[NetworkManager sharedManager] postJSON:URL_NoteList parameters:dic completion:^(id responseData, RequestState status, NSError *error) {
         
@@ -34,6 +40,12 @@
             [_noteTableView reloadData];
         }
     }];
+}
+
+- (void)addAction {
+    
+    self.tabBarController.selectedIndex = 0;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableView 代理

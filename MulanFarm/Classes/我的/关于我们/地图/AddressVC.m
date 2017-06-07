@@ -102,7 +102,7 @@
     UIButton *phoneBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, addressLab.maxY+5, 100, 20)];
     [phoneBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     phoneBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [phoneBtn setTitle:@"15737936517" forState:UIControlStateNormal];
+    [phoneBtn setTitle:@"0314-7820003" forState:UIControlStateNormal];
     [phoneBtn addTarget:self action:@selector(phoneClick) forControlEvents:UIControlEventTouchUpInside];
     phoneBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [bottomView addSubview:phoneBtn];
@@ -110,7 +110,7 @@
 
 //打电话
 - (void)phoneClick {
-    [Utils call:@"15737936517"];
+    [Utils call:@"0314-7820003"];
 }
 
 #pragma mark - 导航

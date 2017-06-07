@@ -40,7 +40,7 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    //cliveyuan@foxmail.com 1234567
+    //864505804@qq.com zht19930710
     
     if ([Utils isBlankString:_accountTF.text]) {
         [Utils showToast:@"请输入用户名"];

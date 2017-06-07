@@ -87,7 +87,15 @@
     
     ArchiveInfo *info = _dataArr[indexPath.row];
     cell.nameLB.text = info.name;
-    cell.ageLB.text = info.age;
+    
+    NSString *introduceStr = @"";
+    if (![Utils isBlankString:info.variety]) {
+        introduceStr = [NSString stringWithFormat:@"品种: %@    ",info.variety];
+    }
+    if (![Utils isBlankString:info.age]) {
+        introduceStr = [NSString stringWithFormat:@"%@%@",introduceStr,info.age];
+    }
+    cell.ageLB.text = introduceStr;
     
     NSString *timeStr = [[info.create_date componentsSeparatedByString:@" "] firstObject];
     cell.dateLB.text = [NSString stringWithFormat:@"创建日期:%@",timeStr];

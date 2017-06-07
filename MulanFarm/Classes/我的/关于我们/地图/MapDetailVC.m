@@ -113,7 +113,7 @@ static const NSInteger RoutePlanningPaddingEdge                    = 20;
     UIButton *phoneBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, addressLab.maxY+5, 100, 20)];
     [phoneBtn setTitleColor:AppThemeColor forState:UIControlStateNormal];
     phoneBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [phoneBtn setTitle:@"15737936517" forState:UIControlStateNormal];
+    [phoneBtn setTitle:@"0314-7820003" forState:UIControlStateNormal];
     [phoneBtn addTarget:self action:@selector(phoneClick) forControlEvents:UIControlEventTouchUpInside];
     phoneBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [bottomView addSubview:phoneBtn];
@@ -122,7 +122,7 @@ static const NSInteger RoutePlanningPaddingEdge                    = 20;
 //TODO:客服电话
 -(void)phoneClick
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"拨打 %@ 电话",@"15737936517"] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"拨打 %@ 电话",@"0314-7820003"] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alert.tag = 10086;
     [alert show];
     
@@ -130,7 +130,7 @@ static const NSInteger RoutePlanningPaddingEdge                    = 20;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView.tag==10086&&buttonIndex!=alertView.cancelButtonIndex){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",@"15737936517"]]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",@"0314-7820003"]]];
     }
 }
 
